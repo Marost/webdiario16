@@ -1,0 +1,15 @@
+# TEAM
+
+    Desarrollador: Marco A. López Sotomayor
+    Twitter: @mals1990
+    De: Lima, Perú
+
+# THANKS
+
+    Julio De La Cruz
+
+# WEB
+
+	Lenguaje: Español
+    HTML5, CSS3
+    IDE: Sublime Text, Filezilla, Normalize.css, jQuery, Modernizr

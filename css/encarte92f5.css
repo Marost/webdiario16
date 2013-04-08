@@ -1,0 +1,15 @@
+#slider_encartes_wrapper { margin-bottom: 20px; padding: 0 5px; }
+.slider_encartes { background: #000 url(../i/encartes/bg_encartes.png) no-repeat 0 0; height: 180px; overflow: hidden; padding: 33px 10px 0; position: relative; width: 610px; }
+.slider_encartes .slider_arrows { height: 50px; left: 0; position: absolute; top: 95px; width: 630px; }
+	.slider_arrows a { background-image: url(../i/spt_nav_fg.png); background-repeat: no-repeat; display: block; height: 50px; position: relative; text-indent: -9999px; width: 50px; z-index: 1; }
+	.slider_arrows a.prev { background-position: 0 0; float: left; }
+	.slider_arrows a.prev:hover { background-position: 0 -50px; }
+	.slider_arrows a.next { background-position: 0 -100px; float: right; }
+	.slider_arrows a.next:hover { background-position: 0 -150px; }
+	.slider_arrows a.disabled { display: none; }
+
+.slider_encartes .slider_content { float: left; height: 170px; overflow: hidden; position: absolute; width: 610px; }
+.slider_encartes .slider_content ul { box-shadow: 0 0 3px #000; position: absolute; width: 1700px !important; }
+.slider_encartes .slider_content ul li { box-shadow: 0 0 2px #111; display: inline-block; float: left; margin-right: 15px; margin-top: 0; }
+	.encarte_first { background-color: #0d0d0d; display: block; height: 170px; width: 150px; }
+	.encarte_off { background: #333; display: block; height: 170px; width: 150px; }
