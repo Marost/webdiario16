@@ -1,24 +1,29 @@
-// Avoid `console` errors in browsers that lack a console.
-(function() {
-    var method;
-    var noop = function () {};
-    var methods = [
-        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
-        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
-        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
-        'timeStamp', 'trace', 'warn'
-    ];
-    var length = methods.length;
-    var console = (window.console = window.console || {});
+var jScroll=jQuery.noConflict();
+jScroll(document).ready(function(){
+    scroll_menu();
+})
 
-    while (length--) {
-        method = methods[length];
+function scroll_menu() {
+    var _c, _d, _dh, _dt, _ct, _ch;
+    _d = jScroll('#main-nav');
+    if (!_d.length) return;
+    //_c = _d.css('position','absolute').parent();
+    _c = _d.parent();
+    _dt = _d.offset().top;
+    _dh = _d.outerHeight();
+    _ct = _c.offset().top;
+    _ch = _c.outerHeight();
 
-        // Only stub undefined methods.
-        if (!console[method]) {
-            console[method] = noop;
-        }
-    }
-}());
+    jScroll(window).bind('scroll', function(e) {
 
-// Place any jQuery/helper plugins in here.
+        var _o = jScroll('html').scrollTop();
+        _o = _o<1?jScroll('body').scrollTop():_o;
+        var _mb = (_ct+_ch)-_dh;
+
+        if (_o>(_dt)) {
+          _d.addClass('fixed');
+        }else _d.removeClass('fixed');
+        return;
+    });
+    jScroll(window).trigger('scroll');
+}
