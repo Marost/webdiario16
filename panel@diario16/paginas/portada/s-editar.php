@@ -1,0 +1,89 @@
+<?php
+session_start();
+include("../../conexion/conexion.php");
+include("../../conexion/funciones.php");
+require_once('../../js/plugins/thumbs/ThumbLib.inc.php');
+
+//DECLARACION DE VARIABLES
+$nota_id=$_REQUEST["id"];
+$nombre=$_POST["nombre"];
+$url=getUrlAmigable(eliminarTextoURL($nombre));
+$contenido=$_POST["contenido"];
+$categoria=$_POST["categoria"];
+$tipo_portada=$_POST["tipo_portada"];
+$tags=$_POST["tags"];
+
+//FECHA Y HORA
+$pub_fecha=$_POST["pub_fecha"];
+$pub_hora=$_POST["pub_hora"];
+$fecha_publicacion=$pub_fecha." ".$pub_hora;
+
+//TAGS
+$tags=$_POST["tags"];
+if($tags==""){ $union_tags=0; }
+elseif($tags<>""){ $union_tags=implode(",", $tags);}
+
+//PUBLICAR
+if ($_POST["publicar"]<>""){ $publicar=$_POST["publicar"]; }else{ $publicar=0; }
+
+//IMAGEN
+if ($tipo_portada=="not_destacada") {
+	$destacada=1; $superior=2;
+	if($_POST['uploader_0_tmpname']<>""){
+		$imagen=$_POST["uploader_0_tmpname"];
+		$imagen_carpeta=fechaCarpeta()."/";	
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+		$thumb->adaptiveResize(480,220);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+	}else{
+		$imagen=$_POST["imagen"];
+		$imagen_carpeta=$_POST["imagen_carpeta"];	
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+		$thumb->adaptiveResize(480,220);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+	}
+}elseif($tipo_portada=="not_superior"){
+	$destacada=2; $superior=1;
+	if($_POST['uploader_0_tmpname']<>""){
+		$imagen=$_POST["uploader_0_tmpname"];
+		$imagen_carpeta=fechaCarpeta()."/";	
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+		$thumb->adaptiveResize(310,174);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+	}else{
+		$imagen=$_POST["imagen"];
+		$imagen_carpeta=$_POST["imagen_carpeta"];	
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+		$thumb->adaptiveResize(310,174);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+	}
+}elseif($tipo_portada=="not_normal"){
+	$destacada=2; $superior=2;
+	if($_POST['uploader_0_tmpname']<>""){
+		$imagen=$_POST["uploader_0_tmpname"];
+		$imagen_carpeta=fechaCarpeta()."/";	
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+		$thumb->adaptiveResize(200,110);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+	}else{
+		$imagen=$_POST["imagen"];
+		$imagen_carpeta=$_POST["imagen_carpeta"];	
+		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
+		$thumb->adaptiveResize(200,110);
+		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+	}
+}
+
+//INSERTANDO DATOS
+$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_portada SET url='$url', titulo='".htmlspecialchars($nombre)."', contenido='$contenido', imagen='$imagen', imagen_carpeta='$imagen_carpeta', fecha_publicacion='$fecha_publicacion', publicar=$publicar, superior=$superior, destacada=$destacada, categoria=$categoria, tags='0,$union_tags,0' WHERE id=$nota_id;", $conexion);
+
+if (mysql_errno()!=0){
+	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();
+	mysql_close($conexion);
+	header("Location:lista.php?msj=er");
+} else {
+	mysql_close($conexion);
+	header("Location:lista.php?msj=ok");
+}
+
+?>
