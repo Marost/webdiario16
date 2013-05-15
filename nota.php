@@ -2,6 +2,12 @@
 require_once("panel@diario16/conexion/conexion.php");
 require_once("panel@diario16/conexion/funciones.php");
 
+//WIDGETS
+$wg_columnistas=true;
+$wg_leido=true;
+$wg_impresa=true;
+$wg_chica16=true;
+
 //VARAIBLES DE URL
 $varUrl_id=$_REQUEST["id"];
 

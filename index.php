@@ -2,6 +2,12 @@
 require_once("panel@diario16/conexion/conexion.php");
 require_once("panel@diario16/conexion/funciones.php");
 
+//WIDGETS
+$wg_columnistas=true;
+$wg_leido=true;
+$wg_impresa=true;
+$wg_chica16=true;
+
 //NOTICIA DESTACADA
 $rst_not_dest=mysql_query("SELECT * FROM dr_noticia WHERE destacada=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
 $fila_not_dest=mysql_fetch_array($rst_not_dest);
