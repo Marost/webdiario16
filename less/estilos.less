@@ -38,7 +38,7 @@ ul.lista-link-notas li.lastb { padding-bottom: 0 !important; }
 a { color: #003871; text-decoration: none; }
 a:hover { text-decoration: underline; }
 .hide { display: none; }
-
+.borde-portada-imagen{ border: 2px solid #999; }
 
 #header-all { background: url(../imagenes/fondo-header.png); }
 #header-all .fecha-buscar { 
@@ -664,4 +664,45 @@ body.archivo .container { padding-top: 10px; }
 #main-content{
 	float: left;
 	width: 100%;
+}
+
+/* PAGINATION */
+.pagination{
+	
+	.selected{
+		padding: 5px 8px !important;
+		font: bold 12px 'Open sans';
+	}
+
+	span{
+		padding: 5px 0 !important;
+
+		a{
+			background: none;
+			font: bold 12px 'Open sans';
+			padding: 5px 7px !important;
+		}
+
+		a:hover{
+			background: none;
+		}
+	}
+}
+
+/* PORTADA */
+.time-pdf{
+	padding: 0 0 10px 0;
+	float: left;
+	width: 100%;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: 'Open sans';
+
+	.fecha{
+		float: left;
+	}
+
+	.descargar-pdf{
+		float: right;
+	}
 }
