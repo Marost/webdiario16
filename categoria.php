@@ -2,15 +2,29 @@
 require_once("panel@diario16/conexion/conexion.php");
 require_once("panel@diario16/conexion/funciones.php");
 
+//WIDGETS
+$wg_columnistas=true;
+$wg_leido=true;
+$wg_impresa=true;
+$wg_chica16=true;
+
 //VARIABLES DE URL
 $reqId=$_REQUEST["id"];
 $reqUrl=$_REQUEST["url"];
 
-//NOTICIA SUPERIOR
-$rst_not_sup=mysql_query("SELECT * FROM dr_noticia WHERE categoria=$reqId AND (destacada=1 OR superior=1) AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 9", $conexion);
+$url_web=$web."seccion/".$reqId."/".$reqUrl;
 
-//NOTICIA INFERIOR
-$rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE categoria=$reqId AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 30", $conexion);
+//PAGINACION
+require("libs/pagination/class_pagination.php");
+
+//INICIO DE PAGINACION
+$page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
+$rst_not_inf        = mysql_query("SELECT COUNT(*) as count FROM dr_noticia WHERE categoria=$reqId AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC", $conexion);
+$fila_not_inf       = mysql_fetch_assoc($rst_not_inf);
+$generated      = intval($fila_not_inf['count']);
+$pagination     = new Pagination("10", $generated, $page, $url_web."?page", 1, 0);
+$start          = $pagination->prePagination();
+$rst_not_inf        = mysql_query("SELECT * FROM dr_noticia WHERE categoria=$reqId AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT $start, 10", $conexion);
 
 ?>
 <!DOCTYPE html>
@@ -38,6 +52,9 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE categoria=$reqId AND pu
     <meta property="fb:admins" content='130961786950093'>
     <!-- fin Open Graph -->
 
+    <!-- PAGINACION -->
+    <link rel="stylesheet" href="/libs/pagination/pagination.css" media="screen">
+
 </head>
 <body id="home">
 
@@ -53,44 +70,9 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE categoria=$reqId AND pu
 
                 <h3 id="titulo-categoria"><?php echo $reqUrl; ?></h3>
     
-                <?php while($fila_not_sup=mysql_fetch_array($rst_not_sup)){
-                        $notSup_id=$fila_not_sup["id"];
-                        $notSup_url=$fila_not_sup["url"];
-                        $notSup_titulo=$fila_not_sup["titulo"];
-                        $notSup_imagen=$fila_not_sup["imagen"];
-                        $notSup_imagen_carpeta=$fila_not_sup["imagen_carpeta"];
-                        $notSup_categoria=$fila_not_sup["categoria"];
-                        $notSup_web=$web."noticia/".$notSup_id."-".$notSup_url;
-                        $notSup_web_img=$web."imagenes/upload/".$notSup_imagen_carpeta."thumb/".$notSup_imagen;
-
-                        //SELECCIONAR CATEGORIA
-                        $rst_notsup_cat=mysql_query("SELECT * FROM dr_noticia_categoria WHERE id=$notSup_categoria", $conexion);
-                        $fila_notsup_cat=mysql_fetch_array($rst_notsup_cat);
-
-                        //VARIABLES
-                        $notSupCat_url=$fila_notsup_cat["url"];
-                        $notSupCat_titulo=$fila_notsup_cat["categoria"];
-                        $notSupCat_web=$web."seccion/".$notSup_categoria."/".$notSupCat_url;
-                ?>
-                <div class="noticias"> 
-                    <a href="<?php echo $notSup_web; ?>">
-                        <img src="<?php echo $notSup_web_img; ?>" alt="" width="310" height="174" border="0"></a>
-                    <span class="categoria">
-                        <a href="<?php echo $notSupCat_web; ?>"><?php echo $notSupCat_titulo; ?></a>
-                    </span>
-                    <div class="title <?php echo $notSupCat_url; ?>">
-                        <h2><a href="<?php echo $notSup_web; ?>">
-                            <?php echo $notSup_titulo; ?></a></h2>
-                        <a href=""><span class="icono-video"></span></a>
-                    </div>
-                </div>
-                <?php } ?>
-
-                <div class="clear"></div>
-
             </div>
 
-      </div><!-- FIN GRID DESTACADAS -->
+        </div><!-- FIN GRID DESTACADAS -->
 
     </div>
              
@@ -157,7 +139,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE categoria=$reqId AND pu
             <?php } ?>
 
             <div class="boton">
-                <a target="_blank" href="#">Ver más noticias</a>
+                <?php $pagination->pagination(); ?>
             </div>
 
       </div><!-- FIN FLUJOS -->
