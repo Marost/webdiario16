@@ -2,11 +2,38 @@
 require_once("panel@diario16/conexion/conexion.php");
 require_once("panel@diario16/conexion/funciones.php");
 
+//WIDGETS
+$wg_columnistas=true;
+$wg_leido=true;
+$wg_impresa=true;
+$wg_chica16=true;
+
 //VARIABLES DE URL
 $urlBuscar=$_REQUEST["busqueda"];
+$url_web=$web."buscar.php";
 
-//NOTICIAS
-$rst_nota=mysql_query("SELECT * FROM dr_noticia WHERE titulo LIKE '%$urlBuscar%' AND publicar=1 ORDER BY fecha_publicacion DESC, id DESC LIMIT 30", $conexion);
+//PAGINACION
+require("libs/pagination/class_pagination.php");
+
+if ($urlBuscar==""){
+    //INICIO DE PAGINACION
+    $page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
+    $rst_nota        = mysql_query("SELECT COUNT(*) as count FROM dr_noticia WHERE publicar=1 ORDER BY fecha_publicacion DESC, id DESC", $conexion);
+    $fila_nota       = mysql_fetch_assoc($rst_nota);
+    $generated      = intval($fila_nota['count']);
+    $pagination     = new Pagination("10", $generated, $page, $url_web."?page", 1, 0);
+    $start          = $pagination->prePagination();
+    $rst_nota        = mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 ORDER BY fecha_publicacion DESC, id DESC LIMIT $start, 10", $conexion);
+}elseif($urlBuscar<>""){
+    //INICIO DE PAGINACION
+    $page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
+    $rst_nota        = mysql_query("SELECT COUNT(*) as count FROM dr_noticia WHERE titulo LIKE '%$urlBuscar%' AND publicar=1 ORDER BY fecha_publicacion DESC, id DESC", $conexion);
+    $fila_nota       = mysql_fetch_assoc($rst_nota);
+    $generated      = intval($fila_nota['count']);
+    $pagination     = new Pagination("10", $generated, $page, $url_web."?page", 1, 0);
+    $start          = $pagination->prePagination();
+    $rst_nota        = mysql_query("SELECT * FROM dr_noticia WHERE titulo LIKE '%$urlBuscar%' AND publicar=1 ORDER BY fecha_publicacion DESC, id DESC LIMIT $start, 10", $conexion);
+}
 
 ?>
 <!DOCTYPE html>
@@ -14,7 +41,7 @@ $rst_nota=mysql_query("SELECT * FROM dr_noticia WHERE titulo LIKE '%$urlBuscar%'
 <head>
     <meta charset="UTF-8">
 
-    <title> | Diario16</title>
+    <title> <?php echo $urlBuscar; ?>| Diario16</title>
     <base href="<?php echo $web; ?>">
     <meta name="description" content="">
 
@@ -23,6 +50,9 @@ $rst_nota=mysql_query("SELECT * FROM dr_noticia WHERE titulo LIKE '%$urlBuscar%'
     
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="js/plugins.js"></script>
+
+    <!-- PAGINACION -->
+    <link rel="stylesheet" href="/libs/pagination/pagination.css" media="screen">
 
 </head>
 <body id="home">
@@ -106,7 +136,7 @@ $rst_nota=mysql_query("SELECT * FROM dr_noticia WHERE titulo LIKE '%$urlBuscar%'
             <?php } ?>
 
             <div class="boton">
-                <a target="_blank" href="#">Ver más noticias</a>
+                <?php $pagination->pagination(); ?>
             </div>
 
       </div><!-- FIN FLUJOS -->
