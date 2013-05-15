@@ -2,11 +2,21 @@
 //LO MAS LEIDO
 $rst_leido=mysql_query("SELECT * FROM dr_noticia WHERE STR_TO_DATE(fecha_publicacion, '%Y-%m-%d')=STR_TO_DATE('$fechaActual', '%Y-%m-%d') AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY visitas DESC LIMIT 5;", $conexion);
 
-$rst_tagsDest=mysql_query("SELECT * FROM dr_noticia_tags WHERE ", $conexion);
-?>
+//EDICION IMPRESA
+$rst_edimpresa=mysql_query("SELECT * FROM dr_portada ORDER BY id DESC LIMIT 1;", $conexion);
+$fila_edimpresa=mysql_fetch_array($rst_edimpresa);
 
+//VARIABLES
+$edimpresa_id=$fila_edimpresa["id"];
+$edimpresa_imagen=$fila_edimpresa["imagen"];
+$edimpresa_imagen_carpeta=$fila_edimpresa["imagen_carpeta"];
+$edimpresa_webImg=$web."imagenes/upload/".$edimpresa_imagen_carpeta."".$edimpresa_imagen;
+$edimpresa_web=$web."edicion/digital/".$edimpresa_id."/";
+
+?>
 <div id="columnr" class="sidebar last">                
-                    
+    
+    <?php if($wg_columnistas==true){ ?>
     <div class="cnt-impresa-d">
     	<h4>Columnistas de Hoy</h4>
 
@@ -30,7 +40,9 @@ $rst_tagsDest=mysql_query("SELECT * FROM dr_noticia_tags WHERE ", $conexion);
         	<a target="_blank" href="#">Ver Columnistas</a>
       	</div>
     </div><!-- FIN COLUMNISTAS -->
-            
+    <?php } ?>
+
+    <?php if($wg_leido==true){ ?>
     <div id="cnt-opt-tabs">
 
         <ul id="tabs-mas">
@@ -69,6 +81,7 @@ $rst_tagsDest=mysql_query("SELECT * FROM dr_noticia_tags WHERE ", $conexion);
             
         </div>
     </div><!-- FIN TABS -->
+    <?php } ?>
     
     <!--    
     <div class="youtubemv" id="youtube">
@@ -84,19 +97,22 @@ $rst_tagsDest=mysql_query("SELECT * FROM dr_noticia_tags WHERE ", $conexion);
     </div> FIN YOUTUBE -->
 
     <hr class="deleted">
-
+    
+    <?php if($wg_impresa==true){ ?>
     <div class="cnt-impresa-d">
 		<h4>Edición Impresa</h4>
 		<div class="impresa-eco">
-			<a target="_blank" href="#">
-				<img width="308" alt="Diario16 - Edición Impresa" src="http://diario16.pe/imagenes/upload/07-04-2013.jpg">
+			<a target="_blank" href="<?php echo $edimpresa_web; ?>">
+				<img width="308" alt="Diario16 - Edición Impresa" src="<?php echo $edimpresa_webImg; ?>">
 			</a>
 		</div>
 		<div class="boton">
-			<a target="_blank" href="#">Ver Edición Impresa</a>
+			<a target="_blank" href="<?php echo $edimpresa_web; ?>">Ver Edición Impresa</a>
 		</div>
     </div><!-- FIN IMPRESA -->
-
+    <?php } ?>
+    
+    <?php if($wg_chica16==true){ ?>
     <div class="cnt-impresa-d">
 		<h4>Chica16</h4>
 		<div class="impresa-eco">
@@ -108,22 +124,12 @@ $rst_tagsDest=mysql_query("SELECT * FROM dr_noticia_tags WHERE ", $conexion);
 			<a target="_blank" href="#">Ver Chica16</a>
 		</div>
     </div><!-- FIN IMPRESA -->
+    <?php } ?>
 
     <!-- <div class="tags-portada">
         <h4>Temas destacados</h4>
         <ul>
-			<li class="lvl-5"><a href="">Elecciones en Venezuela 2013</a></li>
-			<li class="lvl-5"><a href="">Revocación a Villarán</a></li>
-			<li class="lvl-5"><a href="">Francisco I</a></li>
-			<li class="lvl-5"><a href="">Ollanta Humala</a></li>
-			<li class="lvl-4"><a href="">Nicolás Maduro</a></li>
-			<li class="lvl-4"><a href="">La Hora del Planeta</a></li>
-			<li class="lvl-4"><a href="">Sergio Markarián</a></li>
-			<li class="lvl-3"><a href="">Dakar 2014</a></li>
-			<li class="lvl-3"><a href="">Eliminatorias Brasil 2014</a></li>
-			<li class="lvl-2"><a href="">Copa Libertadores 2013</a></li>
-			<li class="lvl-2"><a href="">Descentralizado 2013</a></li>
-			<li class="lvl-1"><a href="">Al fondo hay sitio</a></li>
+			<li class=""><a href=""></a></li>
         </ul>
         <div class="clear"></div>
     </div> FIN TAGS  -->
