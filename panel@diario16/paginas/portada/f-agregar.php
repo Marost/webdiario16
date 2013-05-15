@@ -38,7 +38,7 @@ $pub_hora=date("H:i:s");
 <!-- Content begins -->
 <div id="content">
     <div class="contentTop">
-        <span class="pageTitle"><span class="icon-screen"></span>Noticias</span>
+        <span class="pageTitle"><span class="icon-screen"></span>Edición Impresa</span>
     </div>
     
     <!-- Breadcrumbs line -->
@@ -57,7 +57,6 @@ $pub_hora=date("H:i:s");
                     
                     <div class="whead"><h6>Agregar</h6></div>
                     
-
                     <div class="formRow">
                         <div class="grid3"><label>Fecha:</label></div>
                         <div class="grid4"><input type="text" class="datepicker" name="pub_fecha" value="<?php echo $pub_fecha; ?>" /></div>

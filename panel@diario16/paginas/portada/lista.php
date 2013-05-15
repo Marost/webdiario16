@@ -106,7 +106,7 @@ function eliminarRegistro(registro) {
 <!-- Content begins -->
 <div id="content">
     <div class="contentTop">
-        <span class="pageTitle"><span class="icon-screen"></span>Noticias</span>
+        <span class="pageTitle"><span class="icon-screen"></span>Edición Impresa</span>
     </div>
     
     <!-- Breadcrumbs line -->
@@ -138,7 +138,7 @@ function eliminarRegistro(registro) {
 
         <!-- Media table sample -->
         <div class="widget">
-            <div class="whead"><h6>Noticias</h6></div>
+            <div class="whead"><h6>Edición Impresa</h6></div>
             
             <?php echo $out;?>
 
