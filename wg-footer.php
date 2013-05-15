@@ -5,8 +5,8 @@
     <p> © Empresa Editora Diario16 </p>
   
     <div class="searcher box_busqueda">
-        <form action="buscar" method="get" name="busqueda" id="busqueda">
-            <input type="text" value="" name="b" class="searchinput">
+        <form action="buscar.php" method="get" name="busqueda" id="busqueda">
+            <input type="text" value="" name="busqueda" class="searchinput">
             <button type="submit">Buscar</button>
         </form>
         <div class="clear"></div>
