@@ -14,7 +14,25 @@ $edimpresa_webImg=$web."imagenes/upload/".$edimpresa_imagen_carpeta."".$edimpres
 $edimpresa_web=$web."edicion/digital/".$edimpresa_id."/";
 
 ?>
-<div id="columnr" class="sidebar last">                
+<div id="columnr" class="sidebar last">
+
+    <?php if($wg_columselect==true){ ?>
+    <div class="cnt-impresa-d">
+        <h4>Columnistas de Hoy</h4>
+
+        <div class="columnistas">
+            <div class="img"><img src="http://diario16.pe/imagenes/columnistas/o8dtyl9vhjkajvgudjqd.png" alt=""></div>
+            <div class="datos">
+                <div class="nombre">Juan Sheput</div>
+                <div class="titulo">Un indulto contaminado por el oportunismo</div>
+            </div>
+        </div>
+      
+        <div class="boton">
+            <a target="_blank" href="#">Ver Columnistas</a>
+        </div>
+    </div><!-- FIN COLUMNISTAS -->
+    <?php } ?>
     
     <?php if($wg_columnistas==true){ ?>
     <div class="cnt-impresa-d">
