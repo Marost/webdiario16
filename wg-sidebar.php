@@ -13,6 +13,9 @@ $edimpresa_imagen_carpeta=$fila_edimpresa["imagen_carpeta"];
 $edimpresa_webImg=$web."imagenes/upload/".$edimpresa_imagen_carpeta."".$edimpresa_imagen;
 $edimpresa_web=$web."edicion/digital/".$edimpresa_id."/";
 
+//COLUMNISTAS
+$rst_columselect=mysql_query("SELECT * FROM dr_columnista ORDER BY orden ASC", $conexion);
+
 ?>
 <div id="columnr" class="sidebar last">
 
@@ -20,13 +23,32 @@ $edimpresa_web=$web."edicion/digital/".$edimpresa_id."/";
     <div class="cnt-impresa-d">
         <h4>Columnistas de Hoy</h4>
 
+        <?php while($fila_columselect=mysql_fetch_array($rst_columselect)){
+                $columSelect_id=$fila_columselect["id"];
+                $columSelect_titulo=$fila_columselect["nombre_completo"];
+                $columSelect_imagen=$fila_columselect["foto"];
+                
+                //COLUMNA
+                $rst_columna=mysql_query("SELECT * FROM dr_columnista_columna WHERE columnista=$columSelect_id ORDER BY id DESC LIMIT 1;", $conexion);
+                $fila_columna=mysql_fetch_array($rst_columna);
+
+                //VARIABLES
+                $columna_id=$fila_columna["id"];
+                $columna_url=$fila_columna["url"];
+                $columna_titulo=$fila_columna["titulo"];
+
+                
+                $columSelect_webImg=$web."imagenes/columnistas/".$columSelect_imagen;
+                $columSelect_webUrl=$web."imagenes/columnistas/".$columSelect_imagen;
+        ?>
         <div class="columnistas">
             <div class="img"><img src="http://diario16.pe/imagenes/columnistas/o8dtyl9vhjkajvgudjqd.png" alt=""></div>
             <div class="datos">
-                <div class="nombre">Juan Sheput</div>
-                <div class="titulo">Un indulto contaminado por el oportunismo</div>
+                <div class="nombre"><?php echo $columSelect_titulo; ?></div>
+                <div class="titulo"><?php echo $columna_titulo; ?></div>
             </div>
         </div>
+        <?php } ?>
       
         <div class="boton">
             <a target="_blank" href="#">Ver Columnistas</a>

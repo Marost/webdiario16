@@ -7,6 +7,7 @@ $wg_columnistas=true;
 $wg_leido=true;
 $wg_impresa=true;
 $wg_chica16=true;
+$wg_columselect=true;
 
 //NOTICIA DESTACADA
 $rst_not_dest=mysql_query("SELECT * FROM dr_noticia WHERE destacada=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
