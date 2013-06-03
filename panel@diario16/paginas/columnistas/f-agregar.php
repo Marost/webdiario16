@@ -78,19 +78,19 @@ require_once("../../conexion/verificar_sesion.php");
                         <div class="grid3"><label>Días de publicación: </label></div>
                         <div class="grid9 yes_no">
                             <div class="floatL mr10">Lunes
-                                <input type="radio" name="dias_pub" value="1" /></div>
+                                <input type="checkbox" name="dia_lunes" value="1" /></div>
                             <div class="floatL mr10">Martes
-                                <input type="radio" name="dias_pub" value="2" /></div>
+                                <input type="checkbox" name="dia_martes" value="1" /></div>
                             <div class="floatL mr10">Miercoles
-                                <input type="radio" name="dias_pub" value="3" /></div>
+                                <input type="checkbox" name="dia_miercoles" value="1" /></div>
                             <div class="floatL mr10">Jueves
-                                <input type="radio" name="dias_pub" value="4" /></div>
+                                <input type="checkbox" name="dia_jueves" value="1" /></div>
                             <div class="floatL mr10">Viernes
-                                <input type="radio" name="dias_pub" value="5" /></div>
+                                <input type="checkbox" name="dia_viernes" value="1" /></div>
                             <div class="floatL mr10">Sábado
-                                <input type="radio" name="dias_pub" value="6" /></div>
+                                <input type="checkbox" name="dia_sabado" value="1" /></div>
                             <div class="floatL mr10">Domingo
-                                <input type="radio" name="dias_pub" value="7" /></div>
+                                <input type="checkbox" name="dia_domingo" value="1" /></div>
                         </div>
                     </div>
                     

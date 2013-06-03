@@ -7,20 +7,28 @@ require_once('../../js/plugins/thumbs/ThumbLib.inc.php');
 //DECLARACION DE VARIABLES
 $nombre=$_POST["nombre"];
 $apellidos=$_POST["apellidos"];
-$nombre_completo=$nombres." ".$apellidos;
+$nombre_completo=$nombre." ".$apellidos;
 $url=getUrlAmigable(eliminarTextoURL($nombre_completo));
 $contenido=$_POST["contenido"];
-$dias_pub=$_POST["dias_pub"];
 $publicar=1;
 
+//SELECCION DE DIAS
+$dia_lunes=$_POST["dia_lunes"];
+$dia_martes=$_POST["dia_martes"];
+$dia_miercoles=$_POST["dia_miercoles"];
+$dia_jueves=$_POST["dia_jueves"];
+$dia_viernes=$_POST["dia_viernes"];
+$dia_sabado=$_POST["dia_sabado"];
+$dia_domingo=$_POST["dia_domingo"];
+
 //DIAS DE PUBLICACION
-if($dias_pub==1){ $dia_lunes=1; }
-if($dias_pub==2){ $dia_martes=2; }
-if($dias_pub==3){ $dia_miercoles=3; }
-if($dias_pub==4){ $dia_jueves=4; }
-if($dias_pub==5){ $dia_viernes=5; }
-if($dias_pub==6){ $dia_sabado=6; }
-if($dias_pub==7){ $dia_domingo=7; }
+if($dia_lunes<>""){ $dia_lunes=1; }else{ $dia_lunes=0; }
+if($dia_martes<>""){ $dia_martes=1; }else{ $dia_martes=0; }
+if($dia_miercoles<>""){ $dia_miercoles=1; }else{ $dia_miercoles=0; }
+if($dia_jueves<>""){ $dia_jueves=1; }else{ $dia_jueves=0; }
+if($dia_viernes<>""){ $dia_viernes=1; }else{ $dia_viernes=0; }
+if($dia_sabado<>""){ $dia_sabado=1; }else{ $dia_sabado=0; }
+if($dia_domingo<>""){ $dia_domingo=1; }else{ $dia_domingo=0; }
 
 //SUBIR IMAGEN
 if(is_uploaded_file($_FILES['fileInput']['tmp_name'])){ 
@@ -55,11 +63,20 @@ $rst_guardar=mysql_query("INSERT INTO ".$tabla_suf."_columnista (url,
 	dia_jueves,
 	dia_viernes,
 	dia_sabado,
-	dia_domingo) VALUES('$url', 
-	'$nombres',
-	'$apellidos'
-	'".htmlspecialchars($nombre_completo)."', 
-	'$contenido', '$imagen', '$imagen_carpeta', '$fecha_publicacion', $publicar, $destacada, $superior, $categoria, '0,$union_tags,0');",$conexion);
+	dia_domingo) VALUES('$url',
+	'$nombre',
+	'$apellidos',
+	'$nombre_completo',
+	'$name',
+	'$contenido',
+	$publicar,
+	$dia_lunes,
+	$dia_martes,
+	$dia_miercoles,
+	$dia_jueves,
+	$dia_viernes,
+	$dia_sabado,
+	$dia_domingo);",$conexion);
 
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();

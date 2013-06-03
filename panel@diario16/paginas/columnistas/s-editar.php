@@ -7,75 +7,59 @@ require_once('../../js/plugins/thumbs/ThumbLib.inc.php');
 //DECLARACION DE VARIABLES
 $nota_id=$_REQUEST["id"];
 $nombre=$_POST["nombre"];
-$url=getUrlAmigable(eliminarTextoURL($nombre));
+$apellidos=$_POST["apellidos"];
+$nombre_completo=$nombre." ".$apellidos;
+$url=getUrlAmigable(eliminarTextoURL($nombre_completo));
 $contenido=$_POST["contenido"];
-$categoria=$_POST["categoria"];
-$tipo_noticia=$_POST["tipo_noticia"];
-$tags=$_POST["tags"];
-
-//FECHA Y HORA
-$pub_fecha=$_POST["pub_fecha"];
-$pub_hora=$_POST["pub_hora"];
-$fecha_publicacion=$pub_fecha." ".$pub_hora;
-
-//TAGS
-$tags=$_POST["tags"];
-if($tags==""){ $union_tags=0; }
-elseif($tags<>""){ $union_tags=implode(",", $tags);}
 
 //PUBLICAR
 if ($_POST["publicar"]<>""){ $publicar=$_POST["publicar"]; }else{ $publicar=0; }
 
-//IMAGEN
-if ($tipo_noticia=="not_destacada") {
-	$destacada=1; $superior=2;
-	if($_POST['uploader_0_tmpname']<>""){
-		$imagen=$_POST["uploader_0_tmpname"];
-		$imagen_carpeta=fechaCarpeta()."/";	
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(480,220);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
-	}else{
-		$imagen=$_POST["imagen"];
-		$imagen_carpeta=$_POST["imagen_carpeta"];	
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(480,220);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
+//DIAS DE PUBLICACION
+if($dia_lunes<>""){ $dia_lunes=1; }else{ $dia_lunes=0; }
+if($dia_martes<>""){ $dia_martes=1; }else{ $dia_martes=0; }
+if($dia_miercoles<>""){ $dia_miercoles=1; }else{ $dia_miercoles=0; }
+if($dia_jueves<>""){ $dia_jueves=1; }else{ $dia_jueves=0; }
+if($dia_viernes<>""){ $dia_viernes=1; }else{ $dia_viernes=0; }
+if($dia_sabado<>""){ $dia_sabado=1; }else{ $dia_sabado=0; }
+if($dia_domingo<>""){ $dia_domingo=1; }else{ $dia_domingo=0; }
+
+//SUBIR IMAGEN
+if(is_uploaded_file($_FILES['fileInput']['tmp_name'])){ 
+	$fileName=$_FILES['fileInput']['name'];
+	$uploadDir="../../../imagenes/columnistas/";
+	$uploadFile=$uploadDir.$fileName;
+	$num = 0;
+	$name = $fileName;
+	$extension = end(explode('.',$fileName));     
+	$onlyName = substr($fileName,0,strlen($fileName)-(strlen($extension)+1));
+	while(file_exists($uploadDir.$name))
+	{
+		$num++;         
+		$name = $onlyName."".$num.".".$extension; 
 	}
-}elseif($tipo_noticia=="not_superior"){
-	$destacada=2; $superior=1;
-	if($_POST['uploader_0_tmpname']<>""){
-		$imagen=$_POST["uploader_0_tmpname"];
-		$imagen_carpeta=fechaCarpeta()."/";	
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(310,174);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
-	}else{
-		$imagen=$_POST["imagen"];
-		$imagen_carpeta=$_POST["imagen_carpeta"];	
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(310,174);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
-	}
-}elseif($tipo_noticia=="not_normal"){
-	$destacada=2; $superior=2;
-	if($_POST['uploader_0_tmpname']<>""){
-		$imagen=$_POST["uploader_0_tmpname"];
-		$imagen_carpeta=fechaCarpeta()."/";	
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(200,110);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
-	}else{
-		$imagen=$_POST["imagen"];
-		$imagen_carpeta=$_POST["imagen_carpeta"];	
-		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
-		$thumb->adaptiveResize(200,110);
-		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
-	}
+	$uploadFile = $uploadDir.$name; 
+	move_uploaded_file($_FILES['fileInput']['tmp_name'], $uploadFile);  
+	$name;
+}else{
+	$name=$_POST["imagen_actual"];
 }
 
 //INSERTANDO DATOS
-$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_columnista SET url='$url', titulo='".htmlspecialchars($nombre)."', contenido='$contenido', imagen='$imagen', imagen_carpeta='$imagen_carpeta', fecha_publicacion='$fecha_publicacion', publicar=$publicar, superior=$superior, destacada=$destacada, categoria=$categoria, tags='0,$union_tags,0' WHERE id=$nota_id;", $conexion);
+$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_columnista SET url='$url',
+	nombre='$nombre',
+	apellidos='$apellidos',
+	nombre_completo='$nombre_completo',
+	foto='$name',
+	descripcion='$contenido',
+	publicar=$publicar,
+	dia_lunes=$dia_lunes,
+	dia_martes=$dia_martes,
+	dia_miercoles=$dia_miercoles,
+	dia_jueves=$dia_jueves,
+	dia_viernes=$dia_viernes,
+	dia_sabado=$dia_sabado,
+	dia_domingo=$dia_domingo WHERE id=$nota_id;", $conexion);
 
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();

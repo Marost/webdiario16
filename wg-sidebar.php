@@ -14,12 +14,18 @@ $edimpresa_webImg=$web."imagenes/upload/".$edimpresa_imagen_carpeta."".$edimpres
 $edimpresa_web=$web."edicion/digital/".$edimpresa_id."/";
 
 //COLUMNISTAS
-$rst_columselect=mysql_query("SELECT * FROM dr_columnista ORDER BY orden ASC", $conexion);
+if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHERE dia_lunes=1 AND publicar=1 ORDER BY id ASC;", $conexion);
+}elseif(date("N")==2){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHERE dia_martes=1 ORDER BY id ASC;", $conexion);
+}elseif(date("N")==3){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHERE dia_miercoles=1 AND publicar=1 ORDER BY id ASC;", $conexion);
+}elseif(date("N")==4){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHERE dia_jueves=1 AND publicar=1 ORDER BY id ASC;", $conexion);
+}elseif(date("N")==5){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHERE dia_viernes=1 AND publicar=1 ORDER BY id ASC;", $conexion);
+}elseif(date("N")==6){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHERE dia_sabado=1 AND publicar=1 ORDER BY id ASC;", $conexion);
+}elseif(date("N")==7){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHERE dia_domingo=1 AND publicar=1 ORDER BY id ASC;", $conexion);}
 
 ?>
 <div id="columnr" class="sidebar last">
 
-    <?php if($wg_columselect==true){ ?>
+    <?php if($wg_columnistas==true){ ?>
     <div class="cnt-impresa-d">
         <h4>Columnistas de Hoy</h4>
 
@@ -56,32 +62,6 @@ $rst_columselect=mysql_query("SELECT * FROM dr_columnista ORDER BY orden ASC", $
     </div><!-- FIN COLUMNISTAS -->
     <?php } ?>
     
-    <?php if($wg_columnistas==true){ ?>
-    <div class="cnt-impresa-d">
-    	<h4>Columnistas de Hoy</h4>
-
-      	<div class="columnistas">
-        	<div class="img"><img src="http://diario16.pe/imagenes/columnistas/o8dtyl9vhjkajvgudjqd.png" alt=""></div>
-        	<div class="datos">
-        		<div class="nombre">Juan Sheput</div>
-          		<div class="titulo">Un indulto contaminado por el oportunismo</div>
-        	</div>
-      	</div>
-
-      	<div class="columnistas">
-        	<div class="img"><img src="http://diario16.pe/imagenes/columnistas/gixwpciao8rj1sadgy6g.png" alt=""></div>
-        	<div class="datos">
-          		<div class="nombre">Augusto Ortiz de Zevallos</div>
-          		<div class="titulo">Hay solo veinte meses</div>
-        	</div>
-      	</div>
-      
-    	<div class="boton">
-        	<a target="_blank" href="#">Ver Columnistas</a>
-      	</div>
-    </div><!-- FIN COLUMNISTAS -->
-    <?php } ?>
-
     <?php if($wg_leido==true){ ?>
     <div id="cnt-opt-tabs">
 
