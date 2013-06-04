@@ -328,6 +328,21 @@ $(function() {
 			{title : "PDF", extensions : "pdf"}
 		]
 	});
+
+
+	//===== File uploader: VIDEO =====//
+	
+	$("#uploader_video").pluploadQueue({
+		runtimes : 'html5,html4',
+		url : '/panel@diario16/php/upload_video.php',
+		max_file_size : '500mb',
+		chunk_size : '1mb',
+		unique_names : true,
+		dragdrop: false,
+		filters : [
+			{title : "Video", extensions : "mp4"}
+		]
+	});
 	
 	
 	//===== Wizards =====//
