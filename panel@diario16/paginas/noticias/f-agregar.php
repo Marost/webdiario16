@@ -83,6 +83,22 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
                     </div>
 
                     <div class="formRow">
+                        <div class="grid3"><label>Video (Youtube):</label> </div>
+                        <div class="grid9">http://www.youtube.com/watch?v=
+                            <input type="text" name="video_youtube" value="">
+                        </div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3"><label>Video (Cargar):</label> </div>
+                        <div class="grid9">
+                            <div class="widget nomargin">    
+                                <div id="uploader_video">Tu navegador no soporta HTML5.</div>                    
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formRow">
                         <div class="grid3"><label>Categoria:</label></div>
                         <div class="grid9">
                             <select name="categoria" class="styled">

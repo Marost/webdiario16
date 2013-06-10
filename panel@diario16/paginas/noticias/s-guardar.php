@@ -10,8 +10,6 @@ $url=getUrlAmigable(eliminarTextoURL($nombre));
 $contenido=$_POST["contenido"];
 $categoria=$_POST["categoria"];
 $tipo_noticia=$_POST["tipo_noticia"];
-$tags=$_POST["tags"];
-
 //FECHA Y HORA
 $pub_fecha=$_POST["pub_fecha"];
 $pub_hora=$_POST["pub_hora"];
@@ -23,12 +21,20 @@ $tags=$_POST["tags"];
 if($tags==""){ $union_tags=0; }
 elseif($tags<>""){ $union_tags=implode(",", $tags);}
 
+//SUBIR IMAGEN
+$upload_imagen=$_POST["uploader_0_tmpname"];
+
+//SUBIR VIDEO
+$video_youtube=$_POST["video_youtube"];
+$video_upload=$_POST["uploader_video_0_tmpname"];
+
 //IMAGEN
 if ($tipo_noticia=="not_destacada") {
 	$destacada=1; $superior=2;
-	if($_POST['uploader_0_tmpname']<>""){
-		$imagen=$_POST["uploader_0_tmpname"];
+	if($upload_imagen<>""){
+		$imagen=$upload_imagen;
 		$imagen_carpeta=fechaCarpeta()."/";	
+		$mostrar_imagen=1;
 		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
 		$thumb->adaptiveResize(480,220);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
@@ -37,9 +43,10 @@ if ($tipo_noticia=="not_destacada") {
 	}
 }elseif($tipo_noticia=="not_superior"){
 	$destacada=2; $superior=1;
-	if($_POST['uploader_0_tmpname']<>""){
-		$imagen=$_POST["uploader_0_tmpname"];
+	if($upload_imagen<>""){
+		$imagen=$upload_imagen;
 		$imagen_carpeta=fechaCarpeta()."/";	
+		$mostrar_imagen=1;
 		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
 		$thumb->adaptiveResize(310,174);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
@@ -48,9 +55,10 @@ if ($tipo_noticia=="not_destacada") {
 	}
 }elseif($tipo_noticia=="not_normal"){
 	$destacada=2; $superior=2;
-	if($_POST['uploader_0_tmpname']<>""){
-		$imagen=$_POST["uploader_0_tmpname"];
+	if($upload_imagen<>""){
+		$imagen=$upload_imagen;
 		$imagen_carpeta=fechaCarpeta()."/";	
+		$mostrar_imagen=1;
 		$thumb=PhpThumbFactory::create("../../../imagenes/upload/".$imagen_carpeta."".$imagen."");
 		$thumb->adaptiveResize(200,110);
 		$thumb->save("../../../imagenes/upload/".$imagen_carpeta."thumb/".$imagen."", "jpg");
@@ -59,9 +67,28 @@ if ($tipo_noticia=="not_destacada") {
 	}
 }
 
+//VIDEO YOUTUBE
+if($video_youtube<>""){
+	$mostrar_video=1;
+	$tipo_video="youtube";
+	$video=$video_youtube;
+}elseif($video_youtube==""){
+	//VIDEO UPLOAD
+	if($video_upload<>""){
+		$mostrar_video=1;
+		$tipo_video="flv";
+		$video=$video_upload;
+		$video_carpeta=fechaCarpeta()."/";
+	}
+}else{
+	$mostrar_video=0;
+	$tipo_video="";
+	$video="";
+	$video_carpeta=fechaCarpeta()."/";
+}
 
 //INSERTANDO DATOS
-$rst_guardar=mysql_query("INSERT INTO ".$tabla_suf."_noticia (url, titulo, contenido, imagen, imagen_carpeta, fecha_publicacion, publicar, destacada, superior, categoria, tags) VALUES('$url', '".htmlspecialchars($nombre)."', '$contenido', '$imagen', '$imagen_carpeta', '$fecha_publicacion', $publicar, $destacada, $superior, $categoria, '0,$union_tags,0');",$conexion);
+$rst_guardar=mysql_query("INSERT INTO ".$tabla_suf."_noticia (url, titulo, contenido, imagen, imagen_carpeta, fecha_publicacion, publicar, destacada, superior, categoria, tags, video, tipo_video, mostrar_video, carpeta_video) VALUES('$url', '".htmlspecialchars($nombre)."', '$contenido', '$imagen', '$imagen_carpeta', '$fecha_publicacion', $publicar, $destacada, $superior, $categoria, '0,$union_tags,0', '$video', '$tipo_video', '$mostrar_video', '$video_carpeta');",$conexion);
 
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();
