@@ -20,11 +20,22 @@ $nota_id=$fila_nota["id"];
 $nota_url=$fila_nota["url"];
 $nota_titulo=$fila_nota["titulo"];
 $nota_contenido=$fila_nota["contenido"];
-$nota_imagen=$fila_nota["imagen"];
-$nota_imagen_carpeta=$fila_nota["imagen_carpeta"];
 $nota_categoria=$fila_nota["categoria"];
 $nota_tags=$fila_nota["tags"];
 $nota_visitas=$fila_nota["visitas"];
+
+//VIDEO
+$nota_video=$fila_nota["video"];
+$nota_video_tipo=$fila_nota["tipo_video"];
+$nota_video_mostrar=$fila_nota["mostrar_video"];
+$nota_video_carpeta=$fila_nota["carpeta_video"];
+
+//IMAGEN
+$nota_imagen=$fila_nota["imagen"];
+$nota_imagen_carpeta=$fila_nota["imagen_carpeta"];
+$nota_imagen_mostrar=$fila_nota["mostrar_imagen"];
+
+//URLS
 $nota_web=$web."noticia/".$nota_id."-".$nota_url;
 $nota_web_img=$web."imagenes/upload/".$nota_imagen_carpeta."".$nota_imagen;
 
@@ -81,11 +92,13 @@ $rst_cont=mysql_query("UPDATE dr_noticia SET visitas=$nota_visitas+1 WHERE id=$v
     <meta property="fb:admins" content='130961786950093'>
     <!-- fin Open Graph -->
 
+    <!-- VIDEO -->
+    <script src="libs/flowplayer/flowplayer-3.2.12.min.js"></script>
+
 </head>
 <body id="nota">
 
     <?php require_once("wg-header.php"); ?>
-
 
 <div class="container">
       
@@ -107,7 +120,11 @@ $rst_cont=mysql_query("UPDATE dr_noticia SET visitas=$nota_visitas+1 WHERE id=$v
 		<!-- <p class="bajada">asas</p> -->
 
         <div class="cnt-player">
+            <?php if($nota_video_mostrar==1){ ?>
+                <?php echo tipoVideo($nota_video_tipo, $nota_video_carpeta, $nota_video, $nota_imagen, $nota_imagen_carpeta, $nota_id, 600, 374, $web); ?>
+            <?php }else{ ?>
             <img width="600" height="374" src="<?php echo $nota_web_img; ?>" alt="<?php echo $nota_titulo; ?>">
+            <?php } ?>
         </div>
 
         <div id="compartir">
