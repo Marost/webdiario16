@@ -340,7 +340,7 @@ $(function() {
 		unique_names : true,
 		dragdrop: false,
 		filters : [
-			{title : "Video", extensions : "mp4"}
+			{title : "Video", extensions : "mp4,flv"}
 		]
 	});
 	
