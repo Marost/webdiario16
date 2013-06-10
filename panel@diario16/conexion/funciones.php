@@ -232,25 +232,20 @@ function errorComentario($codmensaje){
 }
 
 function tipoVideo($tipo, $carpeta_video, $video, $imagen, $carpeta_imagen, $identificador, $ancho, $alto, $web){
-	if($tipo=='dailymotion'){
-		$codigo='<object width="'.$ancho.'" height="'.$alto.'"><param name="movie" value="http://www.dailymotion.com/swf/video/'.$video.'?width=&theme=eggplant&foreground=%23CFCFCF&highlight=%23834596&background=%23000000&additionalInfos=1&hideInfos=1&start=&animatedTitle=&iframe=0&autoPlay=0"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed type="application/x-shockwave-flash" src="http://www.dailymotion.com/swf/video/'.$video.'?width=&theme=eggplant&foreground=%23CFCFCF&highlight=%23834596&background=%23000000&additionalInfos=1&hideInfos=1&start=&animatedTitle=&iframe=0&autoPlay=0" width="'.$ancho.'" height="'.$alto.'" allowfullscreen="true" allowscriptaccess="always"></embed></object>';
-	}elseif($tipo=='vimeo'){
-		$codigo='<iframe src="http://player.vimeo.com/video/'.$video.'?color=ffffff" width="'.$ancho.'" height="'.$alto.'" frameborder="0"></iframe>';
-	}elseif($tipo=='youtube'){
-		$codigo='<object width="'.$ancho.'" height="'.$alto.'"><param name="movie" value="http://www.youtube.com/v/'.$video.'?fs=1&amp;hl=es_ES&amp;rel=0"></param>
-					<param name="allowFullScreen" value="true"></param>
-					<param name="allowscriptaccess" value="always"></param>
-					<param name="wmode" value="transparent"></param>
-					<embed src="http://www.youtube.com/v/'.$video.'?fs=1&amp;hl=es_ES&amp;rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="'.$ancho.'" height="'.$alto.'"></embed></object>';
+	if($tipo=='youtube'){
+		$codigo='<iframe width="'.$ancho.'" height="'.$alto.'" 
+		src="http://www.youtube.com/embed/'.$video.'?rel=0" 
+		frameborder="0" allowfullscreen></iframe>';
 	}elseif($tipo=='flv'){
-		$codigo='<div class="player" 
-					href="'.$web.'video/'.$carpeta_video.''.$video.'"
-					style="background:url('.$web.'imagenes/upload/'.$carpeta_imagen.''.$imagen.') no-repeat center;">
-					<img src="'.$web.'imagenes/play_large.png" alt="Play this video" />					
-				</div>
-				<script type="text/javascript">
-					flowplayer("div.player", "'.$web.'video/flowplayer-3.2.7.swf");
-				</script>';
+		$codigo='<a href="'.$web.'video/'.$carpeta_video.''.$video.'" class="player"
+				    style="display:block;width:'.$ancho.'px;height:'.$alto.'px;margin:10px auto"
+				    id="player">
+					<img src="'.$web.'imagenes/upload/'.$carpeta_imagen.''.$imagen.'" alt="" />
+					<img id="video-play" src="'.$web.'imagenes/play.png" alt="Play" />
+				</a>
+				<script>
+					flowplayer("player", "'.$web.'video/flowplayer-3.2.16.swf");
+				</script>';				
 	}
 	return $codigo;
 }
