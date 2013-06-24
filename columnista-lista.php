@@ -3,35 +3,16 @@ require_once("panel@diario16/conexion/conexion.php");
 require_once("panel@diario16/conexion/funciones.php");
 
 //WIDGETS
-$wg_columnistas=true;
+$wg_columnistas=false;
 $wg_leido=true;
 $wg_impresa=true;
 $wg_chica16=true;
 
-//VARIABLES DE URL
-$reqId=$_REQUEST["id"];
-$reqUrl=$_REQUEST["url"];
+//URL
+$url_web=$web."columnistas";
 
-$url_web=$web."seccion/".$reqId."/".$reqUrl;
-
-//CATEGORIA
-$rst_notinf_cat=mysql_query("SELECT * FROM dr_noticia_categoria WHERE id=$reqId", $conexion);
-$fila_notinf_cat=mysql_fetch_array($rst_notinf_cat);
-
-//VARIABLES
-$notInfCat_titulo=$fila_notinf_cat["categoria"];
-
-//PAGINACION
-require("libs/pagination/class_pagination.php");
-
-//INICIO DE PAGINACION
-$page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
-$rst_not_inf        = mysql_query("SELECT COUNT(*) as count FROM dr_noticia WHERE categoria=$reqId AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC", $conexion);
-$fila_not_inf       = mysql_fetch_assoc($rst_not_inf);
-$generated      = intval($fila_not_inf['count']);
-$pagination     = new Pagination("10", $generated, $page, $url_web."?page", 1, 0);
-$start          = $pagination->prePagination();
-$rst_not_inf        = mysql_query("SELECT * FROM dr_noticia WHERE categoria=$reqId AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT $start, 10", $conexion);
+//COLUMNISTAS
+$rst_columnistas=mysql_query("SELECT * FROM dr_columnista WHERE publicar=1 ORDER BY nombre_completo ASC;", $conexion);
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +20,7 @@ $rst_not_inf        = mysql_query("SELECT * FROM dr_noticia WHERE categoria=$req
 <head>
     <meta charset="UTF-8">
 
-    <title> <?php echo $notInfCat_titulo; ?> | Diario16</title>
+    <title> Columnistas | Diario16</title>
     <base href="<?php echo $web; ?>">
     <meta name="description" content="">
 
@@ -77,17 +58,12 @@ $rst_not_inf        = mysql_query("SELECT * FROM dr_noticia WHERE categoria=$req
            
         <div class="news">
             
-            <?php while($fila_not_inf=mysql_fetch_array($rst_not_inf)){
-                    $notInf_id=$fila_not_inf["id"];
-                    $notInf_url=$fila_not_inf["url"];
-                    $notInf_titulo=$fila_not_inf["titulo"];
-                    $notInf_contenido=soloDescripcion($fila_not_inf["contenido"], 150);
-                    $notInf_imagen=$fila_not_inf["imagen"];
-                    $notInf_imagen_carpeta=$fila_not_inf["imagen_carpeta"];
-                    $notInf_fecha=$fila_not_inf["fecha_publicacion"];
-                    $notInf_web=$web."noticia/".$notInf_id."-".$notInf_url;
-                    $notInf_web_img=$web."imagenes/upload/".$notInf_imagen_carpeta."thumb/".$notInf_imagen;
-                    $notInf_categoria=$fila_not_inf["categoria"];
+            <?php while($fila_columnistas=mysql_fetch_array($rst_columnistas)){
+                    $notInf_id=$fila_columnistas["id"];
+                    $notInf_url=$fila_columnistas["url"];
+                    $notInf_titulo=$fila_columnistas["nombre_completo"];                    
+                    $notInf_imagen=$fila_columnistas["foto"];                    
+                    $notInf_web=$web."columnista/".$notInf_id."-".$notInf_url;
             ?>
             <div class="box-note wmedia">
 

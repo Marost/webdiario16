@@ -31,6 +31,7 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHER
 
         <?php while($fila_columselect=mysql_fetch_array($rst_columselect)){
                 $columSelect_id=$fila_columselect["id"];
+                $columSelect_url=$fila_columselect["url"];
                 $columSelect_titulo=$fila_columselect["nombre_completo"];
                 $columSelect_imagen=$fila_columselect["foto"];
                 
@@ -43,15 +44,17 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHER
                 $columna_url=$fila_columna["url"];
                 $columna_titulo=$fila_columna["titulo"];
 
-                
+                //URLS
                 $columSelect_webImg=$web."imagenes/columnistas/".$columSelect_imagen;
-                $columSelect_webUrl=$web."imagenes/columnistas/".$columSelect_imagen;
+                $columSelect_webUrl=$web."columnista/".$columSelect_id."/".$columSelect_url."/".$columna_id."/".$columna_url;
         ?>
         <div class="columnistas">
-            <div class="img"><img src="http://diario16.pe/imagenes/columnistas/o8dtyl9vhjkajvgudjqd.png" alt=""></div>
+            <div class="img"><img src="<?php echo $columSelect_webImg; ?>" alt="<?php echo $nombre_completo; ?>"></div>
             <div class="datos">
                 <div class="nombre"><?php echo $columSelect_titulo; ?></div>
-                <div class="titulo"><?php echo $columna_titulo; ?></div>
+                <div class="titulo">
+                    <h2><a href="<?php echo $columSelect_webUrl; ?>">
+                        <?php echo $columna_titulo; ?></a></h2></div>
             </div>
         </div>
         <?php } ?>

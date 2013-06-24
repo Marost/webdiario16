@@ -70,7 +70,6 @@ $rst_masNota=mysql_query("SELECT * FROM dr_columnista_columna WHERE columnista=$
     <meta property="og:title" content='<?php echo $nota_titulo; ?>'>
     <meta property="og:description" content='<?php echo soloDescripcion($nota_contenido,150); ?>'>
     <meta property="og:url" content='<?php echo $nota_web; ?>' >
-    <meta property="og:image" content='<?php echo $nota_web_img; ?>' >
     <meta property="fb:admins" content='130961786950093'>
     <!-- fin Open Graph -->
 
@@ -86,14 +85,14 @@ $rst_masNota=mysql_query("SELECT * FROM dr_columnista_columna WHERE columnista=$
     
         <ul class="cat-menu">
             <li><a href="/">Diario16.pe</a></li>
-            <li><a class="active" href=""><?php echo $columnista_titulo; ?></a></li>
+            <li><a class="active" href="javascript:;"><?php echo $columnista_titulo; ?></a></li>
         </ul>
 
-        <span class="time-cat">
+        <!-- <span class="time-cat">
 	       <em class="fecha">
-            <?php echo $nota_fechaTotal; ?>
+            ?php echo $nota_fechaTotal; ?>
           </em>                        
-        </span>
+        </span> -->
 
         <h1><?php echo $nota_titulo; ?></h1>
                                             
@@ -113,7 +112,6 @@ $rst_masNota=mysql_query("SELECT * FROM dr_columnista_columna WHERE columnista=$
 
         </div><!-- FIN COMPARTIR -->
 
-
         <div class="nota-contenido span-13 last">
             <div id="textonota">
                 <?php echo $nota_contenido; ?>
@@ -129,7 +127,7 @@ $rst_masNota=mysql_query("SELECT * FROM dr_columnista_columna WHERE columnista=$
                         $masNota_id=$fila_masNota["id"];
                         $masNota_url=$fila_masNota["url"];
                         $masNota_titulo=$fila_masNota["titulo"];
-                        $masNota_web=$web."noticia/".$masNota_id."-".$masNota_url;
+                        $masNota_web=$web."columnista/".$varUrl_id."/".$varUrl_url."/".$masNota_id."/".$masNota_url;
                 ?>
                 <li>
                     <h3><a href="<?php echo $masNota_web; ?>"><?php echo $masNota_titulo; ?></a></h3>
@@ -152,7 +150,6 @@ $rst_masNota=mysql_query("SELECT * FROM dr_columnista_columna WHERE columnista=$
         </div>                    
 
     </div>
-
 
     <?php require_once("wg-sidebar.php"); ?>
 
