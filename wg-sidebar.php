@@ -60,7 +60,7 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHER
         <?php } ?>
       
         <div class="boton">
-            <a target="_blank" href="#">Ver Columnistas</a>
+            <a href="columnistas">Ver Columnistas</a>
         </div>
     </div><!-- FIN COLUMNISTAS -->
     <?php } ?>
