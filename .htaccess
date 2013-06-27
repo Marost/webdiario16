@@ -345,6 +345,7 @@ RewriteRule ^seccion/([0-9]*)/(.*)$                       /categoria.php?id=$1&u
 RewriteRule ^edicion/digital/([0-9]*)/$                   /edimpresa.php?id=$1
 RewriteRule ^edicion/virtual/([0-9]*)/(.*)$               /edvirtual.php?id=$1&url=$2
 RewriteRule ^columnista/([0-9]*)/(.*)/([0-9]*)/(.*)$      /columnista-nota.php?columid=$1&columurl=$2&notaid=$3&notaurl=$2
+RewriteRule ^columnista/([0-9]*)-(.*)$                    /columnista-select.php?id=$1&url=$2
 RewriteRule ^columnistas$                                 /columnista-lista.php
 RewriteRule ^panel@diario16/$                             /panel@diario16/login.php
 
