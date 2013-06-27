@@ -10,7 +10,7 @@ $wg_chica16=true;
 
 //VARIABLES DE URL
 $urlBuscar=$_REQUEST["busqueda"];
-$url_web=$web."buscar.php";
+$url_web=$web."buscar.php?busqueda=".$urlBuscar;
 
 //PAGINACION
 require("libs/pagination/class_pagination.php");
@@ -21,7 +21,7 @@ if ($urlBuscar==""){
     $rst_nota        = mysql_query("SELECT COUNT(*) as count FROM dr_noticia WHERE publicar=1 ORDER BY fecha_publicacion DESC, id DESC", $conexion);
     $fila_nota       = mysql_fetch_assoc($rst_nota);
     $generated      = intval($fila_nota['count']);
-    $pagination     = new Pagination("10", $generated, $page, $url_web."?page", 1, 0);
+    $pagination     = new Pagination("10", $generated, $page, $url_web."&page", 1, 0);
     $start          = $pagination->prePagination();
     $rst_nota        = mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 ORDER BY fecha_publicacion DESC, id DESC LIMIT $start, 10", $conexion);
 }elseif($urlBuscar<>""){
@@ -30,7 +30,7 @@ if ($urlBuscar==""){
     $rst_nota        = mysql_query("SELECT COUNT(*) as count FROM dr_noticia WHERE titulo LIKE '%$urlBuscar%' AND publicar=1 ORDER BY fecha_publicacion DESC, id DESC", $conexion);
     $fila_nota       = mysql_fetch_assoc($rst_nota);
     $generated      = intval($fila_nota['count']);
-    $pagination     = new Pagination("10", $generated, $page, $url_web."?page", 1, 0);
+    $pagination     = new Pagination("10", $generated, $page, $url_web."&page", 1, 0);
     $start          = $pagination->prePagination();
     $rst_nota        = mysql_query("SELECT * FROM dr_noticia WHERE titulo LIKE '%$urlBuscar%' AND publicar=1 ORDER BY fecha_publicacion DESC, id DESC LIMIT $start, 10", $conexion);
 }
