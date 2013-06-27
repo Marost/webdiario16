@@ -3,7 +3,7 @@ require_once("panel@diario16/conexion/conexion.php");
 require_once("panel@diario16/conexion/funciones.php");
 
 //WIDGETS
-$wg_columnistas=true;
+$wg_columnistas=false;
 $wg_leido=false;
 $wg_impresa=true;
 $wg_chica16=false;
@@ -34,6 +34,7 @@ $nota_titulo=$fila_nota["titulo"];
 $nota_contenido=$fila_nota["contenido"];
 
 //WEB
+$nota_columnista=$web."columnista/".$varUrl_id."-".$varUrl_url;
 $nota_web=$web."columnista/".$varUrl_id."/".$varUrl_url."/".$varUrl_notaid."/".$varUrl_notaurl;
 $nota_web_img=$web."imagenes/columnistas/".$columnista_imagen;
 
@@ -85,7 +86,7 @@ $rst_masNota=mysql_query("SELECT * FROM dr_columnista_columna WHERE columnista=$
     
         <ul class="cat-menu">
             <li><a href="/">Diario16.pe</a></li>
-            <li><a class="active" href="javascript:;"><?php echo $columnista_titulo; ?></a></li>
+            <li><a class="active" href="<?php echo $nota_columnista; ?>"><?php echo $columnista_titulo; ?></a></li>
         </ul>
 
         <!-- <span class="time-cat">
