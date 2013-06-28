@@ -6,6 +6,14 @@ require_once("../../conexion/verificar_sesion.php");
 
 //VARIABLES DE URL
 $mensaje=$_REQUEST["msj"];
+$reqColum=$_REQUEST["colum"];
+
+//COLUMNISTA
+$rst_columnista=mysql_query("SELECT * FROM dr_columnista WHERE id=$reqColum", $conexion);
+$fila_columnista=mysql_fetch_array($rst_columnista);
+
+//VARIABLES
+$columnista_titulo=$fila_columnista["nombre_completo"];
 
 //LISTA DE REGISTROS - FILTRO
 include_once('../../js/plugins/creative_table/configurations.php');
@@ -26,16 +34,16 @@ include_once('../../js/plugins/creative_table/creativeTable.php');
 $ct=new CreativeTable();
 
 // Data Gathering
-$params['sql_query']                = "SELECT id, nombre_completo FROM ".$tabla_suf."_columnista ORDER BY nombre_completo ASC";
+$params['sql_query']        = "SELECT id,titulo,fecha FROM ".$tabla_suf."_columnista_columna WHERE columnista=$reqColum ORDER BY fecha DESC, id DESC";
 //$params['search']                   = $search;
-$params['multiple_search']          = $multiple_search;
-$params['items_per_page']           = $items_per_page;
-$params['sort']                     = $sort;
-$params['page']                     = $page;
-$params['total_items']              = $total_items;
+$params['multiple_search']  = $multiple_search;
+$params['items_per_page']   = $items_per_page;
+$params['sort']             = $sort;
+$params['page']             = $page;
+$params['total_items']      = $total_items;
 
-$params['header']                   = 'ID,Registro';
-$params['width']                    = '30,750';
+$params['header']           = 'ID,Registro,Fecha';
+$params['width']            = '30,750,100';
 
 /* ORDENAR POR CAMPOS */
 $params['sort_init'] = false;  // sort all fields
@@ -51,12 +59,10 @@ $arr_extra_cols[0]  = array(6,'Acciones','100','<div class="btn-group" style="di
                                 <a class="buttonS bDefault" data-toggle="dropdown" href="#">Acción<span class="caret"></span></a>
                                 <ul class="dropdown-menu pull-right">
                                     <li>
-                                        <a onclick="eliminarRegistro(#COL1#);" href="javascript:;">
+                                        <a onclick="eliminarRegistro(#COL1#,'.$reqColum.');" href="javascript:;">
                                         <span class="icos-trash"></span>Eliminar</a></li>
-                                    <li><a href="f-editar.php?id=#COL1#" class="">
+                                    <li><a href="f-editar.php?colum='.$reqColum.'&id=#COL1#" class="">
                                         <span class="icos-pencil"></span>Modificar</a></li>
-                                    <li><a href="../columnistas-noticias/lista.php?colum=#COL1#" class="">
-                                        <span class="icos-list"></span>Columnas</a></li>
                                 </ul>
                             </div>');
 $params['extra_cols']   = $arr_extra_cols;
@@ -82,9 +88,9 @@ if($_POST['ajax_option']!=''){
 
 <!-- ELIMINAR  -->
 <script type="text/javascript">
-function eliminarRegistro(registro) {
+function eliminarRegistro(registro, columnista) {
     if(confirm("¿Está seguro de borrar este registro?")) {
-        document.location.href="s-eliminar.php?id="+registro;
+        document.location.href="s-eliminar.php?colum="+columnista+"&id="+registro;
     }
 }
 </script>
@@ -108,7 +114,7 @@ function eliminarRegistro(registro) {
 <!-- Content begins -->
 <div id="content">
     <div class="contentTop">
-        <span class="pageTitle"><span class="icon-screen"></span>Columnistas</span>
+        <span class="pageTitle"><span class="icon-screen"></span><?php echo $columnista_titulo; ?></span>
     </div>
     
     <!-- Breadcrumbs line -->
@@ -121,7 +127,7 @@ function eliminarRegistro(registro) {
     <div class="wrapper">
 
         <ul class="middleNavR">
-            <li><a href="f-agregar.php" title="Agregar" class="tipN"><img src="../../images/icons/middlenav/create.png" alt="" /></a></li>
+            <li><a href="f-agregar.php?colum=<?php echo $reqColum; ?>" title="Agregar" class="tipN"><img src="../../images/icons/middlenav/create.png" alt="" /></a></li>
         </ul>
 
         <?php if($mensaje=="ok"){ ?>
@@ -140,7 +146,7 @@ function eliminarRegistro(registro) {
 
         <!-- Media table sample -->
         <div class="widget">
-            <div class="whead"><h6>Columnistas</h6></div>
+            <div class="whead"><h6>Noticias</h6></div>
             
             <?php echo $out;?>
 
