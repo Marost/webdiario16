@@ -135,7 +135,7 @@ class CreativeTable{
         $this->actions_url          = isset($params['actions_url']) ? $params['actions_url'] : 'ctActions(\'#ID#\')';
         $this->pager                = isset($params['pager']) ? $params['pager'] : '';
         $this->pager_ids            = isset($params['pager_ids']) ? $params['pager_ids'] : '';
-        $this->ajax_url             = isset($params['ajax_url']) ? $params['ajax_url'] : $_SERVER['PHP_SELF'];
+        $this->ajax_url             = isset($params['ajax_url']) ? $params['ajax_url'] : $_SERVER['REQUEST_URI'];
         $this->format_cols          = isset($params['format_cols']) ? $params['format_cols'] : array();
         $this->display_cols         = isset($params['display_cols']) ? $params['display_cols'] : '';
         $this->debug                = isset($params['debug']) ? $params['debug'] : true;
