@@ -410,7 +410,7 @@ function getRealIP(){
 }
 
 function seleccionTabla($id, $id_tabla, $tabla, $conexion){
-	$rst_query=mysql_query("SELECT * FROM ".$tabla." WHERE ".$id_tabla."=".$id , $conexion);
+	$rst_query=mysql_query("SELECT * FROM ".$tabla." WHERE ".$id_tabla."=".$id, $conexion);
 	return $fila_query=mysql_fetch_array($rst_query);
 }
 
