@@ -64,6 +64,7 @@ $rst_columnistas=mysql_query("SELECT * FROM dr_columnista WHERE publicar=1 ORDER
                         $notInf_titulo=$fila_columnistas["nombre_completo"];                    
                         $notInf_imagen=$fila_columnistas["foto"];                    
                         $notInf_web=$web."columnista/".$notInf_id."-".$notInf_url;
+                        $notInf_web_img=$web."imagenes/columnistas/".$notInf_imagen;
                 ?>
                 <div class="box-note">
 
