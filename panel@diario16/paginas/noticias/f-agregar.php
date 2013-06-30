@@ -56,7 +56,7 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
     <!-- Main content -->
     <div class="wrapper">
 
-        <form id="submit-form" class="main" method="POST" action="s-guardar.php">
+        <form id="validate" class="main" method="POST" action="s-guardar.php">
 
             <fieldset>
                 <div class="widget fluid">
@@ -65,12 +65,12 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
                     
                     <div class="formRow">
                         <div class="grid3"><label>Titulo:</label></div>
-                        <div class="grid9"><input type="text" name="nombre" /></div>
+                        <div class="grid9"><input type="text" name="nombre" class="validate[required]" /></div>
                     </div>
 
                     <div class="widget">
                         <div class="whead"><h6>Contenido</h6></div>
-                        <textarea class="ckeditor" name="contenido" /></textarea>
+                        <textarea class="validate[required] ckeditor" name="contenido" /></textarea>
                     </div>
 
                     <div class="formRow">
@@ -101,7 +101,7 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
                     <div class="formRow">
                         <div class="grid3"><label>Categoria:</label></div>
                         <div class="grid9">
-                            <select name="categoria" class="styled">
+                            <select name="categoria" class="validate[required] styled">
                                 <option>Selecciona</option>
                                 <?php while($fila_cat=mysql_fetch_array($rst_cat)){
                                         $notCat_id=$fila_cat["id"];
@@ -118,8 +118,24 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
                         <div class="grid9 yes_no">
                             <div class="floatL mr10">Destacada
                                 <input type="radio" name="tipo_noticia" value="not_destacada" /></div>
-                            <div class="floatL mr10">Superior
-                                <input type="radio" name="tipo_noticia" value="not_superior" /></div>
+                            <div class="floatL mr10">Superior 1
+                                <input type="radio" name="tipo_noticia" value="not_superior1" /></div>
+                            <div class="floatL mr10">Superior 2
+                                <input type="radio" name="tipo_noticia" value="not_superior2" /></div>
+                            <div class="floatL mr10">Superior 3
+                                <input type="radio" name="tipo_noticia" value="not_superior3" /></div>
+                            <div class="floatL mr10">Superior 4
+                                <input type="radio" name="tipo_noticia" value="not_superior4" /></div>
+                            <div class="floatL mr10">Superior 5
+                                <input type="radio" name="tipo_noticia" value="not_superior5" /></div>
+                            <div class="floatL mr10">Superior 6
+                                <input type="radio" name="tipo_noticia" value="not_superior6" /></div>
+                            <div class="floatL mr10">Superior 7
+                                <input type="radio" name="tipo_noticia" value="not_superior7" /></div>
+                            <div class="floatL mr10">Superior 8
+                                <input type="radio" name="tipo_noticia" value="not_superior8" /></div>
+                            <div class="floatL mr10">Superior 9
+                                <input type="radio" name="tipo_noticia" value="not_superior9" /></div>
                             <div class="floatL mr10">Normal
                                 <input type="radio" name="tipo_noticia" value="not_normal" checked="checked" /></div>
                         </div>
