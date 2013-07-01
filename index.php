@@ -6,7 +6,7 @@ require_once("panel@diario16/conexion/funciones.php");
 $wg_columnistas=true;
 $wg_leido=true;
 $wg_impresa=true;
-$wg_chica16=true;
+$wg_chica16=false;
 $wg_columselect=true;
 
 //NOTICIA DESTACADA
@@ -222,7 +222,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 <head>
     <meta charset="UTF-8">
 
-    <title> | Diario16</title>
+    <title>Diario16</title>
     <base href="<?php echo $web; ?>">
     <meta name="description" content="">
 
@@ -401,7 +401,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
       </div><!-- FIN GRID DESTACADAS -->
 
     </div>
-             
+
     <div class="all-news">
            
         <div class="news">
@@ -414,6 +414,9 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
                     $notInf_imagen=$fila_not_inf["imagen"];
                     $notInf_imagen_carpeta=$fila_not_inf["imagen_carpeta"];
                     $notInf_fecha=$fila_not_inf["fecha_publicacion"];
+                    if($fila_not_inf["fecha_publicacion"]=="0000-00-00 00:00:00"){
+                        $notInf_fecha=$fila_not_inf["fecha"];
+                    }else{ $notInf_fecha=notaTiempo($fila_not_inf["fecha_publicacion"]);} 
                     $notInf_web=$web."noticia/".$notInf_id."-".$notInf_url;
                     $notInf_web_img=$web."imagenes/upload/".$notInf_imagen_carpeta."thumb/".$notInf_imagen;
                     $notInf_categoria=$fila_not_inf["categoria"];
@@ -430,7 +433,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
             <div class="box-note wmedia">
 
                 <span class="time-cat">
-                    <em class="time"><?php echo notaTiempo($notInf_fecha); ?></em>
+                    <em class="time"><?php echo $notInf_fecha; ?></em>
                     <em class="categoria">
                       <a href="<?php echo $notInfCat_web; ?>"><?php echo $notInfCat_titulo; ?></a>
                     </em>
@@ -464,9 +467,9 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
             </div><!-- FIN FLUJO -->
             <?php } ?>
 
-            <div class="boton">
+            <!-- <div class="boton">
                 <a target="_blank" href="#">Ver más noticias</a>
-            </div>
+            </div> -->
 
       </div><!-- FIN FLUJOS -->
            
