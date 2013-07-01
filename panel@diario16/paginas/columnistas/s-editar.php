@@ -15,6 +15,15 @@ $contenido=$_POST["contenido"];
 //PUBLICAR
 if ($_POST["publicar"]<>""){ $publicar=$_POST["publicar"]; }else{ $publicar=0; }
 
+//SELECCION DE DIAS
+$dia_lunes=$_POST["dia_lunes"];
+$dia_martes=$_POST["dia_martes"];
+$dia_miercoles=$_POST["dia_miercoles"];
+$dia_jueves=$_POST["dia_jueves"];
+$dia_viernes=$_POST["dia_viernes"];
+$dia_sabado=$_POST["dia_sabado"];
+$dia_domingo=$_POST["dia_domingo"];
+
 //DIAS DE PUBLICACION
 if($dia_lunes<>""){ $dia_lunes=1; }else{ $dia_lunes=0; }
 if($dia_martes<>""){ $dia_martes=1; }else{ $dia_martes=0; }
