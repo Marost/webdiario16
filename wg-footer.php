@@ -2,16 +2,6 @@
 
     <div class="cnt-footer">
 
-    <p> © Diario16 </p>
-  
-    <div class="searcher box_busqueda">
-        <form action="buscar.php" method="get" name="busqueda" id="busqueda">
-            <input type="text" value="" name="busqueda" class="searchinput">
-            <button type="submit">Buscar</button>
-        </form>
-        <div class="clear"></div>
-    </div>
-
     <div class="eco-secciones">
         
         <ul>
@@ -44,6 +34,7 @@
   </div>
 </div><!-- FIN FOOTER -->
 
+<!-- GOOGLE ANALYTICS -->
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
