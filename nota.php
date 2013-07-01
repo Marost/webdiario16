@@ -6,7 +6,7 @@ require_once("panel@diario16/conexion/funciones.php");
 $wg_columnistas=true;
 $wg_leido=true;
 $wg_impresa=true;
-$wg_chica16=true;
+$wg_chica16=false;
 
 //VARAIBLES DE URL
 $varUrl_id=$_REQUEST["id"];
@@ -40,10 +40,15 @@ $nota_web=$web."noticia/".$nota_id."-".$nota_url;
 $nota_web_img=$web."imagenes/upload/".$nota_imagen_carpeta."".$nota_imagen;
 
 //FECHA PUBLICACION
-$nota_fechaPub=$fila_nota["fecha_publicacion"];
-$nota_fechaPubNot=explode(" ", $nota_fechaPub);
-$nota_fechaPubNotFi=explode("-", $nota_fechaPubNot[0]);
-$nota_fechaTotal=nombreFechaTotal($nota_fechaPubNotFi[0],$nota_fechaPubNotFi[1],$nota_fechaPubNotFi[2]);
+if($fila_nota["fecha_publicacion"]<>"0000-00-00 00:00:00"){
+    $nota_fechaPub=$fila_nota["fecha_publicacion"];
+    $nota_fechaPubNot=explode(" ", $nota_fechaPub);
+    $nota_fechaPubNotFi=explode("-", $nota_fechaPubNot[0]);
+    $nota_fechaTotal=nombreFechaTotal($nota_fechaPubNotFi[0],$nota_fechaPubNotFi[1],$nota_fechaPubNotFi[2]);
+    $nota_fechaFinal=$nota_fechaTotal." a las ".$nota_fechaPubNot[1];
+}else{
+    $nota_fechaFinal=$fila_nota["fecha"];
+}
 
 // CATEGORIA
 $rst_cat=mysql_query("SELECT * FROM dr_noticia_categoria WHERE id=$nota_categoria;", $conexion);
@@ -111,7 +116,7 @@ $rst_cont=mysql_query("UPDATE dr_noticia SET visitas=$nota_visitas+1 WHERE id=$v
 
         <span class="time-cat">
 	       <em class="fecha">
-            <?php echo $nota_fechaTotal; ?> a las <?php echo $nota_fechaPubNot[1] ?>
+            <?php echo $nota_fechaFinal; ?>
           </em>                        
         </span>
 
@@ -166,15 +171,15 @@ $rst_cont=mysql_query("UPDATE dr_noticia SET visitas=$nota_visitas+1 WHERE id=$v
                 <?php }} ?>
             </div>
 
-            <div class="related-seo">
+            <!--<div class="related-seo">
                 <h4>Noticias relacionadas</h4>
                 <ul>
-                    <li><h3><a href="">Etiquetado de transgénicos</a></h3></li>
-                    <li><h3><a href="">Precios de textos escolares deberían bajar en 40% por lo menos</a></h3></li>
-                    <li><h3><a href="">¿Son las leyes peruanas el remedio para los monopolios?</a></h3></li>
-                    <li><h3><a href="">¿Hubo concertación en los empresarios para aumentar el precio del azúcar?</a></h3></li>
+                    <li><h3><a href=""></a></h3></li>
+                    <li><h3><a href=""></a></h3></li>
+                    <li><h3><a href=""></a></h3></li>
+                    <li><h3><a href=""></a></h3></li>
                 </ul>
-            </div><!-- FIN RELACIONADAS -->
+            </div> FIN RELACIONADAS -->
             
 
             <div class="related-seo">
