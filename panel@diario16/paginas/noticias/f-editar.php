@@ -16,6 +16,8 @@ $nota_nombre=$fila_nota["titulo"];
 $nota_imagen=$fila_nota["imagen"];
 $nota_imagen_carpeta=$fila_nota["imagen_carpeta"];
 $nota_contenido=$fila_nota["contenido"];
+$nota_video=$fila_nota["video"];
+$nota_video_tipo=$fila_nota["tipo_video"];
 $nota_categoria=$fila_nota["categoria"];
 $nota_destacada=$fila_nota["destacada"];
 $nota_superior1=$fila_nota["superior_1"];
@@ -112,6 +114,13 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
                                 <input type="hidden" name="imagen" value="<?php echo $nota_imagen; ?>">
                                 <input type="hidden" name="imagen_carpeta" value="<?php echo $nota_imagen_carpeta; ?>">
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="formRow">
+                        <div class="grid3"><label>Video (Youtube):</label> </div>
+                        <div class="grid9">http://www.youtube.com/watch?v=
+                            <input type="text" name="video_youtube" value="<?php echo $nota_video; ?>">
                         </div>
                     </div>
 

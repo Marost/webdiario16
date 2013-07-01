@@ -26,6 +26,10 @@ elseif($tags<>""){ $union_tags=implode(",", $tags);}
 //PUBLICAR
 if ($_POST["publicar"]<>""){ $publicar=$_POST["publicar"]; }else{ $publicar=0; }
 
+//VIDEO
+$video_youtube=$_POST["video_youtube"];
+//$video_upload=$_POST["uploader_video_0_tmpname"];
+
 //IMAGEN
 if ($tipo_noticia=="not_destacada") {
 	$destacada=1; $superior1=2; $superior2=2; $superior3=2; $superior4=2; $superior5=2; $superior6=2; $superior7=2; $superior8=2; $superior9=2;
@@ -94,8 +98,28 @@ if ($tipo_noticia=="not_destacada") {
 	}
 }
 
+//VIDEO YOUTUBE
+if($video_youtube<>""){
+	$mostrar_video=1;
+	$tipo_video="youtube";
+	$video=$video_youtube;
+}elseif($video_youtube==""){
+	//VIDEO UPLOAD
+	if($video_upload<>""){
+		$mostrar_video=1;
+		$tipo_video="flv";
+		$video=$video_upload;
+		$video_carpeta=fechaCarpeta()."/";
+	}
+}else{
+	$mostrar_video=0;
+	$tipo_video="";
+	$video="";
+	$video_carpeta=fechaCarpeta()."/";
+}
+
 //INSERTANDO DATOS
-$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_noticia SET url='$url', titulo='".htmlspecialchars($nombre)."', contenido='$contenido', imagen='$imagen', imagen_carpeta='$imagen_carpeta', fecha_publicacion='$fecha_publicacion', publicar=$publicar, superior_1=$superior1, superior_2=$superior2, superior_3=$superior3, superior_4=$superior4, superior_5=$superior5, superior_6=$superior6, superior_7=$superior7, superior_8=$superior8, superior_9=$superior9, destacada=$destacada, categoria=$categoria, tags='0,$union_tags,0' WHERE id=$nota_id;", $conexion);
+$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_noticia SET url='$url', titulo='".htmlspecialchars($nombre)."', contenido='$contenido', imagen='$imagen', imagen_carpeta='$imagen_carpeta', fecha_publicacion='$fecha_publicacion', publicar=$publicar, superior_1=$superior1, superior_2=$superior2, superior_3=$superior3, superior_4=$superior4, superior_5=$superior5, superior_6=$superior6, superior_7=$superior7, superior_8=$superior8, superior_9=$superior9, destacada=$destacada, categoria=$categoria, tags='0,$union_tags,0', video='$video', tipo_video='$tipo_video', mostrar_video=$mostrar_video, carpeta_video='$carpeta_video' WHERE id=$nota_id;", $conexion);
 
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();
