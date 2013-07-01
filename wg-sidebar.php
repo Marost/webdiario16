@@ -25,6 +25,13 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHER
 ?>
 <div id="columnr" class="sidebar last">
 
+    <div class="cnt-impresa-d nobck nomrg">
+        <a class="twitter-timeline" href="https://twitter.com/Diario16" data-widget-id="351410571381440512">Tweets por @Diario16</a> 
+
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+    </div>
+
     <?php if($wg_columnistas==true){ ?>
     <div class="cnt-impresa-d">
         <h4>Columnistas de Hoy</h4>
@@ -148,6 +155,22 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHER
 		</div>
     </div><!-- FIN IMPRESA -->
     <?php } ?>
+
+
+    <div class="cnt-impresa-d nobck">
+        
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=217179171676130";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <div class="fb-like-box" data-href="https://www.facebook.com/pages/Diario16/130961786950093" data-width="310" data-height="370" data-show-faces="true" data-stream="false" data-show-border="true" data-header="true"></div>
+
+    </div>
 
     <!-- <div class="tags-portada">
         <h4>Temas destacados</h4>
