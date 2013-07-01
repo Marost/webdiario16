@@ -17,6 +17,8 @@ ins { text-decoration: none; }
 del { text-decoration: line-through; }
 .container { width: 960px; margin: 0 auto; padding-top: 10px; }
 .interior{ width: 960px; margin: 0 auto; }
+.nobck{ background-image: none !important; }
+.nomrg{ margin: 0 !important; }
 
 
 div.last { margin-right: 0; }
@@ -54,6 +56,7 @@ a:hover { text-decoration: underline; }
 	width: 960px;
 	padding: 40px 0 10px 0;
 	background: url(../imagenes/fondo-header-mapa.png) center no-repeat;
+	position: relative;
 }
 	.diario16pe h1, .diario16pe h1 a, .diario16pe em, .diario16pe em a { display: block; float: left; height: 63px; width: 310px; }
 	.diario16pe h1, .diario16pe em { margin-right: 50px; }
@@ -78,9 +81,9 @@ a:hover { text-decoration: underline; }
 #main-nav.fixed .menu ul { float: right; width: 795px; }
 
 
-.sidebar { background: url(../imagenes/bg_time_cat.png) repeat-x 0 5px; float: right !important; padding-top: 12px; }
+.sidebar { background: url(../imagenes/bg_time_cat.png) repeat-x 0 5px; float: right !important; padding-top: 12px; width: 310px; }
 .sidebar .banner { margin-bottom: 5px; }
-.sidebar h4, .all-box h4, .todos h4, h1#h-psn, h4.lcine { background: #333; border-bottom: 1px solid #9b9b97; color: #fff; font: bold 12px/25px arial; padding-left: 5px; text-transform: uppercase; }
+.sidebar h4, .all-box h4, .todos h4, h1#h-psn, h4.lcine { background: url(../imagenes/bg_footer.jpg); border-bottom: 1px solid #9b9b97; color: #000; font: bold 12px/25px arial; padding-left: 5px; text-transform: uppercase; }
 	.banner-holder { }
 	.banner-holder div object, .banner-holder img, .banner-holder div iframe { display: block; border: 5px solid #ccc; margin-bottom: 20px; }
 	.banner-holder .banner img { margin-bottom: 1px !important; }
@@ -96,7 +99,7 @@ a:hover { text-decoration: underline; }
 	
 	#cnt-opt-tabs, #cnt-tags-tabs, .polls, .mercados, .cartelera, .youtubemv, .radio, .promos-eco, .cnt-impresa-d, .cnt-tags, .cnt-resumen, #personassidebar, .mapas { background: url(../imagenes/bg_box.jpg) repeat-x 0 bottom; margin-bottom: 20px; padding-bottom: 15px; }
 	
-	#tabs-mas, #tags-tabs, #tabs-mercados { background: #333; border-bottom: 1px solid #9b9b97; color: #fff; display: block; font: bold 11px arial; height: 25px; text-transform: uppercase; }
+	#tabs-mas, #tags-tabs, #tabs-mercados { background: url(../imagenes/bg_footer.jpg); border-bottom: 1px solid #9b9b97; color: #000; display: block; font: bold 11px arial; height: 25px; text-transform: uppercase; }
 	#tabs-mas li, #tabs-mas li a, #tags-tabs li, #tags-tabs li a, #tabs-mercados li, #tabs-mercados li a { display: block; float: left; }
 	#tabs-mas li.primero { line-height: 25px; padding: 0 10px 0 5px; }
 	#tabs-mas li a, #tags-tabs li a, #tabs-mercados li a { color: #ccc; line-height: 25px; padding: 0 10px; }
@@ -149,7 +152,7 @@ width: 325px; }
 .cnt-impresa-d .boton a { width: 119px; }
 
 /* footer */
-#footer { background: #f5cb21 url(../imagenes/bg_footer.jpg) repeat-x 0 0; border-top: 1px solid #ee9712; padding: 15px 0 5px; }
+#footer { background: #fff url(../imagenes/bg_footer.jpg) repeat-x 0 0; border-top: 1px solid #f00; padding: 15px 0 5px; }
 	.cnt-footer { margin: 0 auto; overflow: hidden; width: 960px; }
 		.diario16pe-gda { margin: 0 auto 15px; width: 192px; }
 		.diario16pe-gda ul { height: 37px; }
@@ -170,7 +173,7 @@ width: 325px; }
 		.eco-secciones ul li a { border-right: 1px solid #003871; display: inline-block; line-height: 11px; padding: 0 7px 0 5px; }
 		
 		.mails, .red-eco { background: url(../imagenes/h-separator.png) no-repeat center 0; margin-bottom: 15px; padding-top: 15px; }
-		.mails ul li { display: block; float: left; line-height: 30px; margin: 0 13px 5px 0; }
+		.mails ul li { display: block; float: left; line-height: 30px; margin: 0 13px 5px 0; width: 90%; }
 		
 		.red-eco { margin-bottom: 0; }
 		.red-eco h4 { border: 0; color: #000; float: left; font-weight: bold; height: 35px; margin-bottom: 0; padding-right: 5px; text-transform: uppercase; }
@@ -728,6 +731,38 @@ body.archivo .container { padding-top: 10px; }
 			font-weight: normal;
 			font-family: 'Oswald', sans-serif;
 			text-transform: uppercase;
+		}
+	}
+}
+
+/* SOCIAL MEDIA */
+#social-media{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 160px;
+
+	ul{
+
+		li{
+
+			a{
+				width: 25px;
+				height: 25px;
+				display: block;
+				float: left;
+				background-image: url(../imagenes/icon-social.png);
+				margin: 0 10px 0 0;
+				text-indent: -10000em;
+			}
+
+			a.facebook{ background-position: -25px 0; }
+
+			a.twitter{ background-position: -50px 0; }
+
+			a.youtube{ background-position: 0 0; }
+
+			a.rss{ background-position: -75px 0; }
 		}
 	}
 }
