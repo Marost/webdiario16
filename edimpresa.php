@@ -6,7 +6,7 @@ require_once("panel@diario16/conexion/funciones.php");
 $wg_columnistas=false;
 $wg_leido=false;
 $wg_impresa=false;
-$wg_chica16=true;
+$wg_chica16=false;
 
 //VARAIBLES DE URL
 $varUrl_id=$_REQUEST["id"];
