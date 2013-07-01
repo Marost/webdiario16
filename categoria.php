@@ -6,7 +6,7 @@ require_once("panel@diario16/conexion/funciones.php");
 $wg_columnistas=true;
 $wg_leido=true;
 $wg_impresa=true;
-$wg_chica16=true;
+$wg_chica16=false;
 
 //VARIABLES DE URL
 $reqId=$_REQUEST["id"];
@@ -29,7 +29,7 @@ $page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
 $rst_not_inf        = mysql_query("SELECT COUNT(*) as count FROM dr_noticia WHERE categoria=$reqId AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC", $conexion);
 $fila_not_inf       = mysql_fetch_assoc($rst_not_inf);
 $generated      = intval($fila_not_inf['count']);
-$pagination     = new Pagination("10", $generated, $page, $url_web."?page", 1, 0);
+$pagination     = new Pagination("10", $generated, $page, $url_web."&page", 1, 0);
 $start          = $pagination->prePagination();
 $rst_not_inf        = mysql_query("SELECT * FROM dr_noticia WHERE categoria=$reqId AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT $start, 10", $conexion);
 
@@ -84,15 +84,17 @@ $rst_not_inf        = mysql_query("SELECT * FROM dr_noticia WHERE categoria=$req
                     $notInf_contenido=soloDescripcion($fila_not_inf["contenido"], 150);
                     $notInf_imagen=$fila_not_inf["imagen"];
                     $notInf_imagen_carpeta=$fila_not_inf["imagen_carpeta"];
-                    $notInf_fecha=$fila_not_inf["fecha_publicacion"];
+                    if($fila_not_inf["fecha_publicacion"]=="0000-00-00 00:00:00"){
+                        $notInf_fecha=$fila_not_inf["fecha"];
+                    }else{ $notInf_fecha=$fila_not_inf["fecha_publicacion"];}                    
                     $notInf_web=$web."noticia/".$notInf_id."-".$notInf_url;
-                    $notInf_web_img=$web."imagenes/upload/".$notInf_imagen_carpeta."thumb/".$notInf_imagen;
+                    $notInf_web_img=$web."imagenes/upload/".$notInf_imagen_carpeta."".$notInf_imagen;
                     $notInf_categoria=$fila_not_inf["categoria"];
             ?>
             <div class="box-note wmedia">
 
                 <span class="time-cat">
-                    <em class="time"><?php echo notaTiempo($notInf_fecha); ?></em>
+                    <em class="time"><?php echo $notInf_fecha; ?></em>
                 </span>
 
                 <div class="clear"></div>
