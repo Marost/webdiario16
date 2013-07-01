@@ -28,8 +28,20 @@ $head_fechaFinal=nombreFechaTotal($head_fecha[0],$head_fecha[1],$head_fecha[2]);
             </div>
             
         </div><!-- fin accesos -->
-   
+
         <div class="diario16pe">
+            
+            <div id="social-media">
+
+                <ul>
+                    <li><a class="facebook" href="https://www.facebook.com/pages/Diario16/130961786950093">Facebook</a></li>
+                    <li><a class="twitter" href="https://twitter.com/Diario16">Twitter</a></li>
+                    <li><a class="youtube" href="#">Youtube</a></li>
+                    <li><a class="rss" href="http://feeds.feedburner.com/diario16/MUBg">RSS</a></li>
+                </ul>            
+
+            </div>
+
             <h1>
                 <a href="/">Noticias del Perú y del mundo. Diario16.pe informa sobre actualidad, política, elecciones, gastronomía, espectáculos y deportes.</a>
             </h1>            
