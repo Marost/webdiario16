@@ -6,7 +6,7 @@ require_once("panel@diario16/conexion/funciones.php");
 $wg_columnistas=true;
 $wg_leido=true;
 $wg_impresa=true;
-$wg_chica16=true;
+$wg_chica16=false;
 
 //VARIABLES DE URL
 $urlBuscar=$_REQUEST["busqueda"];
@@ -84,9 +84,13 @@ if ($urlBuscar==""){
                     $nota_contenido=soloDescripcion($fila_nota["contenido"], 150);
                     $nota_imagen=$fila_nota["imagen"];
                     $nota_imagen_carpeta=$fila_nota["imagen_carpeta"];
-                    $nota_fecha=$fila_nota["fecha_publicacion"];
+                    
+                    if($fila_nota["fecha_publicacion"]=="0000-00-00 00:00:00"){
+                        $nota_fecha=$fila_nota["fecha"];
+                    }else{ $nota_fecha=$fila_nota["fecha_publicacion"];}
+
                     $nota_web=$web."noticia/".$nota_id."-".$nota_url;
-                    $nota_web_img=$web."imagenes/upload/".$nota_imagen_carpeta."thumb/".$nota_imagen;
+                    $nota_web_img=$web."imagenes/upload/".$nota_imagen_carpeta."".$nota_imagen;
                     $nota_categoria=$fila_nota["categoria"];
 
                     //SELECCIONAR CATEGORIA
@@ -101,7 +105,7 @@ if ($urlBuscar==""){
             <div class="box-note wmedia">
 
                 <span class="time-cat">
-                    <em class="time"><?php echo notaTiempo($nota_fecha); ?></em>
+                    <em class="time"><?php echo $nota_fecha; ?></em>
                     <em class="categoria">
                       <a href="<?php echo $notInfCat_web; ?>"><?php echo $notInfCat_titulo; ?></a>
                     </em>
