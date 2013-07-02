@@ -119,7 +119,7 @@ if($video_youtube<>""){
 }
 
 //INSERTANDO DATOS
-$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_noticia SET url='$url', titulo='".htmlspecialchars($nombre)."', contenido='$contenido', imagen='$imagen', imagen_carpeta='$imagen_carpeta', fecha_publicacion='$fecha_publicacion', publicar=$publicar, superior_1=$superior1, superior_2=$superior2, superior_3=$superior3, superior_4=$superior4, superior_5=$superior5, superior_6=$superior6, superior_7=$superior7, superior_8=$superior8, superior_9=$superior9, destacada=$destacada, categoria=$categoria, tags='0,$union_tags,0', video='$video', tipo_video='$tipo_video', mostrar_video=$mostrar_video, carpeta_video='$carpeta_video' WHERE id=$nota_id;", $conexion);
+$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_noticia SET url='$url', titulo='".htmlspecialchars($nombre)."', contenido='$contenido', imagen='$imagen', imagen_carpeta='$imagen_carpeta', fecha_publicacion='$fecha_publicacion', publicar=$publicar, superior_1=$superior1, superior_2=$superior2, superior_3=$superior3, superior_4=$superior4, superior_5=$superior5, superior_6=$superior6, superior_7=$superior7, superior_8=$superior8, superior_9=$superior9, destacada=$destacada, categoria=$categoria, tags='0,$union_tags,0', video='$video', tipo_video='$tipo_video', mostrar_video=$mostrar_video, carpeta_video='$video_carpeta' WHERE id=$nota_id;", $conexion);
 
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();
