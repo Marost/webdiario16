@@ -100,6 +100,42 @@ $rst_cont=mysql_query("UPDATE dr_noticia SET visitas=$nota_visitas+1 WHERE id=$v
     <!-- VIDEO -->
     <script src="libs/flowplayer/flowplayer-3.2.12.min.js"></script>
 
+    <!-- LIBRERIA -->
+    <script src="libs/royalslider/jquery-1.8.3.min.js"></script>
+    <script src="libs/royalslider/jquery.royalslider.min.js"></script>
+    <link href="libs/royalslider/royalslider.css" rel="stylesheet">
+    <link href="libs/royalslider/skins/default/rs-default.css" rel="stylesheet">
+
+    <script>
+    jQuery(document).ready(function($) {
+        $('#galeria-noticia').royalSlider({
+            fullscreen: {
+              enabled: false
+            },
+            controlNavigation: 'thumbnails',
+            autoScaleSlider: true, 
+            autoScaleSliderWidth: 960,     
+            autoScaleSliderHeight: 850,
+            loop: false,
+            imageScaleMode: 'fit-if-smaller',
+            navigateByClick: true,
+            numImagesToPreload:2,
+            arrowsNav:true,
+            arrowsNavAutoHide: true,
+            arrowsNavHideOnTouch: true,
+            keyboardNavEnabled: true,
+            fadeinLoadedSlide: true,
+            globalCaption: true,
+            globalCaptionInside: false,
+            thumbs: {
+              appendSpan: true,
+              firstMargin: true,
+              paddingBottom: 4
+            }
+        });
+    });
+    </script>
+
 </head>
 <body id="nota">
 
@@ -121,15 +157,27 @@ $rst_cont=mysql_query("UPDATE dr_noticia SET visitas=$nota_visitas+1 WHERE id=$v
         </span>
 
         <h1><?php echo $nota_titulo; ?></h1>
-                                                
-		<!-- <p class="bajada">asas</p> -->
-
+                                            
         <div class="cnt-player">
             <?php if($nota_video_mostrar==1){ ?>
-                <?php echo tipoVideo($nota_video_tipo, $nota_video_carpeta, $nota_video, $nota_imagen, $nota_imagen_carpeta, $nota_id, 600, 374, $web); ?>
+                <?php //echo tipoVideo($nota_video_tipo, $nota_video_carpeta, $nota_video, $nota_imagen, $nota_imagen_carpeta, $nota_id, 600, 374, $web); ?>
             <?php }else{ ?>
-            <img width="600" height="374" src="<?php echo $nota_web_img; ?>" alt="<?php echo $nota_titulo; ?>">
+            <!-- <img width="600" height="374" src="?php echo $nota_web_img; ?>" alt="?php echo $nota_titulo; ?>"> -->
             <?php } ?>
+
+            <div id="galeria-noticia" class="royalSlider rsDefault">
+                <a class="rsImg bugaga" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/1.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/1.jpg"></a>
+                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/2.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/2.jpg"></a>
+                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/3.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/3.jpg"></a>
+                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/4.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/4.jpg"></a>
+                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/5.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/5.jpg"></a>
+                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/6.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/6.jpg"></a>
+                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/7.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/7.jpg"></a>
+                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/8.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/8.jpg"></a>
+                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/9.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/9.jpg"></a>
+                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/10.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/10.jpg"></a>
+                 <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/11.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/11.jpg"></a>
+              </div>
         </div>
 
         <div id="compartir">
