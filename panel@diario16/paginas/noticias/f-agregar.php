@@ -85,7 +85,7 @@ $rst_tags=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_tags ORDER BY nombre
                     <div class="formRow">
                         <div class="grid3"><label>Video (Youtube):</label> </div>
                         <div class="grid9">http://www.youtube.com/watch?v=
-                            <input type="text" name="video_youtube" value="">
+                            <input type="text" name="video_youtube" value="" style="width: 300px;">
                         </div>
                     </div>
 
