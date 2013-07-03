@@ -92,19 +92,12 @@ if($video_youtube<>""){
 	$mostrar_video=1;
 	$tipo_video="youtube";
 	$video=$video_youtube;
+	$video_carpeta="";
 }elseif($video_youtube==""){
-	//VIDEO UPLOAD
-	if($video_upload<>""){
-		$mostrar_video=1;
-		$tipo_video="flv";
-		$video=$video_upload;
-		$video_carpeta=fechaCarpeta()."/";
-	}
-}else{
 	$mostrar_video=0;
 	$tipo_video="";
 	$video="";
-	$video_carpeta=fechaCarpeta()."/";
+	$video_carpeta="";
 }
 
 //INSERTANDO DATOS
