@@ -1,20 +1,4 @@
 <?php
-// *** You only need to configure this ***
-$bd_servidor="localhost";
-$bd_usuario="marost2_admin";
-$bd_pass="master@18073";
-$bd_basedatos="marost2_diariope_admin";
-
-$db_server=$bd_servidor;
-$db_username=$bd_usuario;
-$db_password=$bd_pass;
-$db_name=$bd_basedatos;
-// ***************************************
-
-mysql_connect($db_server, $db_username, $db_password) or die("Could not connect: " . mysql_error());
-mysql_select_db($db_name);
-
-
 // you may use any pagination system that you like, including this one, because its independent from the table,
 // but i strongly recomend the full version of creativePagerLite because it has lots of options, other types of paginations, much more flexible and it's extremely easy to use.
 function getCreativePagerLite($id,$page,$total_items,$items_per_page,$info1=true){
