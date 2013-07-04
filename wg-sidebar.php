@@ -95,6 +95,7 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHER
                 				$leido_web=$web."noticia/".$fila_leido["id"]."-".$leido_url;
                 		?>
             			<div class="cnt-agrupado">
+                            <p><?php echo $leido_visitas; ?></p>
                 			<h5><a href="<?php echo $leido_web; ?>"><?php echo $leido_titulo; ?></a></h5>
               			</div>
                   		<div class="clear"></div>

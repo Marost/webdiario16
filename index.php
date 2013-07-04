@@ -224,7 +224,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 
     <title>Diario16</title>
     <base href="<?php echo $web; ?>">
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
@@ -233,13 +233,13 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
     <script src="js/plugins.js"></script>
 
     <!-- Open Graph -->
-    <meta property="og:type" content='website'>
-    <meta property="og:site_name" content='Diario16.pe'>
-    <meta property="og:title" content='Diario16.pe'> 
-    <meta property="og:description" content=''>
-    <meta property="og:url" content='/'> 
-    <meta property="og:image" content=''>
-    <meta property="fb:admins" content='130961786950093'>
+    <meta property="og:type" content='website' />
+    <meta property="og:site_name" content='Diario16.pe' />
+    <meta property="og:title" content='Diario16.pe' />
+    <meta property="og:description" content='' />
+    <meta property="og:url" content='/' />
+    <meta property="og:image" content='' />
+    <meta property="fb:admins" content='130961786950093' />
     <!-- fin Open Graph -->
 
 </head>
@@ -279,7 +279,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
     
                 <div class="noticias"> 
                     <a href="<?php echo $notSup1_web; ?>">
-                        <img src="<?php echo $notSup1_web_img; ?>" alt="" width="310" height="174" border="0"></a>
+                        <img src="<?php echo $notSup1_web_img; ?>" alt="" width="310" height="174"></a>
                     <span class="categoria">
                         <a href="<?php echo $notSup1Cat_web; ?>"><?php echo $notSup1Cat_titulo; ?></a>
                     </span>
@@ -292,7 +292,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 
                 <div class="noticias"> 
                     <a href="<?php echo $notSup2_web; ?>">
-                        <img src="<?php echo $notSup2_web_img; ?>" alt="" width="310" height="174" border="0"></a>
+                        <img src="<?php echo $notSup2_web_img; ?>" alt="" width="310" height="174"></a>
                     <span class="categoria">
                         <a href="<?php echo $notSup2Cat_web; ?>"><?php echo $notSup2Cat_titulo; ?></a>
                     </span>
@@ -305,7 +305,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 
                 <div class="noticias"> 
                     <a href="<?php echo $notSup3_web; ?>">
-                        <img src="<?php echo $notSup3_web_img; ?>" alt="" width="310" height="174" border="0"></a>
+                        <img src="<?php echo $notSup3_web_img; ?>" alt="" width="310" height="174"></a>
                     <span class="categoria">
                         <a href="<?php echo $notSup3Cat_web; ?>"><?php echo $notSup3Cat_titulo; ?></a>
                     </span>
@@ -318,7 +318,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 
                 <div class="noticias"> 
                     <a href="<?php echo $notSup4_web; ?>">
-                        <img src="<?php echo $notSup4_web_img; ?>" alt="" width="310" height="174" border="0"></a>
+                        <img src="<?php echo $notSup4_web_img; ?>" alt="" width="310" height="174"></a>
                     <span class="categoria">
                         <a href="<?php echo $notSup4Cat_web; ?>"><?php echo $notSup4Cat_titulo; ?></a>
                     </span>
@@ -331,7 +331,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 
                 <div class="noticias"> 
                     <a href="<?php echo $notSup5_web; ?>">
-                        <img src="<?php echo $notSup5_web_img; ?>" alt="" width="310" height="174" border="0"></a>
+                        <img src="<?php echo $notSup5_web_img; ?>" alt="" width="310" height="174"></a>
                     <span class="categoria">
                         <a href="<?php echo $notSup5Cat_web; ?>"><?php echo $notSup5Cat_titulo; ?></a>
                     </span>
@@ -344,7 +344,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 
                 <div class="noticias"> 
                     <a href="<?php echo $notSup6_web; ?>">
-                        <img src="<?php echo $notSup6_web_img; ?>" alt="" width="310" height="174" border="0"></a>
+                        <img src="<?php echo $notSup6_web_img; ?>" alt="" width="310" height="174"></a>
                     <span class="categoria">
                         <a href="<?php echo $notSup6Cat_web; ?>"><?php echo $notSup6Cat_titulo; ?></a>
                     </span>
@@ -357,7 +357,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 
                 <div class="noticias"> 
                     <a href="<?php echo $notSup7_web; ?>">
-                        <img src="<?php echo $notSup7_web_img; ?>" alt="" width="310" height="174" border="0"></a>
+                        <img src="<?php echo $notSup7_web_img; ?>" alt="" width="310" height="174"></a>
                     <span class="categoria">
                         <a href="<?php echo $notSup7Cat_web; ?>"><?php echo $notSup7Cat_titulo; ?></a>
                     </span>
@@ -370,7 +370,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 
                 <div class="noticias"> 
                     <a href="<?php echo $notSup8_web; ?>">
-                        <img src="<?php echo $notSup8_web_img; ?>" alt="" width="310" height="174" border="0"></a>
+                        <img src="<?php echo $notSup8_web_img; ?>" alt="" width="310" height="174"></a>
                     <span class="categoria">
                         <a href="<?php echo $notSup8Cat_web; ?>"><?php echo $notSup8Cat_titulo; ?></a>
                     </span>
@@ -383,7 +383,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 
                 <div class="noticias"> 
                     <a href="<?php echo $notSup9_web; ?>">
-                        <img src="<?php echo $notSup9_web_img; ?>" alt="" width="310" height="174" border="0"></a>
+                        <img src="<?php echo $notSup9_web_img; ?>" alt="" width="310" height="174"></a>
                     <span class="categoria">
                         <a href="<?php echo $notSup9Cat_web; ?>"><?php echo $notSup9Cat_titulo; ?></a>
                     </span>
@@ -451,7 +451,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
                     <div class="addthis_toolbox addthis_default_style "
                         addthis:url="<?php echo $notInf_web; ?>"
                         addthis:title="<?php echo $notInf_titulo; ?>" >
-                    <a class="addthis_button_compact"></a>
+                        <a class="addthis_button_compact"></a>
                     </div>
                     <script>var addthis_config = {"data_track_addressbar":true};</script>
                     <script>var addthis_config = {"data_track_clickback": false};</script>
