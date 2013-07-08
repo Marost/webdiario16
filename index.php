@@ -251,10 +251,6 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 
     <div id="main-content">
 
-        <div class="banner-960">
-            <img src="imagenes/publicidad/banner-engadchate.jpg" width="960" height="120" alt="">
-        </div>
-                     
         <div class="destacados-noticias">
 
             <div id="not-import" class="<?php echo $notDestCat_url; ?>">
