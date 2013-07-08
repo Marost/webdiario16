@@ -21,11 +21,10 @@
     
     <div class="mails">
         <ul>
-            <li>Jefe de Publicidad: <a href="mailto:foliva@diario16.com.pe">Franco Oliva</a></li>
-            <li>Telefonos: RPM# 433599 - Central 4213883 Anexo 116</li>
-            <li>Si tienes algo que denunciar escribe a <a href="mailto:denuncias@diario16.com.pe">denuncias@diario16.com.pe</a> / 421-3883</li>
             <li>Central : 4401712 / 4212564 * <a href="mailto:prensa@diario16.com.pe">prensa@diario16.com.pe</a></li>
-            <li>Diario 16 es una publicación de SERVICIOS DE COMUNICACIONES ESPECIALIZADAS E INTEGRALES DEL PERU SAC</li>
+            <li>Si tienes algo que denunciar escribe a <a href="mailto:denuncias@diario16.com.pe">denuncias@diario16.com.pe</a> / 421-3883</li>
+            <li>Publicidad telefonos: RPM# 433599 - Central 4213883 Anexo 116</li>            
+            <li>Diario 16 es una publicación de SCEIP</li>
             <li><strong>© Copyright 2013</strong></li>
         </ul>
         <div class="clear"></div>
