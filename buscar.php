@@ -4,7 +4,7 @@ require_once("panel@diario16/conexion/funciones.php");
 
 //WIDGETS
 $wg_columnistas=true;
-$wg_leido=true;
+$wg_leido=false;
 $wg_impresa=true;
 $wg_chica16=false;
 

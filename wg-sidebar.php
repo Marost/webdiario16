@@ -1,6 +1,6 @@
 <?php
 //LO MAS LEIDO
-$rst_leido=mysql_query("SELECT * FROM dr_noticia WHERE STR_TO_DATE(fecha_publicacion, '%Y-%m-%d')=STR_TO_DATE('$fechaActual', '%Y-%m-%d') AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY visitas DESC LIMIT 5;", $conexion);
+//$rst_leido=mysql_query("SELECT * FROM dr_noticia WHERE STR_TO_DATE(fecha_publicacion, '%Y-%m-%d')=STR_TO_DATE('$fechaActual', '%Y-%m-%d') AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY visitas DESC LIMIT 5;", $conexion);
 
 //EDICION IMPRESA
 $rst_edimpresa=mysql_query("SELECT * FROM dr_portada ORDER BY id DESC LIMIT 1;", $conexion);
@@ -56,7 +56,9 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHER
                 $columSelect_webUrl=$web."columnista/".$columSelect_id."/".$columSelect_url."/".$columna_id."/".$columna_url;
         ?>
         <div class="columnistas">
-            <div class="img"><img src="<?php echo $columSelect_webImg; ?>" alt="<?php echo $nombre_completo; ?>"></div>
+            <div class="img">
+                <img src="<?php echo $columSelect_webImg; ?>" alt="<?php echo $nombre_completo; ?>" width="65" height="75" >
+            </div>
             <div class="datos">
                 <div class="nombre"><?php echo $columSelect_titulo; ?></div>
                 <div class="titulo">

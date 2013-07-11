@@ -4,7 +4,7 @@ require_once("panel@diario16/conexion/funciones.php");
 
 //WIDGETS
 $wg_columnistas=true;
-$wg_leido=true;
+$wg_leido=false;
 $wg_impresa=true;
 $wg_chica16=false;
 $wg_columselect=true;
@@ -260,7 +260,7 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
                 </div>
                 
                 <div id="notimp-img">
-                    <img src="<?php echo $notDest_web_img; ?>" alt="">
+                    <img src="<?php echo $notDest_web_img; ?>" alt="" width="480" height="220" >
                 </div>
 
                 <div id="notimp-dato">
