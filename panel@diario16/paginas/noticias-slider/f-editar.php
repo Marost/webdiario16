@@ -6,9 +6,10 @@ require_once("../../conexion/verificar_sesion.php");
 
 //VARIABLES
 $id_url=$_REQUEST["id"];
+$noticia=$_REQUEST["not"];
 
 //EDITAR
-$rst_nota=mysql_query("SELECT * FROM ".$tabla_suf."_slider WHERE id=$id_url;", $conexion);
+$rst_nota=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_slide WHERE id=$id_url;", $conexion);
 $fila_nota=mysql_fetch_array($rst_nota);
 
 //VARIABLES
@@ -39,28 +40,6 @@ $nota_imagen_carpeta=$fila_nota["imagen_carpeta"];
     
     <?php require_once("../../w-sidebarmenu.php"); ?>
     
-    <!-- Secondary nav -->
-    <div class="secNav">
-        <div class="secWrapper">
-            <div class="secTop">
-                <div class="balance">                    
-                </div>
-            </div>
-            
-            <div class="divider"><span></span></div>
-            
-            <!-- Sidebar subnav -->
-            <ul class="subNav">
-                <li><a href="../entrevistas/lista.php" title=""><span class="icos-frames"></span>Entrevistas</a></li>
-                <li><a href="lista.php" title="" class="this"><span class="icos-frames"></span>Jugadores</a></li>
-                <li><a href="../noticias/lista.php" title=""><span class="icos-frames"></span>Noticias</a></li>
-                <li><a href="../posiciones/lista.php" title=""><span class="icos-frames"></span>Posiciones</a></li>
-            </ul>
-            
-            <div class="divider"><span></span></div>
-                    
-        </div> 
-    </div>
 </div>
 <!-- Sidebar ends -->    
 	
@@ -68,7 +47,7 @@ $nota_imagen_carpeta=$fila_nota["imagen_carpeta"];
 <!-- Content begins -->
 <div id="content">
     <div class="contentTop">
-        <span class="pageTitle"><span class="icon-screen"></span>Slider</span>
+        <span class="pageTitle"><span class="icon-screen"></span>Galeria de fotos de Noticia</span>
 
     </div>
     
@@ -81,7 +60,7 @@ $nota_imagen_carpeta=$fila_nota["imagen_carpeta"];
     <!-- Main content -->
     <div class="wrapper">
 
-        <form id="submit-form" class="main" method="POST" action="s-editar.php?id=<?php echo $id_url; ?>">
+        <form id="submit-form" class="main" method="POST" action="s-editar.php?id=<?php echo $id_url; ?>&not=<?php echo $noticia; ?>">
 
             <fieldset>
                 <div class="widget fluid">

@@ -16,7 +16,7 @@ $fila_noticia=mysql_fetch_array($rst_noticia);
 $noticia_titulo=$fila_noticia["titulo"];
 
 //GALERIA DE FOTOS
-$rst_galeria=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_slider WHERE noticia=$reqId ORDER BY id DESC;", $conexion);
+$rst_galeria=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_slide WHERE noticia=$reqId ORDER BY orden ASC;", $conexion);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -26,13 +26,30 @@ $rst_galeria=mysql_query("SELECT * FROM ".$tabla_suf."_noticia_slider WHERE noti
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <title>Administrador</title>
 
+<!-- ORDENAR -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.8.5/jquery-ui.min.js"></script>
+<script type="text/javascript">
+    var jq = jQuery.noConflict();
+    jq(document).ready(function() {
+        jq("#lista-galeria").sortable({
+          handle : '.handle',
+          update : function () {
+            var order = jq('#lista-galeria').sortable('serialize');
+            var noticia = <?php echo $reqId; ?>;
+            jq("#info").load("s-ordenar.php?not="+noticia+"&"+order);
+          }
+        });
+    });
+</script>
+
 <?php require_once("../../w-scripts.php"); ?>
 
 <!-- ELIMINAR  -->
 <script type="text/javascript">
-function eliminarRegistro(registro) {
+function eliminarRegistro(registro, noticia) {
     if(confirm("¿Está seguro de borrar este registro?")) {
-        document.location.href="s-eliminar.php?id="+registro;
+        document.location.href="s-eliminar.php?id="+registro+"&not="+noticia;
     }
 }
 </script>
@@ -88,22 +105,26 @@ function eliminarRegistro(registro) {
 
         <!-- Media table sample -->
         <div class="widget">
-            <div class="whead"><h6>Noticia: <?php echo $noticia_titulo; ?></h6></div>
+            <div class="whead"><h6><?php echo $noticia_titulo; ?></h6></div>
             <div class="gallery">
-               <ul>
+               <ul id="lista-galeria">
                     <?php while($fila_galeria=mysql_fetch_array($rst_galeria)){
                             $galeria_id=$fila_galeria["id"];
                             $galeria_imagen=$fila_galeria["imagen"];
                             $galeria_imagen_carpeta=$fila_galeria["imagen_carpeta"];
                     ?>
-                    <li>
+                    <li id="listItem_<?php echo $galeria_id; ?>" class="alto">
                         <a href="javascript:;" title="">
-                            <img src="../../../imagenes/upload/<?php echo $galeria_imagen_carpeta."".$galeria_imagen; ?>" alt="" /></a>
+                            <img src="../../../imagenes/upload/<?php echo $galeria_imagen_carpeta."thumb/".$galeria_imagen; ?>" alt="" />
+                        </a>
                         <div class="actions">
-                            <a href="f-editar.php?id=<?php echo $galeria_id; ?>" title="" class="edit">
+                            <a href="f-editar.php?id=<?php echo $galeria_id; ?>&not=<?php echo $reqId; ?>" title="" class="edit">
                                 <img src="../../images/icons/update.png" alt="" /></a>
-                            <a href="s-eliminar.php?id=<?php echo $galeria_id; ?>" title="" class="remove">
+                            <a href="s-eliminar.php?id=<?php echo $galeria_id; ?>&not=<?php echo $reqId; ?>" title="" class="remove">
                                 <img src="../../images/icons/delete.png" alt="" /></a>
+                            <a href="" title="" class="move handle">
+                                <img src="../../images/icons/move.png" alt="" />
+                            </a>
                         </div>
                     </li>
                     <?php } ?>

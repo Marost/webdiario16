@@ -7,6 +7,7 @@ require_once('../../js/plugins/thumbs/ThumbLib.inc.php');
 //DECLARACION DE VARIABLES
 $id=$_REQUEST["id"];
 $nombre=$_POST["nombre"];
+$noticia=$_POST["not"];
 
 //IMAGEN
 if($_POST['uploader_0_tmpname']==""){
@@ -21,17 +22,18 @@ if($_POST['uploader_0_tmpname']==""){
 }
 
 //INSERTANDO DATOS
-$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_slider SET 
+$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_noticia_slide SET 
 	imagen='$imagen', 
-	imagen_carpeta='$imagen_carpeta' WHERE id=$id;", $conexion);
+	imagen_carpeta='$imagen_carpeta',
+	noticia=$noticia WHERE id=$id;", $conexion);
 
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();
 	mysql_close($conexion);
-	header("Location:lista.php?msj=er");
+	header("Location:lista.php?not=$noticia&msj=er");
 } else {
 	mysql_close($conexion);
-	header("Location:lista.php?msj=ok");
+	header("Location:lista.php?not=$noticia&msj=ok");
 }
 
 ?>
