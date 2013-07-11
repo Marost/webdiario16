@@ -65,6 +65,10 @@ $rst_masNota=mysql_query("SELECT * FROM dr_noticia WHERE categoria=$nota_categor
 $tags=explode(",", $nota_tags);    //SEPARACION DE ARRAY CON COMAS
 $rst_tags=mysql_query("SELECT * FROM dr_noticia_tags ORDER BY nombre ASC;", $conexion);
 
+//SLIDER
+$rst_slide=mysql_query("SELECT * FROM dr_noticia_slide WHERE noticia=$nota_id ORDER BY orden ASC;", $conexion);
+$num_slide=mysql_num_rows($rst_slide);
+
 //CONTADOR DE VISITAS
 //$rst_cont=mysql_query("UPDATE dr_noticia SET visitas=$nota_visitas+1 WHERE id=$varUrl_id;", $conexion);
 
@@ -116,7 +120,7 @@ $rst_tags=mysql_query("SELECT * FROM dr_noticia_tags ORDER BY nombre ASC;", $con
             autoScaleSlider: true, 
             autoScaleSliderWidth: 960,     
             autoScaleSliderHeight: 850,
-            loop: false,
+            loop: true,
             imageScaleMode: 'fit-if-smaller',
             navigateByClick: true,
             numImagesToPreload:2,
@@ -161,25 +165,20 @@ $rst_tags=mysql_query("SELECT * FROM dr_noticia_tags ORDER BY nombre ASC;", $con
         <div class="cnt-player">
             <?php if($nota_video_mostrar==1){ ?>
                 <?php echo tipoVideo($nota_video_tipo, $nota_video_carpeta, $nota_video, $nota_imagen, $nota_imagen_carpeta, $nota_id, 600, 374, $web); ?>
+            <?php }elseif($num_slide>0){ ?>
+                <div id="galeria-noticia" class="royalSlider rsDefault">
+                    <?php while($fila_slide=mysql_fetch_array($rst_slide)){
+                            $slide_imagen=$fila_slide["imagen"];
+                            $slide_imagen_carpeta=$fila_slide["imagen_carpeta"];
+                    ?>
+                    <a class="rsImg" href="imagenes/upload/<?php echo $slide_imagen_carpeta."".$slide_imagen; ?>">
+                        <img width="96" height="72" class="rsTmb" src="imagenes/upload/<?php echo $slide_imagen_carpeta."thumb/".$slide_imagen; ?>">
+                    </a>
+                    <?php } ?>
+                </div>
             <?php }else{ ?>
-            <img width="600" height="374" src="<?php echo $nota_web_img; ?>" alt="<?php echo $nota_titulo; ?>">
+                <img width="600" height="374" src="<?php echo $nota_web_img; ?>" alt="<?php echo $nota_titulo; ?>">
             <?php } ?>
-            
-            <!--
-            <div id="galeria-noticia" class="royalSlider rsDefault">
-                <a class="rsImg bugaga" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/1.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/1.jpg"></a>
-                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/2.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/2.jpg"></a>
-                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/3.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/3.jpg"></a>
-                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/4.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/4.jpg"></a>
-                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/5.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/5.jpg"></a>
-                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/6.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/6.jpg"></a>
-                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/7.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/7.jpg"></a>
-                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/8.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/8.jpg"></a>
-                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/9.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/9.jpg"></a>
-                <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/10.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/10.jpg"></a>
-                 <a class="rsImg" data-rsw="100%" data-rsh="400" href="../img/paintings/700x500/11.jpg"><img width="96" height="72" class="rsTmb" src="../img/paintings/t/11.jpg"></a>
-              </div>
-          -->
         </div>
 
         <div id="compartir">
