@@ -7,6 +7,7 @@ $wg_columnistas=false;
 $wg_leido=false;
 $wg_impresa=false;
 $wg_chica16=false;
+$wg_impresaAnt=true;
 
 //VARAIBLES DE URL
 $varUrl_id=$_REQUEST["id"];
@@ -57,6 +58,12 @@ $nota_webPdf=$web."pdf/".$nota_pdf_carpeta."".$nota_pdf;
     <meta property="og:image" content='<?php echo $nota_web_img; ?>' >
     <meta property="fb:admins" content='130961786950093'>
     <!-- fin Open Graph -->
+
+    <!-- CSS SELECT -->
+    <link rel="stylesheet" href="/libs/css3-form/general/light/general-light.css" />
+
+    <!-- CSS SEARCH -->
+    <link rel="stylesheet" href="/libs/css3-form/search/light/search-light.css" />
 
     <!-- POPUP -->
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
@@ -133,9 +140,9 @@ $nota_webPdf=$web."pdf/".$nota_pdf_carpeta."".$nota_pdf;
         </div>
 
 
-       <?php require_once("wg-sidebar.php"); ?>
+            <?php require_once("wg-sidebar.php"); ?>
 
-          <div class="clear"></div>
+            <div class="clear"></div>
 
         </div><!-- FIN NEWS -->
 
