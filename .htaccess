@@ -343,6 +343,7 @@ RewriteRule ^noticias$                                    /noticias.php
 RewriteRule ^noticia/([0-9]*)-(.*)$                       /nota.php?id=$1&url=$2
 RewriteRule ^seccion/([0-9]*)/(.*)$                       /categoria.php?id=$1&url=$2
 RewriteRule ^edicion/digital/([0-9]*)/$                   /edimpresa.php?id=$1
+RewriteRule ^edicion$                                     /edimpresa-anterior.php
 RewriteRule ^edicion/virtual/([0-9]*)/(.*)$               /edvirtual.php?id=$1&url=$2
 RewriteRule ^columnista/([0-9]*)/(.*)/([0-9]*)/(.*)$      /columnista-nota.php?columid=$1&columurl=$2&notaid=$3&notaurl=$2
 RewriteRule ^columnista/([0-9]*)-(.*)$                    /columnista-select.php?id=$1&url=$2
