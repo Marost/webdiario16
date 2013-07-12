@@ -1,0 +1,348 @@
+/* Micro clearfix hack */
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+
+
+input[type=submit]::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+::-webkit-input-placeholder {
+	color: #888;
+}
+
+input:-moz-placeholder {
+	color: #888;
+}
+
+.search-form {
+	position: relative;
+	display: inline-block;
+	zoom: 1; /* ie7 hack for display:inline-block */
+	*display: inline;
+}
+
+.search-form.frame {
+	padding: 7px;
+	border: 1px solid #ccc;
+	background-color: #ededed;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#d2d1d0)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #f6f6f6, #d2d1d0); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background-image:    -moz-linear-gradient(top, #f6f6f6, #d2d1d0); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top, #f6f6f6, #d2d1d0); /* IE10 */
+	background-image:      -o-linear-gradient(top, #f6f6f6, #d2d1d0); /* Opera 11.10+ */
+	background-image:         linear-gradient(top, #f6f6f6, #d2d1d0);
+	-pie-background:          linear-gradient(top, #f6f6f6, #d2d1d0); /* IE6-IE9 */
+	-moz-box-shadow:    0 1px 1px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+	box-shadow:         0 1px 1px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+	-moz-background-clip:    padding;
+	-webkit-background-clip: padding-box;
+	background-clip:         padding-box;
+	behavior: url(/libs/css3-form/PIE.htc);
+}
+
+.search-input {
+	width: 196px;
+	height: 23px;
+	padding: 6px 10px 6px 35px;
+	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: #333;
+	outline: none;
+	position: relative;
+	background: #fff url(search-dark.png) 10px center no-repeat;
+	border: 1px solid #ccc;
+	-moz-box-shadow:    inset 0 0 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.5);
+	-webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.5);
+	box-shadow:         inset 0 0 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.5);
+	-moz-background-clip:    padding;
+	-webkit-background-clip: padding-box;
+	background-clip:         padding-box;
+	behavior: url(/libs/css3-form/PIE.htc);
+}
+
+.search-btn {
+	margin-left: 3px;
+	width: 32px;
+	height: 32px;
+	color: #fff;
+	font: bold 12px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+	letter-spacing: 1px;
+	border: 1px solid #b9b9b9;	
+	outline: none;
+	cursor: pointer;
+	position: relative;
+	background-color: #666;
+    -moz-box-shadow:    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+	box-shadow:         inset 0 1px 0 rgba(255, 255, 255, 0.3);
+	-moz-background-clip:    padding;
+	-webkit-background-clip: padding-box;
+	background-clip:         padding-box;
+	behavior: url(/libs/css3-form/PIE.htc);
+}
+
+.frame.rbtn .search-btn {
+	-moz-border-radius:    32px;
+	-webkit-border-radius: 32px;
+	border-radius:         32px;
+}
+
+.noframe.rbtn .search-btn {
+	-moz-border-radius:    8px;
+	-webkit-border-radius: 8px;
+	border-radius:         8px;
+}
+
+
+/***** With Frame *****/
+
+.frame.inbtn .search-input {
+	padding-right: 45px;
+	width: 225px;
+}
+
+.frame.nobtn .search-input {
+	width: 235px;
+	padding-left: 35px;
+	background: #fff url(search-dark.png) 10px center no-repeat;
+}
+
+.frame.inbtn .search-btn {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+}
+
+
+/***** Without Frame *****/
+
+.noframe .search-input {
+	width: 245px;
+	background: #fff;
+	padding: 6px 10px;
+	-moz-box-shadow:    inset 0 0 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.5);
+	-webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.5);
+	box-shadow:         inset 0 0 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.noframe.inbtn .search-input {
+	width: 175px;
+	background: #fff;
+	padding: 7px 10px;
+	float: left;
+}
+
+.noframe.nobtn .search-input {
+	width: 152px;
+	padding-left: 35px;
+	background: #fff url(search-dark.png) 10px center no-repeat;
+	float: left;
+}
+
+.noframe.inbtn .search-btn {
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	height: 32px;
+}
+
+
+/**** Large round corners ****/
+
+.search-form.frame.rlarge, .rlarge .search-input {
+	-moz-border-radius:    28px;
+	-webkit-border-radius: 28px;
+	border-radius:         28px;
+}
+
+.frame.inbtn.rlarge .search-btn, .noframe.inbtn.rlarge .search-btn {
+	-moz-border-radius:    0 28px 28px 0;
+	-webkit-border-radius: 0 28px 28px 0;
+	border-radius:         0 28px 28px 0;
+}
+
+
+/**** Small round corners ****/
+
+.search-form.frame.rsmall, .rsmall .search-input {
+	-moz-border-radius:    8px;
+	-webkit-border-radius: 8px;
+	border-radius:         8px;
+}
+
+.frame.inbtn.rsmall .search-btn, .noframe.inbtn.rsmall .search-btn {
+	-moz-border-radius:    0 8px 8px 0;
+	-webkit-border-radius: 0 8px 8px 0;
+	border-radius:         0 8px 8px 0;
+}
+
+
+
+
+/*********** With Frame ************/
+
+/*** Light Gray ***/
+
+.search-form.frame.lgray .search-btn {
+	background-color: #a1a1a1;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#a1a1a1), to(#4c4c4c)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #a1a1a1, #4c4c4c); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background-image:    -moz-linear-gradient(top, #a1a1a1, #4c4c4c); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top, #a1a1a1, #4c4c4c); /* IE10 */
+	background-image:      -o-linear-gradient(top, #a1a1a1, #4c4c4c); /* Opera 11.10+ */
+	background-image:         linear-gradient(top, #a1a1a1, #4c4c4c);
+	-pie-background:          linear-gradient(top, #a1a1a1, #4c4c4c); /* IE6-IE9 */	
+}
+
+
+
+/*** Light Blue ***/
+
+.search-form.frame.lblue .search-btn {	
+	background-color: #1d83e2;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#86bdf0), to(#1560a6)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #86bdf0, #1560a6); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background-image:    -moz-linear-gradient(top, #86bdf0, #1560a6); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top, #86bdf0, #1560a6); /* IE10 */
+	background-image:      -o-linear-gradient(top, #86bdf0, #1560a6); /* Opera 11.10+ */
+	background-image:         linear-gradient(top, #86bdf0, #1560a6);
+	-pie-background:          linear-gradient(top, #86bdf0, #1560a6); /* IE6-IE9 */	
+}
+
+
+
+/*** Light Green ***/
+
+.search-form.frame.lgreen .search-btn {	
+	background-color: #659131;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#a9d277), to(#547728)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #a9d277, #547728); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background-image:    -moz-linear-gradient(top, #a9d277, #547728); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top, #a9d277, #547728); /* IE10 */
+	background-image:      -o-linear-gradient(top, #a9d277, #547728); /* Opera 11.10+ */
+	background-image:         linear-gradient(top, #a9d277, #547728);
+	-pie-background:          linear-gradient(top, #a9d277, #547728); /* IE6-IE9 */	
+}
+
+
+
+/*** Light Purple ***/
+
+.search-form.frame.lpurple .search-btn {	
+	background-color: #b7a7c8;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#b7a7c8), to(#72588f)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #b7a7c8, #72588f); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background-image:    -moz-linear-gradient(top, #b7a7c8, #72588f); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top, #b7a7c8, #72588f); /* IE10 */
+	background-image:      -o-linear-gradient(top, #b7a7c8, #72588f); /* Opera 11.10+ */
+	background-image:         linear-gradient(top, #b7a7c8, #72588f);
+	-pie-background:          linear-gradient(top, #b7a7c8, #72588f); /* IE6-IE9 */	
+}
+
+
+
+/*** Light Brown ***/
+
+.search-form.frame.lbrown .search-btn {	
+	background-color: #eeb184;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#eeb184), to(#ce681c)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #eeb184, #ce681c); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background-image:    -moz-linear-gradient(top, #eeb184, #ce681c); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top, #eeb184, #ce681c); /* IE10 */
+	background-image:      -o-linear-gradient(top, #eeb184, #ce681c); /* Opera 11.10+ */
+	background-image:         linear-gradient(top, #eeb184, #ce681c);
+	-pie-background:          linear-gradient(top, #eeb184, #ce681c); /* IE6-IE9 */	
+}
+
+
+
+
+
+/*********** Without Frame ************/
+
+/*** Light Gray ***/
+
+.noframe.lgray .search-btn {
+	background-color: #f6f6f6;
+	background: url(search-light.png) center center no-repeat, -webkit-gradient(linear, left top, left bottom, from(#a1a1a1), to(#4c4c4c)); /* Saf4+, Chrome */
+	background: url(search-light.png) center center no-repeat, -webkit-linear-gradient(top, #a1a1a1, #4c4c4c); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background: url(search-light.png) center center no-repeat,    -moz-linear-gradient(top, #a1a1a1, #4c4c4c); /* FF3.6 */
+	background: url(search-light.png) center center no-repeat,     -ms-linear-gradient(top, #a1a1a1, #4c4c4c); /* IE10 */
+	background: url(search-light.png) center center no-repeat,      -o-linear-gradient(top, #a1a1a1, #4c4c4c); /* Opera 11.10+ */
+	background: url(search-light.png) center center no-repeat,         linear-gradient(top, #a1a1a1, #4c4c4c);
+	-pie-background: url(search-light.png) center center no-repeat,    linear-gradient(top, #a1a1a1, #4c4c4c); /* IE6-IE9 */	
+}
+
+
+
+/*** Light Blue ***/
+
+.noframe.lblue .search-btn {
+	background-color: #f2f9fe;
+	background: url(search-light.png) center center no-repeat, -webkit-gradient(linear, left top, left bottom, from(#86bdf0), to(#1560a6)); /* Saf4+, Chrome */
+	background: url(search-light.png) center center no-repeat, -webkit-linear-gradient(top, #86bdf0, #1560a6); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background: url(search-light.png) center center no-repeat,    -moz-linear-gradient(top, #86bdf0, #1560a6); /* FF3.6 */
+	background: url(search-light.png) center center no-repeat,     -ms-linear-gradient(top, #86bdf0, #1560a6); /* IE10 */
+	background: url(search-light.png) center center no-repeat,      -o-linear-gradient(top, #86bdf0, #1560a6); /* Opera 11.10+ */
+	background: url(search-light.png) center center no-repeat,         linear-gradient(top, #86bdf0, #1560a6);
+	-pie-background: url(search-light.png) center center no-repeat,    linear-gradient(top, #86bdf0, #1560a6); /* IE6-IE9 */
+}
+
+
+
+/*** Light Green ***/
+
+.noframe.lgreen .search-btn {
+	background-color: #659131;
+	background: url(search-light.png) center center no-repeat, -webkit-gradient(linear, left top, left bottom, from(#a9d277), to(#547728)); /* Saf4+, Chrome */
+	background: url(search-light.png) center center no-repeat, -webkit-linear-gradient(top, #a9d277, #547728); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background: url(search-light.png) center center no-repeat,    -moz-linear-gradient(top, #a9d277, #547728); /* FF3.6 */
+	background: url(search-light.png) center center no-repeat,     -ms-linear-gradient(top, #a9d277, #547728); /* IE10 */
+	background: url(search-light.png) center center no-repeat,      -o-linear-gradient(top, #a9d277, #547728); /* Opera 11.10+ */
+	background: url(search-light.png) center center no-repeat,         linear-gradient(top, #a9d277, #547728);
+	-pie-background: url(search-light.png) center center no-repeat,    linear-gradient(top, #a9d277, #547728); /* IE6-IE9 */	
+}
+
+
+
+/*** Light Purple ***/
+
+.noframe.lpurple .search-btn {
+	background-color: #b7a7c8;
+	background: url(search-light.png) center center no-repeat, -webkit-gradient(linear, left top, left bottom, from(#b7a7c8), to(#72588f)); /* Saf4+, Chrome */
+	background: url(search-light.png) center center no-repeat, -webkit-linear-gradient(top, #b7a7c8, #72588f); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background: url(search-light.png) center center no-repeat,    -moz-linear-gradient(top, #b7a7c8, #72588f); /* FF3.6 */
+	background: url(search-light.png) center center no-repeat,     -ms-linear-gradient(top, #b7a7c8, #72588f); /* IE10 */
+	background: url(search-light.png) center center no-repeat,      -o-linear-gradient(top, #b7a7c8, #72588f); /* Opera 11.10+ */
+	background: url(search-light.png) center center no-repeat,         linear-gradient(top, #b7a7c8, #72588f);
+	-pie-background: url(search-light.png) center center no-repeat,    linear-gradient(top, #b7a7c8, #72588f); /* IE6-IE9 */	
+}
+
+
+
+/*** Light Brown ***/
+
+.noframe.lbrown .search-btn {
+	background-color: #eeb184;
+	background: url(search-light.png) center center no-repeat, -webkit-gradient(linear, left top, left bottom, from(#eeb184), to(#ce681c)); /* Saf4+, Chrome */
+	background: url(search-light.png) center center no-repeat, -webkit-linear-gradient(top, #eeb184, #ce681c); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background: url(search-light.png) center center no-repeat,    -moz-linear-gradient(top, #eeb184, #ce681c); /* FF3.6 */
+	background: url(search-light.png) center center no-repeat,     -ms-linear-gradient(top, #eeb184, #ce681c); /* IE10 */
+	background: url(search-light.png) center center no-repeat,      -o-linear-gradient(top, #eeb184, #ce681c); /* Opera 11.10+ */
+	background: url(search-light.png) center center no-repeat,         linear-gradient(top, #eeb184, #ce681c);
+	-pie-background: url(search-light.png) center center no-repeat,    linear-gradient(top, #eeb184, #ce681c); /* IE6-IE9 */		
+}
