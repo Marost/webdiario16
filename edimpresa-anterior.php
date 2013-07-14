@@ -13,8 +13,10 @@ $wg_impresaAnt=true;
 $varUrl_anio=$_REQUEST["anio"];
 $varUrl_mes=$_REQUEST["mes"];
 
-//NOTICIA DESTACADA
-$rst_nota=mysql_query("SELECT * FROM dr_portada WHERE anio=$varUrl_anio AND numero_mes=$varUrl_mes ORDER BY fecha ASC;", $conexion);
+if($varUrl_anio<>"" and $varUrl_mes<>""){
+    //NOTICIA DESTACADA
+    $rst_nota=mysql_query("SELECT * FROM dr_portada WHERE anio=$varUrl_anio AND numero_mes=$varUrl_mes ORDER BY fecha ASC;", $conexion);
+}
 
 ?>
 <!DOCTYPE html>
@@ -50,14 +52,18 @@ $rst_nota=mysql_query("SELECT * FROM dr_portada WHERE anio=$varUrl_anio AND nume
 <div class="container">
       
         <div id="news" class="news">
-        
+            
+            <?php if($varUrl_anio<>"" and $varUrl_mes<>""){ ?>
             <span class="time-pdf">
                 <em class="fecha">
-                    <?php echo nombreMes($varUrl_mes); ?> del <?php echo $varUrl_anio; ?>
+                    <?php echo nombreMesSC($varUrl_mes); ?> del <?php echo $varUrl_anio; ?>
                 </em>
             </span>
+            <?php } ?>
 
             <div class="cnt-player">
+                
+                <?php if($varUrl_anio<>"" and $varUrl_mes<>""){ ?>
                 
                 <ul>
                     <?php while($fila_nota=mysql_fetch_array($rst_nota)){
@@ -70,11 +76,16 @@ $rst_nota=mysql_query("SELECT * FROM dr_portada WHERE anio=$varUrl_anio AND nume
                             $nota_web=$web."edicion/digital/".$nota_id."/";
                     ?>
                     <li><a href="<?php echo $nota_web; ?>">
-                        <img src="<?php echo $nota_webImg; ?>" alt="" width="120" height="130">
+                        <img src="<?php echo $nota_webImg; ?>" alt="" width="170" height="185">
                         <?php echo $nota_fecha[2]; ?>
                     </a></li>
                     <?php } ?>
                 </ul>
+
+                <?php }else{ ?>
+                    <h1>No se encontró ningún registro.</h1>
+                    <h1>Seleccionar correctamente el Año y Mes.</h1>
+                <?php } ?>
 
             </div>
 
