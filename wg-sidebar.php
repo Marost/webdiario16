@@ -80,6 +80,35 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHER
 
     </div>
     <!-- FIN TWITTER -->
+    
+    <?php if($wg_pubjc==true){ ?>
+    <!-- BANNER 310 -->
+    <div class="banner-310">
+        
+        <script type="text/javascript"><!--
+            google_ad_client = "ca-pub-6739008060658295";
+            /* Diario16 - Sidebar */
+            google_ad_slot = "8872927055";
+            google_ad_width = 300;
+            google_ad_height = 250;
+            //-->
+        </script>
+
+        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+
+    </div>
+    <!-- FIN BANNER 310 -->
+    <?php } ?>
+
+    <?php if($wg_pubdr==true){ ?>
+    <!-- BANNER 310 -->
+    <div class="banner-310">
+        
+        
+
+    </div>
+    <!-- FIN BANNER 310 -->
+    <?php } ?>
 
     <?php if($wg_columnistas==true){ ?>
     <!-- COLUMNISTAS -->
