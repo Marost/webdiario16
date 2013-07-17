@@ -8,6 +8,7 @@ $wg_leido=false;
 $wg_impresa=true;
 $wg_chica16=false;
 $wg_columselect=true;
+$wg_pubdr=true;
 
 //NOTICIA DESTACADA
 $rst_not_dest=mysql_query("SELECT * FROM dr_noticia WHERE destacada=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
@@ -246,6 +247,21 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 <body id="home">
 
     <?php require_once("wg-header.php"); ?>
+
+    <div class="banner-960">
+        
+        <script type="text/javascript"><!--
+            google_ad_client = "ca-pub-7924813715800154";
+            /* Diario16 - Superior */
+            google_ad_slot = "1125713225";
+            google_ad_width = 728;
+            google_ad_height = 90;
+            //-->
+        </script>
+        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+
+    </div>
 
     <div class="container">
 
