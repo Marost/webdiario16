@@ -262,5 +262,24 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHER
 
     </div>
     <!-- FIN FACEBOOK -->
+
+    <?php if($wg_pubdr==true){ ?>
+    <!-- BANNER 310 -->
+    <div class="banner-310">
+        
+        <script type="text/javascript"><!--
+            google_ad_client = "ca-pub-7924813715800154";
+            /* Diario16 - Sidebar */
+            google_ad_slot = "2602446426";
+            google_ad_width = 300;
+            google_ad_height = 250;
+            //-->
+        </script>
+        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+
+    </div>
+    <!-- FIN BANNER 310 -->
+    <?php } ?>
               
 </div><!-- FIN SIDEBAR -->

@@ -221,7 +221,8 @@ $num_slide=mysql_num_rows($rst_slide);
                 <?php echo $nota_contenido; ?>
             </div>
         </div><!-- FIN NOTA CONTENIDO -->
-
+        
+        <!-- BANNER 600 -->
         <div class="banner-600">
             
             <script type="text/javascript"><!--
@@ -235,6 +236,7 @@ $num_slide=mysql_num_rows($rst_slide);
             <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
 
         </div>
+        <!-- FIN BANNER 600 -->
 
         <div class="clear"></div>
 
@@ -269,8 +271,9 @@ $num_slide=mysql_num_rows($rst_slide);
             </div><!-- FIN RELACIONADAS -->
 
             <div id="comentarios">
+
                 <div id="disqus_thread"></div>
-                <script>
+                <script type="text/javascript">
                     var disqus_shortname = 'diario16';
                     (function() {
                         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -279,6 +282,7 @@ $num_slide=mysql_num_rows($rst_slide);
                     })();
                 </script>
                 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
             </div>                    
 
         </div>

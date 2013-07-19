@@ -7,6 +7,7 @@ $wg_columnistas=false;
 $wg_leido=false;
 $wg_impresa=true;
 $wg_chica16=false;
+$wg_pubjc=true;
 
 //VARAIBLES DE URL
 $varUrl_id=$_REQUEST["columid"];
@@ -79,6 +80,22 @@ $rst_masNota=mysql_query("SELECT * FROM dr_columnista_columna WHERE columnista=$
 
     <?php require_once("wg-header.php"); ?>
 
+    <!-- BANNER 960 -->
+    <div class="banner-960">
+        
+        <script type="text/javascript"><!--
+            google_ad_client = "ca-pub-6739008060658295";
+            /* Diario16 - Superior */
+            google_ad_slot = "7396193858";
+            google_ad_width = 728;
+            google_ad_height = 90;
+            //-->
+        </script>
+
+        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+
+    </div>
+    <!-- FIN BANNER 960 -->
 
 <div class="container">
       
@@ -118,6 +135,22 @@ $rst_masNota=mysql_query("SELECT * FROM dr_columnista_columna WHERE columnista=$
                 <?php echo $nota_contenido; ?>
             </div>
         </div><!-- FIN NOTA CONTENIDO -->
+
+        <!-- BANNER 600 -->
+        <div class="banner-600">
+            
+            <script type="text/javascript"><!--
+                google_ad_client = "ca-pub-6739008060658295";
+                /* Diario16 - Inferior */
+                google_ad_slot = "2826393459";
+                google_ad_width = 336;
+                google_ad_height = 280;
+                //-->
+            </script>
+            <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+
+        </div>
+        <!-- FIN BANNER 600 -->
 
         <div class="clear"></div>
 
