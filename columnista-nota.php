@@ -84,14 +84,12 @@ $rst_masNota=mysql_query("SELECT * FROM dr_columnista_columna WHERE columnista=$
     <div class="banner-960">
         
         <script type="text/javascript"><!--
-            google_ad_client = "ca-pub-6739008060658295";
-            /* Diario16 - Superior */
-            google_ad_slot = "7396193858";
+            google_ad_client = "ca-pub-3674889010429322";
+            google_ad_slot = "9852204348";
             google_ad_width = 728;
             google_ad_height = 90;
             //-->
         </script>
-
         <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
 
     </div>
