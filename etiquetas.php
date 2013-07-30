@@ -12,7 +12,7 @@ $wg_chica16=false;
 $reqId=$_REQUEST["id"];
 $reqUrl=$_REQUEST["url"];
 
-$url_web=$web."tags/".$reqId."-".$reqUrl;
+$url_web=$web."tag/".$reqId."-".$reqUrl;
 
 //TAGS
 $rst_notinf_tags=mysql_query("SELECT * FROM dr_noticia_tags WHERE id=$reqId", $conexion);
@@ -29,7 +29,7 @@ $page = (isset($_GET['page'])) ? intval($_GET['page']) : 1;
 $rst_not_inf        = mysql_query("SELECT COUNT(*) as count FROM dr_noticia WHERE tags LIKE '%,$reqId,%' AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC", $conexion);
 $fila_not_inf       = mysql_fetch_assoc($rst_not_inf);
 $generated      = intval($fila_not_inf['count']);
-$pagination     = new Pagination("10", $generated, $page, $url_web."?page", 1, 0);
+$pagination     = new Pagination("10", $generated, $page, $url_web."&page", 1, 0);
 $start          = $pagination->prePagination();
 $rst_not_inf        = mysql_query("SELECT * FROM dr_noticia WHERE tags LIKE '%,$reqId,%' AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT $start, 10", $conexion);
 
