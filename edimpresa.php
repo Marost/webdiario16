@@ -152,5 +152,7 @@ $nota_webPdf=$web."pdf/".$nota_pdf_carpeta."".$nota_pdf;
 
 <script src="//assets.pinterest.com/js/pinit.js"></script>
 
+<script src='http://ads60251.hotwords.com/show.jsp?id=60251&cor=FF0000&tag=div&atr=id&vatr=textonota'></script>
+
 </body>
 </html>

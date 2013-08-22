@@ -300,5 +300,7 @@ $num_slide=mysql_num_rows($rst_slide);
 
 <script src="//assets.pinterest.com/js/pinit.js"></script>
 
+<script src='http://ads60251.hotwords.com/show.jsp?id=60251&cor=FF0000&tag=div&atr=id&vatr=textonota'></script>
+
 </body>
 </html>

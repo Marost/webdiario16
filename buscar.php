@@ -155,6 +155,8 @@ if ($urlBuscar==""){
     </div>
 
     <?php require_once("wg-footer.php"); ?>
+
+    <script src='http://ads60251.hotwords.com/show.jsp?id=60251&cor=FF0000&tag=div&atr=id&vatr=textonota'></script>
     
 </body>
 

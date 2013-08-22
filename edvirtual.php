@@ -38,5 +38,7 @@ if($num_query==0){header("Location: $web");}
   }else{
     echo $fila_query["revista"];
   } ?>
+
+<script src='http://ads60251.hotwords.com/show.jsp?id=60251&cor=FF0000&tag=div&atr=id&vatr=textonota'></script>
 </body>
 </html>
