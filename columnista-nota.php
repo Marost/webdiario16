@@ -168,6 +168,7 @@ $rst_masNota=mysql_query("SELECT * FROM dr_columnista_columna WHERE columnista=$
             </ul>
         </div><!-- FIN RELACIONADAS -->
 
+        <?php if($varUrl_id<>38){ ?>
         <div id="comentarios">
             <div id="disqus_thread"></div>
             <script>
@@ -179,7 +180,8 @@ $rst_masNota=mysql_query("SELECT * FROM dr_columnista_columna WHERE columnista=$
                 })();
             </script>
             <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        </div>                    
+        </div>
+        <?php } ?>
 
     </div>
 
