@@ -20,8 +20,8 @@ include("../conexion/funciones.php");
 	// Settings
 	$targetDir = "../../imagenes/upload/".fechaCarpeta();
 	$targetDirThumb = "../../imagenes/upload/".fechaCarpeta()."/thumb";
-	$cleanupTargetDir = false; // Remove old files
-	$maxFileAge = 60 * 60; // Temp file age in seconds
+	//$cleanupTargetDir = false; // Remove old files
+	//$maxFileAge = 60 * 60; // Temp file age in seconds
 
 	// 5 minutes execution time
 	@set_time_limit(5 * 60);
@@ -52,11 +52,12 @@ include("../conexion/funciones.php");
 
 	// Create target dir
 	if (!file_exists($targetDir) or !file_exists($targetDirThumb)){
-		@mkdir($targetDir, 0777);
-		@mkdir($targetDirThumb, 0777);
+		@mkdir($targetDir, 0755);
+		@mkdir($targetDirThumb, 0755);
 	}
 
 	// Remove old temp files
+	/*
 	if (is_dir($targetDir) && ($dir = opendir($targetDir))) {
 		while (($file = readdir($dir)) !== false) {
 			$filePath = $targetDir . DIRECTORY_SEPARATOR . $file;
@@ -69,6 +70,7 @@ include("../conexion/funciones.php");
 		closedir($dir);
 	} else
 		die('{"jsonrpc" : "2.0", "error" : {"code": 100, "message": "Failed to open temp directory."}, "id" : "id"}');
+	*/
 
 	// Look for the content type header
 	if (isset($_SERVER["HTTP_CONTENT_TYPE"]))
