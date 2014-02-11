@@ -11,6 +11,7 @@
         <li><a href="<?php echo $url_admin; ?>paginas/noticias-seccion/lista.php" title=""><span class="icos-frames"></span>Noticias - Secciones</a></li>
         <li><a href="<?php echo $url_admin; ?>paginas/columnistas/lista.php" title="" ><span class="icos-frames"></span>Columnistas</a></li>
         <li><a href="<?php echo $url_admin; ?>paginas/portada/lista.php" title=""><span class="icos-frames"></span>Edición Impresa</a></li>
+        <li><a href="<?php echo $url_admin; ?>paginas/blog/lista.php" title=""><span class="icos-frames"></span>Blog</a></li>
         <li><a href="<?php echo $url_admin; ?>paginas/usuarios/lista.php" title=""><span class="icos-frames"></span>Usuarios</a></li>
     </ul>
 
