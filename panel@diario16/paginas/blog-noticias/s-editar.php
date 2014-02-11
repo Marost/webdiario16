@@ -19,7 +19,8 @@ $fecha_publicacion=$pub_fecha." ".$pub_hora;
 if ($_POST["publicar"]<>""){ $publicar=$_POST["publicar"]; }else{ $publicar=0; }
 
 //INSERTANDO DATOS
-$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_blog SET url='$url', titulo='".htmlspecialchars($titulo)."', 
+$rst_guardar=mysql_query("UPDATE ".$tabla_suf."_blog_noticias SET url='$url', 
+	titulo='".htmlspecialchars($titulo)."', 
 	enlace='$enlace',
 	fecha_publicacion='$fecha_publicacion', 
 	publicar=$publicar WHERE id=$nota_id;", $conexion);

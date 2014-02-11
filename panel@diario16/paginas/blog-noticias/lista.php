@@ -27,7 +27,7 @@ include_once('../../js/plugins/creative_table/creativeTable.php');
 $ct=new CreativeTable();
 
 // Data Gathering
-$params['sql_query']                = "SELECT id,titulo FROM ".$tabla_suf."_blog_noticias ORDER BY titulo DESC, id DESC";
+$params['sql_query']                = "SELECT id,titulo FROM ".$tabla_suf."_blog_noticias WHERE blog=$reqId ORDER BY titulo DESC, id DESC";
 //$params['search']                   = $search;
 $params['multiple_search']          = $multiple_search;
 $params['items_per_page']           = $items_per_page;
