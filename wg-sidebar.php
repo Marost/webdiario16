@@ -25,6 +25,9 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHER
 }elseif(date("N")==6){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHERE dia_sabado=1 AND publicar=1 ORDER BY id ASC;", $conexion);
 }elseif(date("N")==7){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHERE dia_domingo=1 AND publicar=1 ORDER BY id ASC;", $conexion);}
 
+//BLOG
+$rst_blog=mysql_query("SELECT * FROM dr_blog ORDER BY titulo ASC;", $conexion);
+
 ?>
 <div id="columnr" class="sidebar last">
 
@@ -172,6 +175,47 @@ if(date("N")==1){ $rst_columselect=mysql_query("SELECT * FROM dr_columnista WHER
     </div>
     <!-- FIN COLUMNISTAS -->
     <?php } ?>
+
+
+    <?php if($wg_blog==true){ ?>
+    <!-- BLOG-->
+    <div class="cnt-impresa-d">
+        <h4>Blog</h4>
+
+        <?php while($fila_blog=mysql_fetch_array($rst_blog)){
+                $blog_id=$fila_blog["id"];
+                $blog_url=$fila_blog["enlace"];
+                $blog_titulo=$fila_blog["titulo"];
+                
+                //COLUMNA
+                $rst_blogNota=mysql_query("SELECT * FROM dr_blog_noticias WHERE blog=$blog_id ORDER BY fecha_publicacion DESC LIMIT 1;", $conexion);
+                $fila_blogNota=mysql_fetch_array($rst_blogNota);
+
+                //VARIABLES
+                $blogNota_url=$fila_blogNota["enlace"];
+                $blogNota_titulo=$fila_blogNota["titulo"];
+
+        ?>
+        <div class="columnistas">
+            <div class="img">
+                <img src="" alt="<?php echo $blog_titulo; ?>" width="65" height="75" >
+            </div>
+            <div class="datos">
+                <div class="nombre"><?php echo $blog_titulo; ?></div>
+                <div class="titulo">
+                    <h2><a href="<?php echo $blogNota_url; ?>">
+                        <?php echo $blogNota_titulo; ?></a></h2></div>
+            </div>
+        </div>
+        <?php } ?>
+      
+        <!-- <div class="boton">
+            <a href="columnistas">Ver Columnistas</a>
+        </div> -->
+    </div>
+    <!-- FIN BLOG-->
+    <?php } ?>
+
     
     <?php if($wg_leido==true){ ?>
     <div id="cnt-opt-tabs">
