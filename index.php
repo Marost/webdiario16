@@ -9,7 +9,7 @@ $wg_impresa=true;
 $wg_chica16=false;
 $wg_columselect=true;
 $wg_pubdr=true;
-$wg_blog=true;
+$wg_blog=false;
 
 //NOTICIA DESTACADA
 $rst_not_dest=mysql_query("SELECT * FROM dr_noticia WHERE destacada=1 AND publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 1", $conexion);
@@ -272,10 +272,6 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 
             <div id="not-import" class="<?php echo $notDestCat_url; ?>">
 
-                <div id="notimp-img-trans">
-                  <img src="imagenes/fondo-notdest-trans.png" width="480" height="220" alt="Imagen">
-                </div>
-                
                 <div id="notimp-img">
                     <img src="<?php echo $notDest_web_img; ?>" alt="" width="480" height="220" >
                 </div>
