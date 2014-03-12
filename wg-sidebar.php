@@ -96,8 +96,8 @@ $rst_blog=mysql_query("SELECT * FROM dr_blog ORDER BY titulo ASC;", $conexion);
     <!-- TWITTER -->
     <div class="cnt-impresa-d nobck nomrg">
 
-        <a class="twitter-timeline" href="https://twitter.com/Diario16" data-widget-id="351410571381440512">Tweets por @Diario16</a> 
-
+        <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/Diario16" data-widget-id="351410571381440512">Tweets por @Diario16</a>
+        
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
     </div>
