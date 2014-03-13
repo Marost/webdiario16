@@ -102,6 +102,7 @@ $nota_pub_hora=$nota_fecha_pub[1];
                         <div class="body" align="center">
                             <a href="lista.php" class="buttonL bBlack">Cancelar</a>
                             <input type="submit" class="buttonL bGreen" name="btn-guardar" value="Guardar datos">
+                            <input type="hidden" name="blog" value="<?php echo $reqId; ?>" />
                         </div>
                     </div>
                     

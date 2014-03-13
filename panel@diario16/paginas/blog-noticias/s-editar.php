@@ -9,6 +9,7 @@ $nota_id=$_REQUEST["id"];
 $titulo=$_POST["titulo"];
 $url=getUrlAmigable(eliminarTextoURL($titulo));
 $enlace=$_POST["enlace"];
+$blog=$_POST["blog"];
 
 //FECHA Y HORA
 $pub_fecha=$_POST["pub_fecha"];
@@ -28,10 +29,10 @@ $rst_guardar=mysql_query("UPDATE ".$tabla_suf."_blog_noticias SET url='$url',
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();
 	mysql_close($conexion);
-	header("Location:lista.php?msj=er");
+	header("Location:lista.php?msj=er&not=$blog");
 } else {
 	mysql_close($conexion);
-	header("Location:lista.php?msj=ok");
+	header("Location:lista.php?msj=ok&not=$blog");
 }
 
 ?>
