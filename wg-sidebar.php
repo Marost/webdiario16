@@ -197,9 +197,11 @@ $rst_blog=mysql_query("SELECT * FROM dr_blog ORDER BY titulo ASC;", $conexion);
 
         ?>
         <div class="columnistas">
+            <!--
             <div class="img">
-                <img src="" alt="<?php echo $blog_titulo; ?>" width="65" height="75" >
+                <img src="" alt="?php echo $blog_titulo; ?>" width="65" height="75" >
             </div>
+            -->
             <div class="datos">
                 <div class="nombre"><?php echo $blog_titulo; ?></div>
                 <div class="titulo">
