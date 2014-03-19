@@ -512,3 +512,11 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 <IfModule mod_php5.c>
   php_value session.cookie_httponly true
 </IfModule>
+
+#Sitio para moviles
+
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{HTTP_USER_AGENT} android|avantgo|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|o​d)|iris|kindle|lge\ |maemo|midp|mmp|opera\ m(ob|in)i|palm(\ os)?|phone|p(ixi|re)\/|plucker|pocket|psp|symbian|treo|up\.(browser|link)|vodafone|wap|windows\ (ce|phone)|xda|xiino [NC]
+RewriteRule ^$ http://diario16.marostsac.com/movil [R,L]
