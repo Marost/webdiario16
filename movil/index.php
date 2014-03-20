@@ -21,7 +21,7 @@ $notDest_web=$web."noticia/".$notDest_id."-".$notDest_url;
 $notDest_web_img=$web."imagenes/upload/".$notDest_imagen_carpeta."thumb/".$notDest_imagen;
 
 //NOTICIAS
-$rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 20", $conexion);
+$rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_publicacion<='$fechaActual' ORDER BY fecha_publicacion DESC, id DESC LIMIT 12", $conexion);
 
 ?>
 <!DOCTYPE html>
@@ -142,20 +142,18 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 	            ?>
 	            <div class="box-note wmedia">
 
+	            	<div class="media-type left">
+	                    <a href="<?php echo $notInf_web; ?>">
+	                        <img src="<?php echo $notInf_web_img; ?>" alt="" width="40%">
+	                    </a>
+	                </div>
+
 	                <span class="time-cat">
 	                    <em class="time"><?php echo $notInf_fecha; ?></em>
 	                    <em class="categoria">
 	                      <a href="<?php echo $notInfCat_web; ?>"><?php echo $notInfCat_titulo; ?></a>
 	                    </em>
-	                </span>
-
-	                <div class="clear"></div>
-	        
-	                <div class="media-type left">
-	                    <a href="<?php echo $notInf_web; ?>">
-	                        <img src="<?php echo $notInf_web_img; ?>" alt="" width="50%">
-	                    </a>
-	                </div>
+	                </span>        
 	        
 	                <h2><a href="<?php echo $notInf_web; ?>">
 	                  <?php echo $notInf_titulo; ?></a></h2>
