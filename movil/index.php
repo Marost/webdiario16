@@ -144,21 +144,19 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 
 	            	<div class="media-type left">
 	                    <a href="<?php echo $notInf_web; ?>">
-	                        <img src="<?php echo $notInf_web_img; ?>" alt="" width="40%">
+	                        <img src="<?php echo $notInf_web_img; ?>" alt="" width="100%">
 	                    </a>
 	                </div>
 
-	                <span class="time-cat">
-	                    <em class="time"><?php echo $notInf_fecha; ?></em>
+	                <div class="titulo-time-cat">
+	                    <em class="time"><?php echo $notInf_fecha; ?> -</em>
 	                    <em class="categoria">
 	                      <a href="<?php echo $notInfCat_web; ?>"><?php echo $notInfCat_titulo; ?></a>
 	                    </em>
-	                </span>        
-	        
-	                <h2><a href="<?php echo $notInf_web; ?>">
-	                  <?php echo $notInf_titulo; ?></a></h2>
-	                	
-	                <div class="clear"></div>
+	                    <h2>
+	                    	<a href="<?php echo $notInf_web; ?>"><?php echo $notInf_titulo; ?></a>
+		                </h2>
+	                </div>
 
 	            </div><!-- FIN FLUJO -->
 	            <?php } ?>
