@@ -264,6 +264,10 @@ $rst_not_inf=mysql_query("SELECT * FROM dr_noticia WHERE publicar=1 AND fecha_pu
 
     </div>
 
+    <div class="banner-960">
+        <h1><a href="publicidad-precios.php">PUBLICIDAD PARA EDICION IMPRESA</a></h1>
+    </div>
+
     <div class="container">
 
     <div id="main-content">
