@@ -1,3 +1,18 @@
+<?php
+session_start();
+require_once("conexion/conexion.php");
+require_once("conexion/funciones.php");
+require_once("conexion/verificar_sesion.php");
+
+//VARIABLES
+$Rq_Msj=$_REQUEST["msj"];
+$Rq_Usuario=$usuario_user;
+
+//PUBLICIDAD DEL USUARIOS LOGEADO
+$rst_notas=mysql_query("SELECT * FROM ".$tabla_suf."_pei_publicidad WHERE usuario='$Rq_Usuario' ORDER BY fecha_publicacion DESC", $conexion);
+
+
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html dir="ltr" lang="en-US" class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
 <!--[if IE 7]>    <html dir="ltr" lang="en-US" class="no-js ie7 lt-ie9 lt-ie8"> <![endif]-->
@@ -10,7 +25,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Pinfinity Home</title>
+    <title>Publicidad en edición impresa</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic|Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
@@ -23,25 +38,8 @@
 </head>
 
 <body>
-<header id="header">
 
-    <div id="site-head">
-        <div class="wrap group">
-            <hgroup class="logo">
-                <h1><a href="index.php"><img src="images/logo.png" alt=""></a></h1>
-            </hgroup>
-        </div><!-- .wrap < #header -->
-    </div><!-- #site-head -->
-
-    <nav>
-        <div class="wrap group">
-            <ul id="navigation" class="group">
-                <li class="current_page_item"><a href="index.php">Inicio</a></li>
-                <li><a href="contact.php">Nueva publicidad</a></li>
-            </ul>
-        </div><!-- .wrap < nav -->
-    </nav>
-</header>
+<?php require_once("w-header.php"); ?>
 
 <div id="page">
     <section id="main">
@@ -49,50 +47,22 @@
             <div id="box-container">
                 <div id="entry-listing" class="group">
 
-
+                    <?php while($fila_notas=mysql_fetch_array($rst_notas)){
+                            $Nota_titulo=$fila_notas["titulo"];
+                            $Nota_contenido=$fila_notas["contenido"];
+                    ?>
                     <article id="post-189" class="post-189 category-blog-posts entry box format-standard">
                         <div class="entry-content-cnt">
                             <div class="entry-content">
-                                <a href="#" title="Permalink to A blog post with a featured image."></a>
-                                <p>Let&#8217;s light this fire one more time, Mike, and witness this great nation at its best. The surface is fine and powdery. I can kick it up loosely with my toe. It does adhere in fine layers, like powdered charcoal, to the sole and sides of my boots. I only[...]</p>
+                                <?php echo $Nota_contenido; ?>
                             </div>
                         </div>
 
                         <div class="entry-desc">
-                            <h1><a href="#" title="Permalink to A blog post with a featured image.">A blog post with a featured image.</a></h1>
+                            <h1><a><?php echo $Nota_titulo; ?></a></h1>
                         </div>
                     </article>
-
-
-                    <article id="post-62" class="post-62 category-blog-posts entry box format-standard">
-                        <div class="entry-content-cnt">
-                            <div class="entry-content">
-                                <a href="#" title="Permalink to A Space Odyssey"></a>
-                                <p>The vehicle explodes, literally explodes, off the pad. The simulator shakes you a little bit, but the actual liftoff shakes your entire body and soul. The surface is fine and powdery. I can kick it up loosely with my toe. It does adhere in fine layers, like powdered charcoal, to the simulator shakes you a little bit, but the actual liftoff shakes your entire body and soul. [...]</p>
-                            </div>
-                        </div>
-
-                        <div class="entry-desc">
-                            <h1><a href="#" title="Permalink to A Space Odyssey">A Space Odyssey</a></h1>
-                        </div>
-                    </article>
-
-
-                    <article id="post-180" class="post-180 category-quotes entry box format-quote">
-                        <div class="entry-content-cnt">
-                            <div class="entry-content">
-                                <blockquote>
-                                    <p>Not everything that can be counted counts, and not everything that counts can be counted.</p><cite><a href="#">-Albert Einstein</a></cite>
-                                </blockquote>
-                            </div>
-                        </div>
-
-                        <div class="entry-desc">
-                            <h1><a href="#" title="Permalink to Yet another Quote">Yet another Quote</a></h1>
-                        </div>
-                    </article>
-
-
+                    <?php } ?>
 
                 </div><!-- #entry-listing -->
 
@@ -100,13 +70,8 @@
         </div><!-- .wrap < #main -->
     </section><!--  #main -->
 
-    <footer id="footer">
-        <div class="wrap group">
-            <div class="footer-text">
-                <a href="#">Pinfinity</a> &mdash; A Pinterest like site template.
-            </div>
-        </div>
-    </footer>
+    <?php require_once("w-footer.php"); ?>
+
 </div><!-- #page -->
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>

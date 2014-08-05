@@ -47,7 +47,11 @@ $Rq_Msj=$_REQUEST["msj"];
                     <?php }elseif($Rq_Msj==2){ ?>
                     <div class="alert notification alert-error spacer-b10">
                         <i class="fa fa-times"></i> El usuario y la contraseña no coinciden.</div>
+                    <?php }elseif($Rq_Msj==3){ ?>
+                    <div class="alert notification alert-error spacer-b10">
+                        <i class="fa fa-times"></i> Por favor, iniciar sesión.</div>
                     <?php } ?>
+
                                         
                 </div><!-- end .form-body section -->
                 <div class="form-footer">
