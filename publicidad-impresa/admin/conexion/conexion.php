@@ -23,7 +23,7 @@ global $web_nombre;
 global $fechaActual;
 
 //VARIABLES
-$carpeta_admin="admin";
+$carpeta_admin="publicidad-impresa";
 $tabla_suf="dr";
 $sesion_pre="drspei";
 $fechaActual=date("Y-m-d H:i:s");

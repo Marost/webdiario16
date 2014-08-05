@@ -64,5 +64,20 @@ p a:hover {
   background-image: -o-linear-gradient(90deg, rgba(107,163,194,1) 0%, rgba(153,197,218,1) 100%); /* gradient overlay */
   background-image: -webkit-linear-gradient(90deg, rgba(107,163,194,1) 0%, rgba(153,197,218,1) 100%); /* gradient overlay */
   background-image: linear-gradient(90deg, rgba(107,163,194,1) 0%, rgba(153,197,218,1) 100%); /* gradient overlay */
+}
 
+#form-envio fieldset{
+    margin-top: 15px;
+}
+
+#form-envio fieldset label{
+    display: block;
+}
+
+#form-envio fieldset input[type="text"]{
+    width: 90%;
+}
+
+#form-envio fieldset textarea{
+    width: 90%;
 }
