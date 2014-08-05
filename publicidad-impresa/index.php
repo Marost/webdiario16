@@ -57,7 +57,7 @@ require_once("admin/conexion/funciones.php");
 
                         <div class="section colm colm6">
                             <label class="field prepend-icon">
-                                <input type="tel" name="rciud_documentonumero" id="rciud_documentonumero" class="gui-input" placeholder="Número de Documento">
+                                <input type="tel" name="rciud_documentonumero" id="rciud_documentonumero" class="gui-input" placeholder="DNI">
                                 <label class="field-icon"><i class="fa fa-file-text-o"></i></label>
                             </label>
                         </div><!-- end section -->

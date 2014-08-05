@@ -27,6 +27,10 @@ require_once("../admin/conexion/funciones.php");
 	$qr_UserEmail=mysql_query("SELECT * FROM dr_pei_usuario WHERE usuario='$rciud_email'", $conexion);
 	$nm_UserEmail=mysql_num_rows($qr_UserEmail);
 
+    //VERIFICAR SI EXISTE DNI
+    $qr_UserDni=mysql_query("SELECT * FROM dr_pei_usuario_datos WHERE documento_numero='$rciud_documentonumero'", $conexion);
+    $nm_UserDni=mysql_num_rows($qr_UserDni);
+
 	/*
 	========================================
 	Start server side validation
@@ -56,23 +60,27 @@ require_once("../admin/conexion/funciones.php");
 			$errors[] = "Ingresa tu email.";
 		} else if (!validEmail($rciud_email)) {
 			$errors[] = "Debe introducir un email válido.";
-		} 
+		} else if ($nm_UserEmail > 0){
+            $errors[] = "El correo ya está siendo usado";
+        }
 	}
 		
 	//validate email address
 	if(isset($_POST["rciud_documentonumero"])){
 		if (!$rciud_documentonumero) {
-			$errors[] = "Ingresa tus apellidos.";
-		} elseif(strlen($rciud_documentonumero) < 8)  {
+			$errors[] = "Ingresa tu DNI.";
+		} else if (strlen($rciud_documentonumero) < 8)  {
 			$errors[] = "El DNI debe tener 8 caracteres.";
-		}
+		} else if ($nm_UserDni > 0){
+            $errors[] = "El DNI ya está siendo usado";
+        }
 	}
 
 	//validate email address
 	if(isset($_POST["password"])){
 		if (!$rciud_password) {
 			$errors[] = "Ingresa tu contraseña.";
-		} elseif(strlen($rciud_password) < 6)  {
+		} else if(strlen($rciud_password) < 6)  {
 			$errors[] = "La contraseña debe tener al menos 6 caracteres.";
 		}
 	}
@@ -106,7 +114,7 @@ require_once("../admin/conexion/funciones.php");
 
 		if (mysql_errno()==1062){
 			//echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();
-			echo '<div class="alert notification alert-error">Los siguientes errores ocurrieron:<br><ul><li>El Email ya existe</li></ul></div>';
+			echo '<div class="alert notification alert-error">Se ha producido un error. Intente de nuevo dentro de unos minutos.</div>';
 		} else {
 			require "PHPMailerAutoload.php";
 			require "smartmessage.php";
