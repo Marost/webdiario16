@@ -72,6 +72,7 @@ $head_fechaFinal=nombreFechaTotal($head_fecha[0],$head_fecha[1],$head_fecha[2]);
                     <li><a href="seccion/8/espectaculos" <?php if($menu_url=="espectaculos"){ ?>class="activo"<?php } ?>>Espectáculos</a></li>
                     <li><a href="seccion/9/culturales" <?php if($menu_url=="culturales"){ ?>class="activo"<?php } ?>>Culturales</a></li>
                     <li><a href="seccion/7/tecnologia" <?php if($menu_url=="tecnologia"){ ?>class="activo"<?php } ?>>Tecnología</a></li>
+                    <li><a href="clasificados">Clasificados</a></li>
                 </ul>
 
                 <div class="clear"></div>
