@@ -13,7 +13,7 @@
             <ul id="navigation" class="group">
                 <li class="current_page_item"><a href="index.php">Inicio</a></li>
                 <li><a href="f-agregar.php">Nueva publicidad</a></li>
-                <li><a href="f-agregar.php">Mi perfil</a></li>
+                <li><a href="perfil.php">Mi perfil</a></li>
                 <li><a href="conexion/salir.php">Salir</a></li>
             </ul>
         </div><!-- .wrap < nav -->

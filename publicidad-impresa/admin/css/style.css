@@ -2103,3 +2103,11 @@ Media Queries
 .ie8 .format-gallery .slides img {
   height: 300px !important;
 }
+/* PUBLICIDAD PUBLICADA */
+.publicado{
+    background: #66a370;
+}
+
+.nopublicado{
+    background: #E16A78;
+}

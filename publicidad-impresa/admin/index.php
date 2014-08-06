@@ -11,7 +11,6 @@ $Rq_Usuario=$usuario_user;
 //PUBLICIDAD DEL USUARIOS LOGEADO
 $rst_notas=mysql_query("SELECT * FROM ".$tabla_suf."_pei_publicidad WHERE usuario='$Rq_Usuario' ORDER BY fecha_publicacion DESC", $conexion);
 
-
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html dir="ltr" lang="en-US" class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
@@ -50,8 +49,9 @@ $rst_notas=mysql_query("SELECT * FROM ".$tabla_suf."_pei_publicidad WHERE usuari
                     <?php while($fila_notas=mysql_fetch_array($rst_notas)){
                             $Nota_titulo=$fila_notas["titulo"];
                             $Nota_contenido=$fila_notas["contenido"];
+                            $Nota_publicar=$fila_notas["publicar"];
                     ?>
-                    <article id="post-189" class="post-189 category-blog-posts entry box format-standard">
+                    <article id="post-189" class="post-189 category-blog-posts entry box format-standard <?php if($Nota_publicar==1){ ?>publicado<?php }else{ ?>nopublicado<?php } ?>">
                         <div class="entry-content-cnt">
                             <div class="entry-content">
                                 <?php echo $Nota_contenido; ?>
@@ -112,5 +112,6 @@ $rst_notas=mysql_query("SELECT * FROM ".$tabla_suf."_pei_publicidad WHERE usuari
         }
     });
 </script>
+
 </body>
 </html>

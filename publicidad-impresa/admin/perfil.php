@@ -3,6 +3,17 @@ session_start();
 require_once("conexion/conexion.php");
 require_once("conexion/funciones.php");
 require_once("conexion/verificar_sesion.php");
+
+//DATOS DE USUARIO
+$rst_usuario=mysql_query("SELECT * FROM dr_pei_usuario_datos WHERE usuario='$usuario_user'", $conexion);
+$fila_usuario=mysql_fetch_array($rst_usuario);
+
+//VARIABLES
+$Usuario_nombre=$fila_usuario["nombre"];
+$Usuario_apellidos=$fila_usuario["apellidos"];
+$Usuario_dni=$fila_usuario["documento_numero"];
+$Usuario_telefono=$fila_usuario["telefono"];
+
 ?>
 <!doctype html>
 <!--[if lt IE 7]> <html dir="ltr" lang="en-US" class="no-js lt-ie9 lt-ie8 lt-ie7" > <![endif]-->
@@ -21,7 +32,6 @@ require_once("conexion/verificar_sesion.php");
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="js/fancybox/source/jquery.fancybox.css">
 
-
     <script src="js/modernizr.js"></script>
 </head>
 <body>
@@ -38,26 +48,36 @@ require_once("conexion/verificar_sesion.php");
                 <div class="box-hold group">
                     <article class="post-6 page type-page status-publish hentry entry box" id="post-6">
                         <div class="entry-intro">
-                            <h1>Envía los datos para publicar en la Edición Impresa</h1>
+                            <h1>Modifica los datos de tu perfil</h1>
                         </div> <!-- .entry-intro -->
 
                         <div class="entry-content group">
 
-                            <form method="post" action="inc/s-guardar.php" id="form-envio" enctype="multipart/form-data">
+                            <form method="post" action="inc/s-guardar-perfil.php" id="form-envio">
 
                                 <fieldset>
-                                    <label for="">Titulo</label>
-                                    <input type="text" name="titulo"/>
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" name="nombre" value="<?php echo $Usuario_nombre; ?>"/>
                                 </fieldset>
 
                                 <fieldset>
-                                    <label for="">Contenido de la publicación</label>
-                                    <textarea name="contenido" id="" cols="30" rows="10"></textarea>
+                                    <label for="apellidos">Apellidos</label>
+                                    <input type="text" name="apellidos" value="<?php echo $Usuario_apellidos; ?>"/>
                                 </fieldset>
 
                                 <fieldset>
-                                    <label for="">Imagen de recibo de pago</label>
-                                    <input type="file" name="archivo"/>
+                                    <label for="dni">DNI</label>
+                                    <input type="text" name="dni" disabled value="<?php echo $Usuario_dni; ?>"/>
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email" disabled value="<?php echo $usuario_user; ?>"/>
+                                </fieldset>
+
+                                <fieldset>
+                                    <label for="telefono">Teléfono</label>
+                                    <input type="text" name="telefono" value="<?php echo $Usuario_telefono; ?>"/>
                                 </fieldset>
 
                                 <fieldset>
@@ -97,15 +117,5 @@ require_once("conexion/verificar_sesion.php");
 <script src="js/jquery.jplayer.js"></script>
 <!--[if (gte IE 6)&(lte IE 8)]><script type="text/javascript" src="js/selectivizr-min.js"></script><![endif]-->
 <script defer src="js/scripts.js"></script>
-
-<script src="//cdn.ckeditor.com/4.4.3/full/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace( 'contenido', {
-        toolbar: [
-            { name: 'basicstyles', items: [ 'Bold', 'Italic' ] }
-        ]
-    });
-</script>
-
 </body>
 </html>
