@@ -41,6 +41,18 @@ $rst_notas=mysql_query("SELECT * FROM ".$tabla_suf."_pei_publicidad WHERE usuari
 <?php require_once("w-header.php"); ?>
 
 <div id="page">
+
+    <?php if($Rq_Msj<>""){ ?>
+    <div class="mensaje">
+        <?php if($Rq_Msj=="erpb"){ ?><span class="er">Se ha producido un error al enviar tu publicación. Intentalo de nuevo.</span><?php } ?>
+        <?php if($Rq_Msj=="okpb"){ ?><span class="ok">Se ha enviado tu publicación a nuestro editor.</span><?php } ?>
+        <?php if($Rq_Msj=="erpr"){ ?><span class="er">Se ha producido un error al actualizar tu datos de perfil. Intentalo de nuevo.</span><?php } ?>
+        <?php if($Rq_Msj=="okpr"){ ?><span class="ok">Tu perfil ha sido actualizado satisfactoriamente.</span><?php } ?>
+        <?php if($Rq_Msj=="erps"){ ?><span class="er">Se ha producido un error al cambiar tu contraseña. Intentalo de nuevo.</span><?php } ?>
+        <?php if($Rq_Msj=="okps"){ ?><span class="ok">Tu contraseña ha sido actualizada satisfactoriamente.</span><?php } ?>
+    </div>
+    <?php } ?>
+
     <section id="main">
         <div class="wrap group">
             <div id="box-container">

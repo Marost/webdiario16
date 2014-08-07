@@ -13,7 +13,9 @@
             <ul id="navigation" class="group">
                 <li class="current_page_item"><a href="index.php">Inicio</a></li>
                 <li><a href="f-agregar.php">Nueva publicidad</a></li>
-                <li><a href="perfil.php">Mi perfil</a></li>
+                <li><a href="f-perfil.php">Mi perfil</a></li>
+                <li><a href="f-clave.php">Cambiar contrasña</a></li>
+                <li><a href="f-historial.php">Historial de Pago</a></li>
                 <li><a href="conexion/salir.php">Salir</a></li>
             </ul>
         </div><!-- .wrap < nav -->

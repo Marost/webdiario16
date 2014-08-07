@@ -16,10 +16,10 @@ $rst_guardar=mysql_query("UPDATE ".$tabla_suf."_pei_usuario_datos SET url='$url'
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();
 	mysql_close($conexion);
-	header("Location:../index.php?msj=er");
+	header("Location:../index.php?msj=erpr");
 } else {
 	mysql_close($conexion);
-	header("Location:../index.php?msj=ok");
+	header("Location:../index.php?msj=okpr");
 }
 
 ?>

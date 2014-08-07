@@ -2111,3 +2111,28 @@ Media Queries
 .nopublicado{
     background: #E16A78;
 }
+
+/* MENSAJE */
+.mensaje{
+    text-align: center;
+    margin: 30px 0 0 0;
+    font-size: 15px;
+}
+
+.mensaje span{
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.mensaje span.er{
+    background: #f0b5a1;
+    color: #7d2a1c;
+    border: 1px solid #dfa59b;
+}
+
+.mensaje span.ok{
+    background: #d6efa1;
+    color: #4f7307;
+    border: 1px solid #c1d779;
+}

@@ -37,10 +37,10 @@ $rst_guardar=mysql_query("INSERT INTO ".$tabla_suf."_pei_publicidad (url, titulo
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();
 	mysql_close($conexion);
-	header("Location:../index.php?msj=er");
+	header("Location:../index.php?msj=erpb");
 } else {
 	mysql_close($conexion);
-	header("Location:../index.php?msj=ok");
+	header("Location:../index.php?msj=okpb");
 }
 
 ?>
