@@ -4,13 +4,15 @@ require_once("admin/conexion/funciones.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-  	<title> Registrate | Diario16 </title>
-    <meta charset="utf-8">
+    <head>
+  	    <title> Registrate | Diario16 </title>
+        <meta charset="utf-8">
     
-    <?php require_once("wg-header-script.php"); ?>
+        <?php require_once("wg-header-script.php"); ?>
 
-</head>
+        <script src="js/smart-form.js"></script>
+
+    </head>
 
 <body class="woodbg">
 
@@ -21,7 +23,7 @@ require_once("admin/conexion/funciones.php");
             	<h4><img src="<?php echo $web; ?>imagenes/logo.png" alt="logo"></h4>
             </div><!-- end .form-header section -->
             
-            <form method="post" action="php/smartprocess.php" id="smart-form" enctype="multipart/form-data">
+            <form method="post" action="php/smartprocess.php" id="smart-form">
             	<div class="form-body">
                 
                     <div class="spacer-b40">
@@ -110,6 +112,8 @@ require_once("admin/conexion/funciones.php");
                 </div><!-- end .form-body section -->
                 <div class="form-footer">
                 	<button type="submit" class="button btn-red">Registrarme</button>
+                    <a href="login.php" style="float: right;">¿Ya tienes una cuenta? Inicia sesión</a>
+                    <a href="recuperar.php" style="float: left;">¿Has olvidado tu contraseña?</a>
                 </div><!-- end .form-footer section -->
             </form>
             

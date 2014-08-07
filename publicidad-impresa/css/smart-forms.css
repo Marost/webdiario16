@@ -846,8 +846,15 @@ html, body{
 
 /* @adjust buttons in form footer
 ------------------------------------------------ */
-.smart-forms .form-footer .button{ margin-right:10px; margin-bottom:5px; }
+.smart-forms .form-footer .button{ margin-bottom: 15px; width: 100% }
 .smart-forms .align-right .button{ margin-right:0; margin-left:10px; }
+
+.smart-forms .form-footer a{
+    text-decoration: none;
+    font-size: 12px;
+    color: blue;
+    display: inline-block;
+}
 
 /* @social buttons :: facebook :: twitter :: google +
 ---------------------------------------------------- */

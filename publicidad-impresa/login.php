@@ -12,6 +12,8 @@ $Rq_Msj=$_REQUEST["msj"];
     <meta charset="utf-8">
 
     <?php require_once("wg-header-script.php"); ?>
+
+      <script src="js/smart-form.js"></script>
        
 </head>
 
@@ -29,7 +31,7 @@ $Rq_Msj=$_REQUEST["msj"];
 
                     <div class="section">
                         <label for="usuario" class="field prepend-icon">
-                            <input type="type" name="usuario" id="usuario" class="gui-input" placeholder="Correo electronico">
+                            <input type="email" name="usuario" id="usuario" class="gui-input" placeholder="Correo electronico">
                             <label for="usuario" class="field-icon"><i class="fa fa-user"></i></label>  
                         </label>
                     </div><!-- end section -->                    
@@ -51,11 +53,12 @@ $Rq_Msj=$_REQUEST["msj"];
                     <div class="alert notification alert-error spacer-b10">
                         <i class="fa fa-times"></i> Por favor, iniciar sesión.</div>
                     <?php } ?>
-
                                         
                 </div><!-- end .form-body section -->
                 <div class="form-footer">
                 	<button type="submit" class="button btn-red">Iniciar sesión</button>
+                    <a href="recuperar.php" style="float: left;">¿Has olvidado tu contraseña?</a>
+                    <a href="index.php" style="float: right;">¿No tienes cuenta? Registrate</a>
                 </div><!-- end .form-footer section -->
             </form>
             

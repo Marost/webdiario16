@@ -8,7 +8,7 @@
 <script src="js/jquery.form.min.js"></script>
 <script src="js/jquery.validate.js"></script>
 <script src="js/additional-methods.js"></script>
-<script src="js/smart-form.js"></script>
+
 
 <!--[if lte IE 9]>
     <script src="js/jquery.placeholder.min.js"></script>
