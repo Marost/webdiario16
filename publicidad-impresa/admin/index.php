@@ -24,16 +24,8 @@ $rst_notas=mysql_query("SELECT * FROM ".$tabla_suf."_pei_publicidad WHERE usuari
 <head>
     <meta charset="utf-8">
 
-    <title>Publicidad en edición impresa</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <?php require_once("w-header-script.php"); ?>
 
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic|Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="css/default.css" type="text/css">
-    <link rel="stylesheet" href="js/fancybox/source/jquery.fancybox.css" type="text/css">
-
-    <script src="js/modernizr.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -86,18 +78,7 @@ $rst_notas=mysql_query("SELECT * FROM ".$tabla_suf."_pei_publicidad WHERE usuari
 
 </div><!-- #page -->
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script src="js/superfish.js" type="text/javascript"></script>
-<script src="js/jquery.isotope.js" type="text/javascript"></script>
-<script src="js/jquery.fitvids.js" type="text/javascript"></script>
-<script src="js/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
-<script src="js/jquery.flexslider-min.js" type="text/javascript"></script>
-<script src="js/jquery.formLabels1.0.js" type="text/javascript"></script>
-<script src="js/jquery.jplayer.js" type="text/javascript"></script>
-<script src="js/jquery.ias.min.js" type="text/javascript"></script>
-
-<!--[if (gte IE 6)&(lte IE 8)]><script type="text/javascript" src="js/selectivizr-min.js"></script><![endif]-->
-<script defer src="js/scripts.js" type="text/javascript"></script>
+<?php require_once("w-footer-script.php"); ?>
 
 <script type="text/javascript">
     jQuery.ias({

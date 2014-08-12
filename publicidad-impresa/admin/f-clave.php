@@ -11,17 +11,9 @@ require_once("conexion/verificar_sesion.php");
 <!--[if gt IE 8]><!--> <html dir="ltr" lang="en-US" class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title>Pinfinity Standard Format</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <?php require_once("w-header-script.php"); ?>
 
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic|Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/default.css">
-    <link rel="stylesheet" href="js/fancybox/source/jquery.fancybox.css">
-
-    <script src="js/modernizr.js"></script>
 </head>
 <body>
 
@@ -74,17 +66,7 @@ require_once("conexion/verificar_sesion.php");
 
 </div> <!-- #page -->
 
+<?php require_once("w-footer-script.php"); ?>
 
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="js/superfish.js"></script>
-<script src="js/jquery.isotope.js"></script>
-<script src="js/jquery.fitvids.js"></script>
-<script src="js/fancybox/source/jquery.fancybox.pack.js"></script>
-<script src="js/jquery.flexslider-min.js"></script>
-<script src="js/jquery.formLabels1.0.js"></script>
-<script src="js/jquery.jplayer.js"></script>
-<!--[if (gte IE 6)&(lte IE 8)]><script type="text/javascript" src="js/selectivizr-min.js"></script><![endif]-->
-<script defer src="js/scripts.js"></script>
 </body>
 </html>
