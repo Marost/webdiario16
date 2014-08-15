@@ -48,7 +48,7 @@ require_once("conexion/verificar_sesion.php");
 
                                 <fieldset>
                                     <label for="">Imagen de recibo de pago</label>
-                                    <input type="file" name="archivo"/>
+                                    <input type="file" name="archivo" accept="image/jpeg, image/png, application/pdf, image/jpeg"/>
                                 </fieldset>
 
                                 <fieldset>
