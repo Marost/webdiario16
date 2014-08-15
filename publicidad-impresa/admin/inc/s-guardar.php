@@ -16,13 +16,13 @@ $codigo=codigoAleatorio(15,false,true,false);
 //SUBIR PORTADA
 if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
     $fileName=$_FILES['archivo']['name'];
-    $uploadDir="../../../imagenes/upload/";
+    $uploadDir="../../../imagenes/pimpresa/";
     $uploadFile=$uploadDir.$fileName;
     $num = 0;
     $imagen = $fileName;
     $extension = end(explode('.',$fileName));
     $onlyName = substr($fileName,0,strlen($fileName)-(strlen($extension)+1));
-    $imagen = codigoAleatorio(30,true,true,false).".".$extension;
+    $imagen = $codigo."-".codigoAleatorio(15,true,true,false).".".$extension;
     $uploadFile = $uploadDir.$imagen;
     move_uploaded_file($_FILES['archivo']['tmp_name'], $uploadFile);
 }

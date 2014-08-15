@@ -59,7 +59,7 @@ $rst_pago=mysql_query("SELECT * FROM dr_pei_historial_pago WHERE usuario='$usuar
                                         $pago_recibo_pago=$fila_pago["recibo_pago"];
 
                                         //Url
-                                        $Pago_UrlImg=$web."imagenes/upload/".$pago_recibo_pago;
+                                        $Pago_UrlImg=$web."imagenes/pimpresa/".$pago_recibo_pago;
                                     ?>
                                     <tr>
                                         <td class="codigo"><?php echo $pago_codigo; ?></td>
@@ -69,7 +69,7 @@ $rst_pago=mysql_query("SELECT * FROM dr_pei_historial_pago WHERE usuario='$usuar
                                         <?php }else{ ?>
                                             <td><i class="fa fa-times fa-lg"></i></td>
                                         <?php } ?>
-                                        <td><a href="<?php echo $Pago_UrlImg; ?>">Ver</a></td>
+                                        <td><a target="_blank" href="<?php echo $Pago_UrlImg; ?>">Ver</a></td>
                                     </tr>
                                     <?php } ?>
 
