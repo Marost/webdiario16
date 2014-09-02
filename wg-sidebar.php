@@ -74,13 +74,12 @@ $rst_blog=mysql_query("SELECT * FROM dr_blog ORDER BY titulo ASC;", $conexion);
     <!-- FIN IMPRESA ANTERIORES -->
     <?php } ?>
 
-    <?php if($wg_pubdr==true){ ?>
+    <?php if($wg_pubdr1==true){ ?>
     <!-- BANNER 310 -->
     <div class="banner-310">
         
         <script type="text/javascript"><!--
             google_ad_client = "ca-pub-7924813715800154";
-            /* Diario16 - Sidebar */
             google_ad_slot = "2602446426";
             google_ad_width = 300;
             google_ad_height = 250;
@@ -109,7 +108,6 @@ $rst_blog=mysql_query("SELECT * FROM dr_blog ORDER BY titulo ASC;", $conexion);
         
         <script type="text/javascript"><!--
             google_ad_client = "ca-pub-6739008060658295";
-            /* Diario16 - Sidebar */
             google_ad_slot = "8872927055";
             google_ad_width = 300;
             google_ad_height = 250;
@@ -122,14 +120,21 @@ $rst_blog=mysql_query("SELECT * FROM dr_blog ORDER BY titulo ASC;", $conexion);
     <!-- FIN BANNER 310 -->
     <?php } ?>
 
-    <?php if($wg_pubdr==true){ ?>
-    <!-- BANNER 310 -->
-    <div class="banner-310">
-        
-        
+    <?php if($wg_pubac==true){ ?>
+        <!-- BANNER 310 -->
+        <div class="banner-310">
 
-    </div>
-    <!-- FIN BANNER 310 -->
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-3674889010429322"
+                 data-ad-slot="5283209142"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+        </div>
+        <!-- FIN BANNER 310 -->
     <?php } ?>
 
     <?php if($wg_columnistas==true){ ?>
@@ -309,13 +314,12 @@ $rst_blog=mysql_query("SELECT * FROM dr_blog ORDER BY titulo ASC;", $conexion);
     </div>
     <!-- FIN FACEBOOK -->
 
-    <?php if($wg_pubdr==true){ ?>
+    <?php if($wg_pubdr2==true){ ?>
     <!-- BANNER 310 -->
     <div class="banner-310">
         
         <script type="text/javascript"><!--
             google_ad_client = "ca-pub-7924813715800154";
-            /* Diario16 - Sidebar */
             google_ad_slot = "2602446426";
             google_ad_width = 300;
             google_ad_height = 250;

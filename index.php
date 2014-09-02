@@ -8,7 +8,8 @@ $wg_leido=false;
 $wg_impresa=true;
 $wg_chica16=false;
 $wg_columselect=true;
-$wg_pubdr=true;
+$wg_pubac=true;
+$wg_pubdr2=true;
 $wg_blog=true;
 
 //NOTICIA DESTACADA
