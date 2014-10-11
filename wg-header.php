@@ -44,7 +44,11 @@ $head_fechaFinal=nombreFechaTotal($head_fecha[0],$head_fecha[1],$head_fecha[2]);
 
             <h1>
                 <a href="/">Noticias del Perú y del mundo. Diario16.pe informa sobre actualidad, política, elecciones, gastronomía, espectáculos y deportes.</a>
-            </h1>            
+            </h1>
+
+            <div class="logo-rosa" style="position: absolute; top: -1px; left: 260px;">
+                <img src="imagenes/logo-ponte-rosa.jpg">
+            </div>
 
             <div class="clear"></div>
 
