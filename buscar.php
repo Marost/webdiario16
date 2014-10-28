@@ -9,7 +9,7 @@ $wg_impresa=true;
 $wg_chica16=false;
 
 //VARIABLES DE URL
-$urlBuscar=$_REQUEST["busqueda"];
+$urlBuscar=strip_tags($_REQUEST["busqueda"]);
 $url_web=$web."buscar.php?busqueda=".$urlBuscar;
 
 //PAGINACION
