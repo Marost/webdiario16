@@ -7,7 +7,7 @@ $wg_columnistas=true;
 $wg_leido=false;
 $wg_impresa=true;
 $wg_chica16=false;
-$wg_pubjc=true;
+$wg_pubac=true;
 
 //VARAIBLES DE URL
 $varUrl_id=$_REQUEST["id"];
