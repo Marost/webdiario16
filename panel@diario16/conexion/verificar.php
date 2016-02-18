@@ -21,6 +21,7 @@ if($num_registros==1){
 	$_SESSION["user_nombre-".$sesion_pre.""]=$fila["nombre"];
 	$_SESSION["user_apellido-".$sesion_pre.""]=$fila["apellidos"];
 	$_SESSION["user_email-".$sesion_pre.""]=$fila["email"];
+    $_SESSION["user_rol-".$sesion_pre.""]=$fila["rol"];
 	header("Location:../index.php");
 }elseif($num_registros==0) {
 	mysql_close($conexion);

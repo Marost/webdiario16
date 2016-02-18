@@ -1,6 +1,6 @@
 <?php
 //CONEXION CON EL SERVIDOR
-$conexion=mysql_connect("localhost","marost2_admin","master@18073");
+$conexion=mysql_connect("localhost","marost2_admin","master@18073$");
 mysql_select_db("marost2_diariope_admin",$conexion);
 
 //ZONA HORARIA
@@ -18,6 +18,7 @@ global $usuario_user;
 global $usuario_nombre;
 global $usuario_apellido;
 global $usuario_email;
+global $usuario_rol;
 global $web;
 global $web_nombre;
 global $fechaActual;
@@ -42,6 +43,7 @@ if ($_SESSION["user-".$sesion_pre.""]<>""){
 	$usuario_nombre=$_SESSION["user_nombre-".$sesion_pre.""];
 	$usuario_apellido=$_SESSION["user_apellido-".$sesion_pre.""];
 	$usuario_email=$_SESSION["user_email-".$sesion_pre.""];
+    $usuario_rol=$_SESSION["user_rol-".$sesion_pre.""];
 }
 
 ?>

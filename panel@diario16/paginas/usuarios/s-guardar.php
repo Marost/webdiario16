@@ -9,10 +9,10 @@ $apellidos=$_POST["apellidos"];
 $email=$_POST["email"];
 $usuario=$_POST["usuario"];
 $clave=$_POST["clave"];
+$rol=$_POST["rol"];
 
 //INSERTANDO DATOS
-$rst_guardar=mysql_query("INSERT INTO ".$tabla_suf."_usuario (usuario, clave, nombre, apellidos, email) 
-	VALUES('$usuario', '$clave', '$nombre', '$apellidos', '$email');",$conexion);
+$rst_guardar=mysql_query("INSERT INTO ".$tabla_suf."_usuario (usuario, clave, nombre, apellidos, email, rol) VALUES('$usuario', '$clave', '$nombre', '$apellidos', '$email', '$rol');",$conexion);
 
 if (mysql_errno()!=0){
 	echo "ERROR: <strong>".mysql_errno()."</strong> - ". mysql_error();
