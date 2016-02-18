@@ -31,6 +31,22 @@ $rst_blog=mysql_query("SELECT * FROM dr_blog ORDER BY titulo ASC;", $conexion);
 ?>
 <div id="columnr" class="sidebar last">
 
+    <?php if($wg_impresa==true){ ?>
+    <!-- IMPRESA -->
+    <div class="cnt-impresa-d">
+        <h4>Edición Impresa</h4>
+        <div class="impresa-eco">
+            <a target="_blank" href="<?php echo $edimpresa_web; ?>">
+                <img width="308" alt="Diario16 - Edición Impresa" src="<?php echo $edimpresa_webImg; ?>">
+            </a>
+        </div>
+        <div class="boton">
+            <a target="_blank" href="<?php echo $edimpresa_web; ?>">Ver Edición Impresa</a>
+        </div>
+    </div>
+    <!-- FIN IMPRESA -->
+    <?php } ?>
+
     <?php if($wg_impresaAnt==true){ ?>
     <!-- IMPRESA ANTERIORES -->
     <div class="cnt-impresa-d">
@@ -264,22 +280,6 @@ $rst_blog=mysql_query("SELECT * FROM dr_blog ORDER BY titulo ASC;", $conexion);
     <?php } ?>
 
     <hr class="deleted">
-    
-    <?php if($wg_impresa==true){ ?>
-    <!-- IMPRESA -->
-    <div class="cnt-impresa-d">
-		<h4>Edición Impresa</h4>
-		<div class="impresa-eco">
-			<a target="_blank" href="<?php echo $edimpresa_web; ?>">
-				<img width="308" alt="Diario16 - Edición Impresa" src="<?php echo $edimpresa_webImg; ?>">
-			</a>
-		</div>
-		<div class="boton">
-			<a target="_blank" href="<?php echo $edimpresa_web; ?>">Ver Edición Impresa</a>
-		</div>
-    </div>
-    <!-- FIN IMPRESA -->
-    <?php } ?>
     
     <?php if($wg_chica16==true){ ?>
     <!-- CHICA16 -->
